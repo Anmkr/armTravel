@@ -31,3 +31,5 @@ public class CityPost {
     @ManyToOne
     private User user;
 }
+
+

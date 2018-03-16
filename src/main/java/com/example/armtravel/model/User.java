@@ -38,4 +38,7 @@ public class User {
     private UserType type;
     @Column
     private boolean verify;
+    @Column
+    private String token;
+
 }

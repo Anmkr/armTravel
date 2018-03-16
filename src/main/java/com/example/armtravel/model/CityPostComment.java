@@ -32,3 +32,4 @@ private Timestamp timestamp;
     private CityPost cityPost;
 
 }
+
