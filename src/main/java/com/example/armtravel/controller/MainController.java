@@ -77,7 +77,7 @@ public class MainController {
         String url = String.format("http://localhost:8080/verify?token=%s&email=%s", user.getToken(), user.getEmail());
         String text = String.format("Dear %s Thank you, you have successfully registered to our EShop, Please visit by link in order to activate your profile. %s", user.getName(), url);
         emailService.sendSimpleMessage(user.getEmail(), "Welcome", text);
-        return "/loginPage";
+        return "redirect:/loginPage";
     }
 
     @RequestMapping(value = "/verify", method = RequestMethod.GET)

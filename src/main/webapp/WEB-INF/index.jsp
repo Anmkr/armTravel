@@ -12,9 +12,6 @@
             <li><a href="/loginPage"><i class="fa fa-lock"></i> Login</a></li>
         </ul>
     </div>
-
-
-
 </div>
 </body>
 </html>
