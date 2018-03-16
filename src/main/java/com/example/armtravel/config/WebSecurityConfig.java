@@ -37,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("j_email")//grel nuyn dzevov inches vor formimej
                 .passwordParameter("j_password")
                 .defaultSuccessUrl("/loginSuccess")
+                .failureUrl("/404")
                 .failureHandler(new CustomAuthenticationFailureHandler())
                 .and()
                 .logout()

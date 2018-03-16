@@ -93,6 +93,11 @@ public class MainController {
         return "redirect:/";
     }
 
+    @GetMapping("/404")
+    public String Page404() {
+        return "404";
+    }
+
     @RequestMapping(value = "/verifyError", method = RequestMethod.GET)
     public String verifyError() {
         return "verifyError";
