@@ -95,7 +95,7 @@
                                               id="exampleInputname"/>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputname">Name</label>
+                                <label for="exampleInputname">Surname</label>
                                 <spring:input path="surname" type="text" placeholder="Surname" class="form-control"
                                               id="exampleInputname"/>
                             </div>
