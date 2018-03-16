@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .formLogin()
-                .loginPage("/loginPage")
+                .loginPage("/login")
                 .usernameParameter("j_email")//grel nuyn dzevov inches vor formimej
                 .passwordParameter("j_password")
                 .defaultSuccessUrl("/loginSuccess")
