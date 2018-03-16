@@ -109,7 +109,7 @@
                                 <spring:input path="password" placeholder="Password" type="password"
                                               class="form-control" id="exampleInputPassword11"/>
                             </div>
-                            <input type="file" name="image">
+                            <input type="file" name="image"  class="btn btn-theme-dark btn-xs" >
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-theme-dark btn-lg">Register</button>
                             </div>
