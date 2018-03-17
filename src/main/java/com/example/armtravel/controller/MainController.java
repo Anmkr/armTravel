@@ -43,6 +43,7 @@ public class MainController {
         return "index";
     }
 
+
     @GetMapping(value = "/")
     public String redirectHomePage() {
         return "redirect:/home";
@@ -80,6 +81,15 @@ public class MainController {
         return "redirect:/loginPage";
     }
 
+
+
+
+
+
+
+
+
+
     @RequestMapping(value = "/verify", method = RequestMethod.GET)
     public String verify(@RequestParam("token") String token, @RequestParam("email") String email) {
         User oneByEmail = userRepository.findOneByEmail(email);
@@ -105,6 +115,16 @@ public class MainController {
 
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
