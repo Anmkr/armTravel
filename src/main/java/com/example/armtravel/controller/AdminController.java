@@ -10,6 +10,7 @@ import com.example.armtravel.repository.CityRepository;
 import com.example.armtravel.repository.HotelRepository;
 import com.example.armtravel.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 public class AdminController {
@@ -31,6 +34,8 @@ public class AdminController {
     private CityRepository cityRepository;
     @Autowired
     private HotelRepository hotelRepository;
+    @Value("C:\\Users\\User\\Desktop\\images\\")
+    private String imageUploadPath;
 
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -51,18 +56,10 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    private File returnFile() {
-        File imageUploadPath = new File("C:\\Users\\User\\Desktop\\images\\");
-        if (imageUploadPath.exists()) {
-            imageUploadPath.mkdir();
-        }
-        return imageUploadPath;
-    }
-
     @PostMapping(value = "/addRegion")
     public String saveAlbum(@Valid @ModelAttribute("region") Region region, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
         String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
-        File file = new File(returnFile() + picName);
+        File file = new File(imageUploadPath + picName);
         multipartFile.transferTo(file);
         region.setPicUrl(picName);
         regionRepository.save(region);
@@ -72,7 +69,7 @@ public class AdminController {
     @PostMapping("/addCity")
     public String addCity(@RequestParam("cityImage") MultipartFile cityImage, @ModelAttribute("city") City city) throws IOException {
         String picName = System.currentTimeMillis() + "_" + cityImage.getOriginalFilename();
-        File file = new File(returnFile() + picName);
+        File file = new File(imageUploadPath + picName);
         cityImage.transferTo(file);
         city.setPicUrl(picName);
         cityRepository.save(city);
@@ -80,9 +77,9 @@ public class AdminController {
     }
 
     @PostMapping("/addHotel")
-    public String addHotel(@RequestParam("hotelImage") MultipartFile hotelImage, @RequestParam("hotelRating")int rating,@ModelAttribute("hotel") Hotel hotel) throws IOException {
+    public String addHotel(@RequestParam("hotelImage") MultipartFile hotelImage, @RequestParam("hotelRating") int rating, @ModelAttribute("hotel") Hotel hotel) throws IOException {
         String picName = System.currentTimeMillis() + "_" + hotelImage.getOriginalFilename();
-        File file = new File(returnFile() + picName);
+        File file = new File(imageUploadPath + picName);
         hotelImage.transferTo(file);
         hotel.setPicUrl(picName);
         hotel.setRating(rating);
