@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .formLogin()
                 .loginPage("/login")
-                .usernameParameter("j_email")//grel nuyn dzevov inches vor formimej
+                .usernameParameter("j_email")//grel nuyn dzevov inches vor formi mej
                 .passwordParameter("j_password")
                 .defaultSuccessUrl("/loginSuccess")
                 .failureUrl("/404")
