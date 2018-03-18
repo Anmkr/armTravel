@@ -35,8 +35,7 @@ public class AdminController {
     private CityRepository cityRepository;
     @Autowired
     private HotelRepository hotelRepository;
-    @Value("C:\\Users\\User\\Desktop\\images\\")
-    private String imageUploadPath;
+
 
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
