@@ -25,7 +25,8 @@ import java.nio.file.Paths;
 @Controller
 public class AdminController {
 
-
+    @Autowired
+    private File getFilePath;
     @Autowired
     private CityPostRepository cityPostRepository;
     @Autowired
@@ -59,7 +60,7 @@ public class AdminController {
     @PostMapping(value = "/addRegion")
     public String saveAlbum(@Valid @ModelAttribute("region") Region region, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
         String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
-        File file = new File(imageUploadPath + picName);
+        File file = new File(getFilePath +"\\"+ picName);
         multipartFile.transferTo(file);
         region.setPicUrl(picName);
         regionRepository.save(region);
@@ -69,7 +70,7 @@ public class AdminController {
     @PostMapping("/addCity")
     public String addCity(@RequestParam("cityImage") MultipartFile cityImage, @ModelAttribute("city") City city) throws IOException {
         String picName = System.currentTimeMillis() + "_" + cityImage.getOriginalFilename();
-        File file = new File(imageUploadPath + picName);
+        File file = new File(getFilePath +"\\"+ picName);
         cityImage.transferTo(file);
         city.setPicUrl(picName);
         cityRepository.save(city);
@@ -79,7 +80,7 @@ public class AdminController {
     @PostMapping("/addHotel")
     public String addHotel(@RequestParam("hotelImage") MultipartFile hotelImage, @RequestParam("hotelRating") int rating, @ModelAttribute("hotel") Hotel hotel) throws IOException {
         String picName = System.currentTimeMillis() + "_" + hotelImage.getOriginalFilename();
-        File file = new File(imageUploadPath + picName);
+        File file = new File(getFilePath +"\\"+ picName);
         hotelImage.transferTo(file);
         hotel.setPicUrl(picName);
         hotel.setRating(rating);
