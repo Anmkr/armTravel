@@ -2,7 +2,6 @@ package com.example.armtravel.controller;
 
 import com.example.armtravel.model.User;
 import com.example.armtravel.model.UserType;
-import com.example.armtravel.repository.CityPostRepository;
 import com.example.armtravel.repository.UserRepository;
 import com.example.armtravel.security.CurrentUser;
 import com.example.armtravel.util.EmailServiceImpl;
@@ -22,8 +21,6 @@ import java.util.UUID;
 public class MainController {
 
     @Autowired
-    private CityPostRepository cityPostRepository;
-    @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
     private EmailServiceImpl emailService;
@@ -34,7 +31,6 @@ public class MainController {
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String mainPage(ModelMap map, @AuthenticationPrincipal UserDetails userDetails, Locale locale) {
-        map.addAttribute("allCityPosts", cityPostRepository.findAll());
         map.addAttribute("user", new User());
         if (userDetails != null) {
             User user = ((CurrentUser) userDetails).getUser();
@@ -56,7 +52,7 @@ public class MainController {
             return "redirect:/admin";
         }
         if (principal.getUser().getType() == UserType.USER) {
-            return "userPage";
+            return "user";
         }
         return "redirect:/";
     }

@@ -2,10 +2,8 @@ package com.example.armtravel.controller;
 
 
 import com.example.armtravel.model.City;
-import com.example.armtravel.model.CityPost;
 import com.example.armtravel.model.Hotel;
 import com.example.armtravel.model.Region;
-import com.example.armtravel.repository.CityPostRepository;
 import com.example.armtravel.repository.CityRepository;
 import com.example.armtravel.repository.HotelRepository;
 import com.example.armtravel.repository.RegionRepository;
@@ -19,45 +17,38 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
 @Controller
 public class AdminController {
 
 
-    @Autowired
-    private CityPostRepository cityPostRepository;
+
     @Autowired
     private RegionRepository regionRepository;
     @Autowired
     private CityRepository cityRepository;
     @Autowired
     private HotelRepository hotelRepository;
-    @Value("C:\\Users\\User\\Desktop\\images\\")
+    @Value("${armTravel.product.upload.path}")
     private String imageUploadPath;
 
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap map) {
-        map.addAttribute("CityPost", new CityPost());
         map.addAttribute("region", new Region());
         map.addAttribute("hotel", new Hotel());
         map.addAttribute("city", new City());
-        map.addAttribute("allCityPosts", cityPostRepository.findAll());
+        map.addAttribute("allHotels",hotelRepository.findAll());
         map.addAttribute("allRegions", regionRepository.findAll());
         map.addAttribute("allCitys", cityRepository.findAll());
         return "admin";
     }
 
-    @RequestMapping(value = "/addCityPost", method = RequestMethod.POST)
-    public String addCategory(@ModelAttribute(name = "cityPost") CityPost cityPost) {
-        cityPostRepository.save(cityPost);
-        return "redirect:/admin";
-    }
+
 
     @PostMapping(value = "/addRegion")
-    public String saveAlbum(@Valid @ModelAttribute("region") Region region, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
+    public String addRegion(@Valid @ModelAttribute("region") Region region, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
         String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
         File file = new File(imageUploadPath + picName);
         multipartFile.transferTo(file);
