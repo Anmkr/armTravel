@@ -52,7 +52,7 @@ public class MainController {
             return "redirect:/admin";
         }
         if (principal.getUser().getType() == UserType.USER) {
-            return "user";
+            return "redirect:/userPage";
         }
         return "redirect:/";
     }

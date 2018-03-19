@@ -3,6 +3,7 @@ package com.example.armtravel.controller;
 
 import com.example.armtravel.model.Food;
 import com.example.armtravel.repository.FoodRepository;
+import com.example.armtravel.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.example.armtravel.model.User;
@@ -21,16 +22,17 @@ public class UserController {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-@Autowired
-private FoodRepository foodRepository;
+    @Autowired
+    private FoodRepository foodRepository;
+    @Autowired
+    private RegionRepository regionRepository;
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/userPage", method = RequestMethod.GET)
     public String userPage(ModelMap map) {
-        map.addAttribute("user", new User());
-        map.addAttribute("food",new Food());
-        map.addAttribute("allFoods",foodRepository.findAll());
+        map.addAttribute("food", new Food());
+        map.addAttribute("allFoods", foodRepository.findAll());
         map.addAttribute("allUsers", userRepository.findAll());
-
+        map.addAttribute("allRegions", regionRepository.findAll());
         return "user";
     }
 
@@ -43,12 +45,11 @@ private FoodRepository foodRepository;
         return "redirect:/loginPage";
     }
 
-    @RequestMapping(value = "/addFood", method = RequestMethod.POST)
-    public String addFood(@ModelAttribute(name = "food") Food food) {
+    @GetMapping("/addFood")
+    public String addFood(@ModelAttribute("food") Food food) {
         foodRepository.save(food);
-        return "redirect:/user";
+        return "redirect:/userPage";
     }
-
 
 
 }
