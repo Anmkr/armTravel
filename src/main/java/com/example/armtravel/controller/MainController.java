@@ -8,6 +8,7 @@ import com.example.armtravel.util.EmailServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -56,14 +57,18 @@ public class MainController {
 
     @RequestMapping(value = "/loginSuccess", method = RequestMethod.GET)
     public String loginSuccess() {
-        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal.getUser().getType() == UserType.ADMIN) {
-            return "redirect:/admin";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() != null && authentication.getPrincipal() instanceof CurrentUser) {
+            CurrentUser principal = (CurrentUser) authentication.getPrincipal();
+            if (principal.getUser().getType() == UserType.ADMIN) {
+                return "redirect:/admin";
+            }
+            if (principal.getUser().getType() == UserType.USER) {
+                return "redirect:/userPage";
+            }
+            return "redirect:/";
         }
-        if (principal.getUser().getType() == UserType.USER) {
-            return "redirect:/userPage";
-        }
-        return "redirect:/";
+        return "index";
     }
 
     @RequestMapping(value = "/loginPage", method = RequestMethod.GET)

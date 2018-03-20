@@ -50,12 +50,6 @@ public class AdminController {
         return "admin";
     }
 
-    @RequestMapping(value = "/addCityPost", method = RequestMethod.POST)
-    public String addCategory(@ModelAttribute(name = "cityPost") CityPost cityPost) {
-        cityPostRepository.save(cityPost);
-        return "redirect:/admin";
-    }
-
     @PostMapping(value = "/addRegion")
     public String saveAlbum(@Valid @ModelAttribute("region") Region region, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
         String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
