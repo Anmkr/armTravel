@@ -128,5 +128,4 @@ public class ArmtravelApplication extends WebMvcConfigurerAdapter {
             return file1;
         }
     }
-
 }
