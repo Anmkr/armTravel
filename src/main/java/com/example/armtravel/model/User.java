@@ -40,5 +40,6 @@ public class User {
     private boolean verify;
     @Column
     private String token;
+    j
 
 }
