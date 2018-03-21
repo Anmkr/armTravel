@@ -31,3 +31,4 @@ public class FoodPost {
     @ManyToOne
     private User user;
 }
+

@@ -25,6 +25,7 @@ public class CityPost {
     private String description;
     @Column
     private String picture;
+
     @ManyToOne
     private City city;
     @ManyToOne

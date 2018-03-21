@@ -13,16 +13,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "food_post_pic")
-public class FoodPostPic {
+@Table(name = "picture")
+public class Picture {
     @Id
     @GeneratedValue
     @Column
     private int id;
     @Column(name="pic_url")
     private String picUrl;
-
-    @ManyToOne
-    private FoodPost foodPost;
 
 }

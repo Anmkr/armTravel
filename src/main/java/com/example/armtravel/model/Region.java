@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,8 +24,12 @@ public class Region {
     private String name;
     @Column
     private String description;
-    @Column(name="pic_url")
-    private String picUrl;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "region_pic",
+            joinColumns = {@JoinColumn(name = "region_id")},
+            inverseJoinColumns = {@JoinColumn(name = "pic_id")})
+    List<Picture> pictures = new LinkedList<>();
 
 }
