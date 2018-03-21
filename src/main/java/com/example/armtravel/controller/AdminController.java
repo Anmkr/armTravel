@@ -1,12 +1,9 @@
 package com.example.armtravel.controller;
 
 
-import com.example.armtravel.model.City;
-import com.example.armtravel.model.Hotel;
+
 import com.example.armtravel.model.Picture;
 import com.example.armtravel.model.Region;
-import com.example.armtravel.repository.CityRepository;
-import com.example.armtravel.repository.HotelRepository;
 import com.example.armtravel.repository.PictureRepository;
 import com.example.armtravel.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,4 +101,8 @@ public class AdminController {
 //        return "redirect:/admin";
 //    }
 
-}
+
+
+
+
+  }

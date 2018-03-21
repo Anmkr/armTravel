@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .formLogin()
                 .loginPage("/login")
-                .usernameParameter("j_email")//grel nuyn dzevov inches vor formi mej
+                .usernameParameter("j_email")
                 .passwordParameter("j_password")
                 .defaultSuccessUrl("/loginSuccess")
                 .failureUrl("/404")
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
-               .antMatchers("/user/**").hasAuthority("USER")
+                .antMatchers("/user/**").hasAuthority("USER")
 
                 .anyRequest().permitAll();
     }
