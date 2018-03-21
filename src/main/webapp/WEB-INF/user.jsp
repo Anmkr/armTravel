@@ -7,31 +7,31 @@
 <body>
 <div>
 
-    <%--<div style="width: 30%;float:left;">--%>
-        <%--<span>Add RegionPost</span>--%>
-        <%--<spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"  enctype="multipart/form-data">--%>
-            <%--<label for="title">Title</label>--%>
-            <%--<spring:input path="title" id="title"/><br>--%>
-            <%--<label for="description">Description</label>--%>
-            <%--<spring:input path="description" id="description"/><br>--%>
-            <%--<spring:select path="region" items="${allRegions}" itemLabel="name"/><br>--%>
-            <%--<input type="file" name="regionPostImage"><br>--%>
-            <%--<input type="submit" name="Add"/><br>--%>
-        <%--</spring:form>--%>
-    <%--</div>--%>
+    <div style="width: 30%;float:left;">
+        <span>Add RegionPost</span>
+        <spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"  enctype="multipart/form-data">
+            <label for="title">Title</label>
+            <spring:input path="title" id="title"/><br>
+            <label for="description">Description</label>
+            <spring:input path="description" id="description"/><br>
+            <spring:select path="region" items="${allRegions}" itemLabel="name"/><br>
+            <input type="file" name="regionPostImage"><br>
+            <input type="submit" name="Add"/><br>
+        </spring:form>
+    </div>
 
-    <%--<div style="width: 30%;float:left;">--%>
-        <%--<span>Add CityPost</span>--%>
-        <%--<spring:form action="/addCityPost" method="post" modelAttribute="cityPost"  enctype="multipart/form-data">--%>
-            <%--<label for="title">Title</label>--%>
-            <%--<spring:input path="title" id="title"/><br>--%>
-            <%--<label for="description">Description</label>--%>
-            <%--<spring:input path="description" id="description"/><br>--%>
-            <%--<spring:select path="city" items="${allCities}" itemLabel="name"/><br>--%>
-            <%--<input type="file" name="cityPostImage"><br>--%>
-            <%--<input type="submit" name="Add"/><br>--%>
-        <%--</spring:form>--%>
-    <%--</div>--%>
+    <div style="width: 30%;float:left;">
+        <span>Add CityPost</span>
+        <spring:form action="/addCityPost" method="post" modelAttribute="cityPost"  enctype="multipart/form-data">
+            <label for="title">Title</label>
+            <spring:input path="title" id="title"/><br>
+            <label for="description">Description</label>
+            <spring:input path="description" id="description"/><br>
+            <spring:select path="city" items="${allCities}" itemLabel="name"/><br>
+            <input type="file" name="cityPostImage"><br>
+            <input type="submit" name="Add"/><br>
+        </spring:form>
+    </div>
     <%--<div style="width: 30%;float:left;">--%>
         <%--<span>Add Food</span>--%>
         <%--<spring:form action="/addFood" method="get" modelAttribute="food"  >--%>

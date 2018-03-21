@@ -70,16 +70,16 @@ public class UserController {
     }
 
 
-//    @PostMapping("/addCityPost")
-//    public String addCityPost(@RequestParam("cityPostImage") MultipartFile multipartFile, @ModelAttribute("cityPost") CityPost cityPost) throws IOException {
-//        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
-//        File picture = new File(getFilePath + "\\" + picName);
-//        multipartFile.transferTo(picture);
-//        cityPost.setUser(principal.getUser());
-//        cityPostRepository.save(cityPost);
-//        return "redirect:/userPage";
-//    }
+    @PostMapping("/addCityPost")
+    public String addCityPost(@RequestParam("cityPostImage") MultipartFile multipartFile, @ModelAttribute("cityPost") CityPost cityPost) throws IOException {
+        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
+        File picture = new File(getFilePath + "\\" + picName);
+        multipartFile.transferTo(picture);
+        cityPost.setUser(principal.getUser());
+        cityPostRepository.save(cityPost);
+        return "redirect:/userPage";
+    }
 
 //    @GetMapping("/addFood")
 //    public String addFood(@ModelAttribute("food") Food food) {

@@ -24,18 +24,18 @@
             <input type="submit" name="Add"/><br>
         </spring:form>
     </div>
-    <%--<div style="width: 30%;float:left;">--%>
-        <%--<span>Add City</span>--%>
-        <%--<spring:form action="/addCity" modelAttribute="city" enctype="multipart/form-data" method="post">--%>
-            <%--<label for="name">Name</label>--%>
-            <%--<spring:input path="name" id="name"/><br>--%>
-            <%--<label for="description">Description</label>--%>
-            <%--<spring:input path="description" id="description"/><br>--%>
-            <%--<input type="file" name="pucture" accept="image/*" multiple /><br><br>--%>
+    <div style="width: 30%;float:left;">
+        <span>Add City</span>
+        <spring:form action="/addCity" modelAttribute="city" enctype="multipart/form-data" method="post">
+            <label for="name">Name</label>
+            <spring:input path="name" id="name"/><br>
+            <label for="description">Description</label>
+            <spring:input path="description" id="description"/><br>
+            <input type="file" name="pucture" accept="image/*" multiple /><br><br>
 
-            <%--<input type="submit" name="Add"/>--%>
-        <%--</spring:form>--%>
-    <%--</div>--%>
+            <input type="submit" name="Add"/>
+        </spring:form>
+    </div>
     <%--<div style="width: 40%; float:left;">--%>
         <%--<span>Add Hotel</span>--%>
         <%--<spring:form action="/addHotel" modelAttribute="hotel" enctype="multipart/form-data" method="post">--%>
@@ -44,7 +44,7 @@
             <%--<label for="description">Description</label>--%>
             <%--<spring:input path="description" id="description"/><br>--%>
             <%--<input type="file" name="hotelImage" accept="image/*"/><br>--%>
-            <%--<spring:select path="city" items="${allCitys}" itemLabel="name"/><br>--%>
+           <%--// <spring:select path="city" items="${allCitys}" itemLabel="name"/><br>--%>
             <%--<input type="number" name="hotelRating" maxlength="5"/><br>--%>
             <%--<input type="submit" name="Add"/>--%>
         <%--</spring:form>--%>
