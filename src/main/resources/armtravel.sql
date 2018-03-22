@@ -25,11 +25,11 @@ CREATE TABLE `city` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `city` */
 
-insert  into `city`(`id`,`name`,`description`) values (1,'p,lpl','pl,p'),(2,'qaxaq','fff'),(3,'qweqw','qwe'),(4,'asd','asd');
+insert  into `city`(`id`,`name`,`description`) values (6,'asdasd','asdasd');
 
 /*Table structure for table `city_pic` */
 
@@ -66,11 +66,11 @@ CREATE TABLE `city_post` (
   CONSTRAINT `FKhhi46riemuyluls2x1lg8xtov` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `city_post_ibfk_6` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `city_post_ibfk_7` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `city_post` */
 
-insert  into `city_post`(`id`,`title`,`description`,`picture`,`city_id`,`user_id`) values (1,'werwe','weqwe','1521575157622_',1,26),(2,'ljl','jij','1521576739181_',1,26),(3,'ASa','ASa','1521576938632_',1,26),(4,'ASa','ASas','1521577006165_',1,26),(5,'werwer','erwer','1521578074700_',1,26);
+insert  into `city_post`(`id`,`title`,`description`,`picture`,`city_id`,`user_id`) values (7,'asdas','asda',NULL,6,29);
 
 /*Table structure for table `city_post_comment` */
 
@@ -104,13 +104,10 @@ CREATE TABLE `food` (
   `description` varchar(255) NOT NULL,
   `region_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKc9jh3nbbokytkx1lgd3k3wlte` (`region_id`),
-  CONSTRAINT `FKc9jh3nbbokytkx1lgd3k3wlte` FOREIGN KEY (`region_id`) REFERENCES `region` (`id`)
+  KEY `FKc9jh3nbbokytkx1lgd3k3wlte` (`region_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `food` */
-
-insert  into `food`(`id`,`name`,`description`,`region_id`) values (1,'uojip;','',NULL),(2,'ewe','',NULL),(3,'wqewqwew','werew',NULL),(4,'ASA','Asa',NULL),(5,'ewrwe','werwe',NULL);
 
 /*Table structure for table `food_pic` */
 
@@ -120,9 +117,7 @@ CREATE TABLE `food_pic` (
   `food_id` int(11) NOT NULL,
   `pic_id` int(11) NOT NULL,
   PRIMARY KEY (`food_id`,`pic_id`),
-  KEY `FKn0rxxg25ycqr2fbodob4cxffj` (`pic_id`),
-  CONSTRAINT `FKn0rxxg25ycqr2fbodob4cxffj` FOREIGN KEY (`pic_id`) REFERENCES `picture` (`id`),
-  CONSTRAINT `FKorns3nrb7940o87b6wrp3sa0i` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`)
+  KEY `food_pic_ibfk_2` (`pic_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `food_pic` */
@@ -135,21 +130,15 @@ CREATE TABLE `food_post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `picture` varchar(255) NOT NULL,
+  `picture` varchar(255) DEFAULT NULL,
   `food_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKpufk7nt81k4e2s2l0kvucjy96` (`food_id`),
-  KEY `FK144r3nhg7sxvcb0kr0cw7w4r6` (`user_id`),
-  CONSTRAINT `FK144r3nhg7sxvcb0kr0cw7w4r6` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `FKpufk7nt81k4e2s2l0kvucjy96` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`),
-  CONSTRAINT `food_post_ibfk_4` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`),
-  CONSTRAINT `food_post_ibfk_5` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  KEY `food_id` (`food_id`),
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `food_post` */
-
-insert  into `food_post`(`id`,`title`,`description`,`picture`,`food_id`,`user_id`) values (1,'sadas','asdas','1521577189976_',1,26),(2,'werwe','werwe','1521578085387_',1,26),(3,'aaa','dfdgf','1521625560774_8.jpg',1,27);
 
 /*Table structure for table `food_post_comment` */
 
@@ -163,30 +152,11 @@ CREATE TABLE `food_post_comment` (
   `user_id` int(11) NOT NULL,
   `food_post_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKtqurbb2y5vdn9wujcsrcdny4e` (`food_post_id`),
   KEY `FKa6h8668w0ekc70e3ybg10be0b` (`user_id`),
-  CONSTRAINT `FKa6h8668w0ekc70e3ybg10be0b` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `FKtqurbb2y5vdn9wujcsrcdny4e` FOREIGN KEY (`food_post_id`) REFERENCES `food_post` (`id`),
-  CONSTRAINT `food_post_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `food_post_comment_ibfk_2` FOREIGN KEY (`food_post_id`) REFERENCES `food_post` (`id`)
+  KEY `food_post_id` (`food_post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `food_post_comment` */
-
-/*Table structure for table `food_post_pic` */
-
-DROP TABLE IF EXISTS `food_post_pic`;
-
-CREATE TABLE `food_post_pic` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pic_url` varchar(255) DEFAULT NULL,
-  `food_post_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKmd0aom9valkhc50luwudcd4w` (`food_post_id`),
-  CONSTRAINT `FKmd0aom9valkhc50luwudcd4w` FOREIGN KEY (`food_post_id`) REFERENCES `food_post` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `food_post_pic` */
 
 /*Table structure for table `hotel` */
 
@@ -195,7 +165,6 @@ DROP TABLE IF EXISTS `hotel`;
 CREATE TABLE `hotel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `pic_url` varchar(255) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
   `rating` int(11) NOT NULL,
   `city_id` int(11) NOT NULL,
@@ -204,7 +173,20 @@ CREATE TABLE `hotel` (
 
 /*Data for the table `hotel` */
 
-insert  into `hotel`(`id`,`name`,`pic_url`,`description`,`rating`,`city_id`) values (1,'ararat',NULL,'hvv',45,0),(2,'qwe',NULL,'qweqw',12,0),(3,'asd',NULL,'asd',1,0);
+/*Table structure for table `hotel_pic` */
+
+DROP TABLE IF EXISTS `hotel_pic`;
+
+CREATE TABLE `hotel_pic` (
+  `hotel_id` int(11) NOT NULL,
+  `pic_id` int(11) NOT NULL,
+  PRIMARY KEY (`hotel_id`,`pic_id`),
+  KEY `pic_id` (`pic_id`),
+  CONSTRAINT `hotel_pic_ibfk_1` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hotel_pic_ibfk_3` FOREIGN KEY (`pic_id`) REFERENCES `picture` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `hotel_pic` */
 
 /*Table structure for table `picture` */
 
@@ -214,11 +196,11 @@ CREATE TABLE `picture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pic_url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `picture` */
 
-insert  into `picture`(`id`,`pic_url`) values (1,'1521630914196_2.jpg'),(2,'1521630914297_1.jpg');
+insert  into `picture`(`id`,`pic_url`) values (8,'1521724736632_'),(9,'1521724779398_');
 
 /*Table structure for table `region` */
 
@@ -229,11 +211,11 @@ CREATE TABLE `region` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 /*Data for the table `region` */
 
-insert  into `region`(`id`,`name`,`description`) values (1,'asdsa','asdasd'),(2,'jjjljklj','ij'),(3,'l,l,','lpp'),(4,'hrashq jan','vhvhvh'),(5,'werew','wewe'),(6,'asd','asd'),(7,'Shirak','asasasasasa');
+insert  into `region`(`id`,`name`,`description`) values (12,'asdsa','asdsad'),(13,'qwswqs','wqqws');
 
 /*Table structure for table `region_pic` */
 
@@ -252,7 +234,7 @@ CREATE TABLE `region_pic` (
 
 /*Data for the table `region_pic` */
 
-insert  into `region_pic`(`region_id`,`pic_id`) values (7,1),(7,2);
+insert  into `region_pic`(`region_id`,`pic_id`) values (12,8),(13,9);
 
 /*Table structure for table `region_post` */
 
@@ -272,11 +254,11 @@ CREATE TABLE `region_post` (
   CONSTRAINT `FKbt6c2foxepqlu0pfxgm3ilyig` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `region_post_ibfk_1` FOREIGN KEY (`region_id`) REFERENCES `region` (`id`),
   CONSTRAINT `region_post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `region_post` */
 
-insert  into `region_post`(`id`,`title`,`description`,`picture`,`region_id`,`user_id`) values (1,'ioiu','iiouo','1521576745231_',1,26),(2,'werewr','ewrewrwer','1521576754929_',1,26),(3,'aSa','ASas','1521576932918_',1,26),(4,'SADAS','SDASD','1521577015552_',1,26),(5,'jjlk','ewrwer','1521578069047_',1,26);
+insert  into `region_post`(`id`,`title`,`description`,`picture`,`region_id`,`user_id`) values (7,'asdsas','sadas','1521724812791_',12,29);
 
 /*Table structure for table `region_post_comment` */
 
@@ -290,12 +272,12 @@ CREATE TABLE `region_post_comment` (
   `user_id` int(11) NOT NULL,
   `region_post_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKfbnn1d02idimcov06tsaoul7s` (`region_post_id`),
-  KEY `FKp5leh17r4mn4g8mjm7qf118p4` (`user_id`),
-  CONSTRAINT `FKfbnn1d02idimcov06tsaoul7s` FOREIGN KEY (`region_post_id`) REFERENCES `region_post` (`id`),
-  CONSTRAINT `FKp5leh17r4mn4g8mjm7qf118p4` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `region_post_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `region_post_comment_ibfk_2` FOREIGN KEY (`region_post_id`) REFERENCES `region_post` (`id`)
+  KEY `region_post_comment_ibfk_1` (`user_id`),
+  KEY `region_post_comment_ibfk_2` (`region_post_id`),
+  CONSTRAINT `FKfbnn1d02idimcov06tsaoul7s` FOREIGN KEY (`region_post_id`) REFERENCES `region_post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FKp5leh17r4mn4g8mjm7qf118p4` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `region_post_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `region_post_comment_ibfk_2` FOREIGN KEY (`region_post_id`) REFERENCES `region_post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `region_post_comment` */
@@ -315,11 +297,11 @@ CREATE TABLE `user` (
   `verify` tinyint(1) NOT NULL DEFAULT '0',
   `token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`name`,`surname`,`email`,`password`,`pic_url`,`type`,`verify`,`token`) values (26,'ani','ani','am8219@mail.ru','$2a$10$NOwGoTmDd8sznFvU0DRrEOapyUpG9m13iAjTUkeMOw8l4XoAX2B3y',NULL,'ADMIN',1,NULL),(27,'Zara','Harutyunyan','zara.harutyunyan97@mail.ru','$2a$10$cwDUutDCn0zG7tA/ujscb.H3pJop6XDLqZFeNEi5kS0pmXjuAyE.a',NULL,'USER',1,NULL);
+insert  into `user`(`id`,`name`,`surname`,`email`,`password`,`pic_url`,`type`,`verify`,`token`) values (29,'ani','ani','am8219@mail.ru','$2a$10$QYocy9vs5/1QAlbdlM7.cuDyG.nB9uBYONTzuJ5H.5BTPJZ4a/Yme',NULL,'USER',1,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
