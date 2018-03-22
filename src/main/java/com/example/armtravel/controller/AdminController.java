@@ -75,16 +75,21 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-//    @PostMapping("/addHotel")
-//    public String addHotel(@Valid @RequestParam("hotelImage") MultipartFile hotelImage, @RequestParam("hotelRating") int rating, @ModelAttribute("hotel") Hotel hotel) throws IOException {
-//        String picName = System.currentTimeMillis() + "_" + hotelImage.getOriginalFilename();
-//        File file = new File(getFilePath + "\\" + picName);
-//        hotelImage.transferTo(file);
-//        hotel.setPicUrl(picName);
-//        hotel.setRating(rating);
-//        hotelRepository.save(hotel);
-//        return "redirect:/admin";
-//    }
+    @PostMapping("/addHotel")
+    public String addHotel(@Valid @RequestParam("hotelImage")  MultipartFile[] multipartFile, @RequestParam("hotelRating") int rating, @ModelAttribute("hotel") Hotel hotel) throws IOException {
+        for (MultipartFile file : multipartFile) {
+            String picName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            File file1 = new File(getFilePath + "\\" + picName);
+            file.transferTo(file1);
+            Picture picture = new Picture();
+            picture.setPicUrl(picName);
+            pictureRepository.save(picture);
+            hotel.getPictures().add(picture);
+        }
+        hotel.setRating(rating);
+        hotelRepository.save(hotel);
+        return "redirect:/admin";
+    }
 
 
 //    @PostMapping("/addCity")
