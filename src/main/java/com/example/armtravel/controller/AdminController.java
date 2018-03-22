@@ -42,6 +42,7 @@ public class AdminController {
         map.addAttribute("region", new Region());
         map.addAttribute("city", new City());
         map.addAttribute("hotel", new Hotel());
+        map.addAttribute("allCities",hotelRepository.findAll());
         return "admin";
     }
 
@@ -75,32 +76,25 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @PostMapping("/addHotel")
-    public String addHotel(@Valid @RequestParam("hotelImage")  MultipartFile[] multipartFile, @RequestParam("hotelRating") int rating, @ModelAttribute("hotel") Hotel hotel) throws IOException {
+    @PostMapping(value = "/addHotel")
+    public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel,@RequestParam("hotelRating") int rating, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
         for (MultipartFile file : multipartFile) {
             String picName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File file1 = new File(getFilePath + "\\" + picName);
             file.transferTo(file1);
             Picture picture = new Picture();
             picture.setPicUrl(picName);
+            hotel.setRating(rating);
             pictureRepository.save(picture);
             hotel.getPictures().add(picture);
         }
-        hotel.setRating(rating);
         hotelRepository.save(hotel);
         return "redirect:/admin";
     }
 
 
-//    @PostMapping("/addCity")
-//    public String addCity(@RequestParam("cityImage") MultipartFile cityImage, @Valid @ModelAttribute("city") City city) throws IOException {
-//        String picName = System.currentTimeMillis() + "_" + cityImage.getOriginalFilename();
-//        File file = new File(getFilePath + "\\" + picName);
-//        cityImage.transferTo(file);
-//        city.setPicUrl(picName);
-//
-//        return "redirect:/admin";
-//    }
+
+
 
 
 }

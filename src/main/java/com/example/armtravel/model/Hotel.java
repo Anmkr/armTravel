@@ -30,8 +30,8 @@ public class Hotel {
 private int rating;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "city_pic",
-            joinColumns = {@JoinColumn(name = "city_id")},
+            name = "hotel_pic",
+            joinColumns = {@JoinColumn(name = "hotel_id")},
             inverseJoinColumns = {@JoinColumn(name = "pic_id")})
     List<Picture> pictures = new LinkedList<>();
 
