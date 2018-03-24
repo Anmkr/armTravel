@@ -42,7 +42,7 @@ public class AdminController {
         map.addAttribute("region", new Region());
         map.addAttribute("city", new City());
         map.addAttribute("hotel", new Hotel());
-        map.addAttribute("allCities",hotelRepository.findAll());
+        map.addAttribute("allCities", hotelRepository.findAll());
         return "admin";
     }
 
@@ -59,6 +59,8 @@ public class AdminController {
         }
         regionRepository.save(region);
         return "redirect:/admin";
+
+
     }
 
     @PostMapping(value = "/addCity")
@@ -77,7 +79,7 @@ public class AdminController {
     }
 
     @PostMapping(value = "/addHotel")
-    public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel,@RequestParam("hotelRating") int rating, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
+    public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel, @RequestParam("hotelRating") int rating, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
         for (MultipartFile file : multipartFile) {
             String picName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File file1 = new File(getFilePath + "\\" + picName);
@@ -91,10 +93,6 @@ public class AdminController {
         hotelRepository.save(hotel);
         return "redirect:/admin";
     }
-
-
-
-
 
 
 }

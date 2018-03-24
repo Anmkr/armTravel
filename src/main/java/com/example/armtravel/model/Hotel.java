@@ -26,8 +26,8 @@ public class Hotel {
 
     @Column
     private String description;
-@Column
-private int rating;
+    @Column
+    private int rating;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "hotel_pic",
@@ -38,6 +38,9 @@ private int rating;
     @ManyToOne
     private City city;
 }
+
+
+
 
 
 
