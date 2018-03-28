@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,7 +213,9 @@
                                 </div>
                             </div>
                         </div>
-
+<div>
+    <a href="/delete">Delete</a>
+</div>
 <footer>
     <div class="container">
         <div class="row">
