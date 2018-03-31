@@ -37,6 +37,9 @@ public class UserController {
     @Autowired
     private RegionPostCommentRepository regionPostCommentRepository;
     @Autowired
+    private CityPostCommentRepository cityPostCommentRepository;
+    @Autowired
+
     private CityRepository cityRepository;
     @Autowired
     protected CityPostRepository cityPostRepository;
@@ -112,6 +115,34 @@ public class UserController {
         regionPostCommentRepository.save(regionPostComment);
         return "redirect:/rPostSinglePage?rPostId=" + id;
     }
+    @GetMapping("/cityPostPage")
+    public String cityPostPage(ModelMap map){
+        CurrentUser principal=(CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<CityPost>allCityPostByUser =cityPostRepository.findAllByUser(principal.getUser());
+        map.addAttribute("cityPosts",allCityPostByUser);
+        return "cityPost";
+    }
+@GetMapping("/cityPostSinglePage")
+    public String cityPostSinglePage(@RequestParam(value="cityPostId") int id,ModelMap map) {
+    CityPost cityPost = cityPostRepository.findOne(id);
+    map.addAttribute("cityPost", cityPost);
+    map.addAttribute("cityPostComment", new CityPostComment());
+    return "cityPostSingle";
+}
+@GetMapping("/cityPostComment")
+    public String addCityPostComment(@ModelAttribute("cityPostComment") CityPostComment cityPostComment,@RequestParam("cityPostId")int id){
+CurrentUser principal =(CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+cityPostComment.setUser(principal.getUser());
+cityPostComment.setCityPost(cityPostRepository.findOne(id));
+cityPostCommentRepository.save(cityPostComment);
+return "redirect:/cityPostSinglePage?cityPostId="+id;
+
+
+
+}
+
+
+
 
 //    @GetMapping("/addFood")
 //    public String addFood(@ModelAttribute("food") Food food) {

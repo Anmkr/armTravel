@@ -24,9 +24,9 @@ public class RegionPostComment {
     private String title;
     @Column
     private String description;
-@Column
-private Timestamp timestamp;
-@ManyToOne
+    @Column
+    private Timestamp timestamp;
+    @ManyToOne
     private User user;
     @ManyToOne
     private RegionPost regionPost;

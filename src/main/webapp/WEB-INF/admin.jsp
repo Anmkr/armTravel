@@ -34,7 +34,7 @@
             </button>
             <a class="navbar-brand" href="index.html">
 
-                <img src="assets/img/logo.png" />
+                <%--<img src="assets/img/logo.png" />--%>
             </a>
 
         </div>
@@ -50,11 +50,11 @@
                         <div class="dropdown-menu dropdown-settings">
                             <div class="media">
                                 <a class="media-left" href="#">
-                                    <img src="assets/img/64-64.jpg" alt="" class="img-rounded" />
+                                    <img src="assets/img/logo.jpg" alt="" class="img-rounded" />
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Jhon Deo Alex </h4>
-                                    <h5>Developer & Designer</h5>
+                                    <h4 class="media-heading"></h4>
+                                    <h5> T </h5>
 
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                             <%--<h5><strong>Personal Bio : </strong></h5>--%>
                             <%--Anim pariatur cliche reprehen derit.--%>
                             <%--<hr />--%>
-                            <a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="login.html" class="btn btn-danger btn-sm">Logout</a>
+                            <a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="/loginPage" class="btn btn-danger btn-sm">Logout</a>
 
                         </div>
                     </li>
@@ -81,11 +81,11 @@
                 <div class="navbar-collapse collapse ">
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
                         <li><a href="index.html">Dashboard</a></li>
-                        <li><a href="ui.html">UI Elements</a></li>
+                        <li>  <a href="/delete">Delete User</a></li>
                         <li><a href="table.html">Data Tables</a></li>
-                        <li><a class="menu-top-active"  href="forms.html">Forms</a></li>
-                        <li><a href="login.html">Login Page</a></li>
-                        <li><a href="blank.html">Blank Page</a></li>
+                        <li><a class="menu-top-active"  href="/admin">Forms</a></li>
+                        <li><a href="/loginPage"> Login Page</a></li>
+                        <li><a href="/home">Home</a></li>
 
                     </ul>
                 </div>
@@ -116,14 +116,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputDescription">Description</label>
-                                <spring:input path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
+                                <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
+
+
                             </div>
                             <div class="form-group">
                         <input type="file" name="picture" accept="image/*" multiple /><br><br>
                         <input type="submit" name="Add"/><br>
                         </spring:form>
+                                <a href="/deleteRegion">Delete Region</a>&nbsp;&nbsp;
+                                <a href="deleteRegionPost">Delete RegionPost</a>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -141,16 +144,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputDescription">Description</label>
-                                <spring:input path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
+                                <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
                             </div>
                             <div class="form-group">
                                 <input type="file" name="picture" accept="image/*" multiple /><br><br>
                                 <input type="submit" name="Add"/><br>
                                 </spring:form>
+                                <a href="/deleteCity">Delete City</a>&nbsp;&nbsp;
+                                <a href="/deleteCityPost">Delete CityPost</a>
                             </div>
-                            </form>
 
-                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -168,7 +172,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputDescription">Description</label>
-                                    <spring:input path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
+                                    <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="picture" accept="image/*" multiple /><br><br>
@@ -176,9 +180,10 @@
                                         <input type="number" name="hotelRating" maxlength="5"/><br>
                                     <input type="submit" name="Add"/><br>
                                     </spring:form>
+                                    <a href="/deleteHotel">Delete Hotel</a>
                                 </div>
 
-                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -214,7 +219,12 @@
                             </div>
                         </div>
 <div>
-    <a href="/delete">Delete</a>
+    <%--<a href="/delete">Delete User</a>--%>
+    <%--<a href="/deleteRegion">Delete Region</a>--%>
+    <%--<a href="/deleteCity">Delete City</a>--%>
+    <%--<a href="/deleteHotel">Delete Hotel</a>--%>
+    <%--<a href="/deleteCityPost">Delete CityPost</a>--%>
+    <%--<a href="deleteRegionPost">Delete RegionPost</a>--%>
 </div>
 <footer>
     <div class="container">

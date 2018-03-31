@@ -56,7 +56,9 @@
             <%--<input type="submit" name="Add"/><br>--%>
         <%--</spring:form>--%>
     <%--</div>--%>
-    <a href="/regionPostPage">All regions</a>
+    <a href="/regionPostPage">All regions</a><br>
+
+    <a href="/cityPostPage">All cities</a> <br>
 </div>
 </body>
 </html>
