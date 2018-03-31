@@ -166,26 +166,26 @@ public class AdminController {
 
 
 
-   @GetMapping("/deleteRegionPost")
+@GetMapping("/deleteRegionPost")
    public String dRegionPost(ModelMap map){
     List<RegionPost> allRegionPosts = regionPostRepository.findAll();
     map.addAttribute("allRegionPosts", allRegionPosts);
     return "deleteRegionPost";
 }
 
-   @GetMapping("/deleteRegionPostById")
-    public String deleteRegionPost(@RequestParam("regionId")int id) {
-       regionRepository.delete(id);
-       return "redirect:/deleteRegionPost";
-
-   }
-
-    @GetMapping("/deleteCityPost")
-    public String dCityPost(ModelMap map) {
-        List<CityPost> allCityPosts = cityPostRepository.findAll();
-        map.addAttribute("allCityPosts", allCityPosts);
-        return "deleteCityPost";
-    }
+//   @GetMapping("/deleteRegionPostById")
+//    public String deleteRegionPost(@RequestParam("regionId")int id) {
+//       regionRepository.delete(id);
+//       return "redirect:/deleteRegionPost";
+//
+//   }
+//
+//    @GetMapping("/deleteCityPost")
+//    public String dCityPost(ModelMap map) {
+//        List<CityPost> allCityPosts = cityPostRepository.findAll();
+//        map.addAttribute("allCityPosts", allCityPosts);
+//        return "deleteCityPost";
+//    }
     @GetMapping("/deleteCityPostById")
     public String deleteCityPost(@RequestParam("cityId")int id) {
         cityRepository.delete(id);
