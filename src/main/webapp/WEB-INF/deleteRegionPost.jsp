@@ -7,7 +7,7 @@
 </head>
 <body>
 <c:forEach items="${allRegionPosts}" var="regionPost">
-    <img src="<c:url value="/image?fileName=${regionPost.picture}"/>"/>
+    <img src="<c:url value="/image?fileName=${regionPost.picture}" />"/>
     Name:${regionPost.title}&nbsp; Description:${regionPost.description}&nbsp;
     <a href="/deleteRegionByID?regionId=${regionPost.id}">Delete</a><br>
 </c:forEach>

@@ -16,7 +16,7 @@
 <body>
 <div>
     <c:forEach items="${cityPosts}" var="cityPost">
-        <img src="/image?fileName=${cityPost.picture}" style="width:50px; height: 50px"> <br>
+        <img src="/image?fileName=${cityPost.picture}" style="width:50px; height: 50px" width="100px" height="100px"> <br>
         <span> ${cityPost.title}</span>
         <span> ${cityPost.description}</span>
         <span> ${cityPost.city.name}</span>

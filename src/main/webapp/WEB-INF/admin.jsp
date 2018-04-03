@@ -62,7 +62,7 @@
                             <%--<h5><strong>Personal Bio : </strong></h5>--%>
                             <%--Anim pariatur cliche reprehen derit.--%>
                             <%--<hr />--%>
-                            <a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="/loginPage" class="btn btn-danger btn-sm">Logout</a>
+                            <%--<a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="/loginPage" class="btn btn-danger btn-sm">Logout</a>--%>
 
                         </div>
                     </li>
@@ -84,7 +84,7 @@
                         <li>  <a href="/delete">Delete User</a></li>
                         <li><a href="table.html">Data Tables</a></li>
                         <li><a class="menu-top-active"  href="/admin">Forms</a></li>
-                        <li><a href="/loginPage"> Login Page</a></li>
+                        <%--<li><a href="/loginPage"> Login Page</a></li>--%>
                         <li><a href="/home">Home</a></li>
 
                     </ul>
@@ -124,7 +124,7 @@
                         <input type="file" name="picture" accept="image/*" multiple /><br><br>
                         <input type="submit" name="Add"/><br>
                         </spring:form>
-                                <a href="/deleteRegion">Delete Region</a>&nbsp;&nbsp;
+                                <%--<a href="/deleteRegion">Delete Region</a>&nbsp;&nbsp;--%>
                                 <a href="deleteRegionPost">Delete RegionPost</a>
                         </div>
                     </div>
@@ -152,6 +152,7 @@
                                 </spring:form>
                                 <a href="/deleteCity">Delete City</a>&nbsp;&nbsp;
                                 <a href="/deleteCityPost">Delete CityPost</a>
+
                             </div>
 
                         </div>
@@ -246,6 +247,7 @@
         </div>
     </div>
 </div>
+
 </body>
 
 </html>

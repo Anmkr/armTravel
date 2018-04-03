@@ -10,7 +10,8 @@
 <body>
 <c:forEach items="${allRegions}" var="region">
     <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>">
-    Name:${region.name}&nbsp; Description:${region.description} <a href="/deleteRByID?regionId=${region.id}">Delete</a><br>
+    Name:${region.name}&nbsp; Description:${region.description} <a href="/deleteRByID?regionId=${region.id}">
+    <button class="button button--ujarak button--border-medium button--round-s button--text-thick">Delete</button></a><br>
 </c:forEach>
 <a href="/admin" >Back</a>
 </body>

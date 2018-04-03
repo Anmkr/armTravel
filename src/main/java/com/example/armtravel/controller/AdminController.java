@@ -35,13 +35,19 @@ public class AdminController {
 
     @Autowired
     private PictureRepository pictureRepository;
-
+    @Autowired
+    private CityPostCommentRepository cityPostCommentRepository;
+    @Autowired
+    private RegionPostCommentRepository regionPostCommentRepository;
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap map) {
         map.addAttribute("region", new Region());
         map.addAttribute("city", new City());
         map.addAttribute("hotel", new Hotel());
+        map.addAttribute("allCitys",cityRepository.findAll());
+        map.addAttribute("allRegions",regionRepository.findAll());
+        map.addAttribute("allHotels",hotelRepository.findAll());
         return "admin";
     }
 
@@ -99,7 +105,6 @@ public class AdminController {
     }
 
 
-
     @GetMapping("/allCities")
     public String cities(ModelMap map) {
         map.addAttribute("allCities", cityRepository.findAll());
@@ -126,7 +131,6 @@ public class AdminController {
     }
 
 
-
     @GetMapping("/deleteRegion")
     public String dR(ModelMap map) {
         List<Region> allRegions = regionRepository.findAll();
@@ -141,53 +145,82 @@ public class AdminController {
     }
 
     @GetMapping("/deleteCity")
-    public String deletC(ModelMap map){
-        List<City> allCitys =cityRepository.findAll();
-        map.addAttribute("allCities",allCitys);
+    public String deletC(ModelMap map) {
+        List<City> allCitys = cityRepository.findAll();
+        map.addAttribute("allCities", allCitys);
         return "deleteCity";
     }
+
     @GetMapping("/deleteCityById")
-    public String deleteCity(@RequestParam("cityId")int id){
+    public String deleteCity(@RequestParam("cityId") int id) {
         cityRepository.delete(id);
         return "redirect:/deleteCity";
     }
-@GetMapping("/deleteHotel")
-    public String deletH(ModelMap map) {
-    List<Hotel> allHotels = hotelRepository.findAll();
-    map.addAttribute("allHotels", allHotels);
-    return "deleteHotel";
 
-}
-@GetMapping("/deleteHotelById")
-    public String deleteHotel(@RequestParam("hotelId")int id){
+    @GetMapping("/deleteHotel")
+    public String deletH(ModelMap map) {
+        List<Hotel> allHotels = hotelRepository.findAll();
+        map.addAttribute("allHotels", allHotels);
+        return "deleteHotel";
+
+    }
+
+    @GetMapping("/deleteHotelById")
+    public String deleteHotel(@RequestParam("hotelId") int id) {
         hotelRepository.delete(id);
         return "redirect:/deleteHotel";
-}
+    }
 
 
+    @GetMapping("/deleteRegionPost")
+    public String dRegionPost(ModelMap map) {
+        List<RegionPost> allRegionPosts = regionPostRepository.findAll();
+        map.addAttribute("allRegionPosts", allRegionPosts);
+        return "deleteRegionPost";
+    }
 
-@GetMapping("/deleteRegionPost")
-   public String dRegionPost(ModelMap map){
-    List<RegionPost> allRegionPosts = regionPostRepository.findAll();
-    map.addAttribute("allRegionPosts", allRegionPosts);
-    return "deleteRegionPost";
-}
+    @GetMapping("/deleteRegionPostById")
+    public String deleteRegionPost(@RequestParam("regionPostId") int id) {
+        regionRepository.delete(id);
+        return "redirect:/deleteRegionPost";
 
-//   @GetMapping("/deleteRegionPostById")
-//    public String deleteRegionPost(@RequestParam("regionId")int id) {
-//       regionRepository.delete(id);
-//       return "redirect:/deleteRegionPost";
-//
-//   }
-//
-//    @GetMapping("/deleteCityPost")
-//    public String dCityPost(ModelMap map) {
-//        List<CityPost> allCityPosts = cityPostRepository.findAll();
-//        map.addAttribute("allCityPosts", allCityPosts);
-//        return "deleteCityPost";
-//    }
+    }
+
+    @GetMapping("/deleteCityPost")
+    public String dCityPost(ModelMap map) {
+        List<CityPost> allCityPosts = cityPostRepository.findAll();
+        map.addAttribute("allCityPosts", allCityPosts);
+        return "deleteCityPost";
+    }
+
     @GetMapping("/deleteCityPostById")
-    public String deleteCityPost(@RequestParam("cityId")int id) {
+    public String deleteCityPost(@RequestParam("cityPostId") int id) {
         cityRepository.delete(id);
         return "redirect:/deleteCityPost";
-    }}
+    }
+
+    @GetMapping("/dCommentCP")
+    public String dCCP(ModelMap map) {
+        List<CityPostComment> allCityPostComments=cityPostCommentRepository.findAll();
+        map.addAttribute("allCityPostComment",allCityPostComments);
+        return "deleteCityPostComment";
+
+        }
+        @GetMapping("/dRCPId")
+    public  String dCityPC(@RequestParam("cityPostCommentId") int id){
+        cityPostCommentRepository.delete(id);
+        return "redirect:/deleteCityPostComment";
+    }
+    @GetMapping("/dRPC")
+    public String dRegionPC(ModelMap map) {
+        List<RegionPostComment> allRegionPostComments=regionPostCommentRepository.findAll();
+        map.addAttribute("allRegionPostComments",allRegionPostComments);
+        return "deleteRegionPostComment";
+
+    }
+    @GetMapping("/dRPCId")
+    public  String dRegionPC(@RequestParam("regionPostCommentId") int id){
+        regionPostCommentRepository.delete(id);
+        return "redirect:/deleteRegionPostComment";
+    }
+}

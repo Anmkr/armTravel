@@ -13,10 +13,12 @@
 </head>
 <body>
 <c:forEach items="${allCityPosts}" var ="cityPost">
-    Name:${cityPost.title}&nbsp; Description:${cityPost.description}&nbsp; Picture:${cityPost.picture}
+    <img src="<c:url value="/image?fileName=${cityPost.picture}" />"/>
+    Name:${cityPost.title}&nbsp; Description:${cityPost.description}&nbsp;
     <a href="/deleteCityPostByID?cityId=${cityPost.id}">Delete</a><br>
 </c:forEach>
 <a href="/admin" >Back</a>
 </body>
 </html>
+
 

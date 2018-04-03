@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="city")
+@Table(name = "city")
 public class City {
     @Id
     @GeneratedValue
@@ -32,8 +32,8 @@ public class City {
             joinColumns = {@JoinColumn(name = "city_id")},
             inverseJoinColumns = {@JoinColumn(name = "pic_id")})
     List<Picture> pictures = new LinkedList<>();
-
-
+    @ManyToOne
+    private Region region;
 }
 
 

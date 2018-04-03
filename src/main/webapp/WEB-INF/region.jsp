@@ -10,9 +10,11 @@
     <span>${region.name}</span><br>
     <span>${region.description}</span><br>
     <c:if test="${region.pictures!=null}">
-        <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" style="width: 50px;height: 50px" alt="#"/>
+
+        <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="50px" height="50px"/>
     </c:if>
 </c:forEach>
+<a href="/deleteRegion">Delete Region</a>&nbsp;
 <a href="/admin"> Back </a>
 
 

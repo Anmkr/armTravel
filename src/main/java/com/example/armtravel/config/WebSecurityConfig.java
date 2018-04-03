@@ -25,15 +25,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/loginPage")
                 .usernameParameter("j_email")
                 .passwordParameter("j_password")
                 .defaultSuccessUrl("/loginSuccess")

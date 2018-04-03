@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +68,8 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="login">
-                        <form method="post" action="/login">
+
+                        <form method="post" action="/loginPage">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input name="j_email" type="email" class="form-control" id="exampleInputEmail1"
@@ -87,6 +89,9 @@
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="profile">
+                        <c:if test="${message!=null}">
+                            <p>${message}</p>
+                        </c:if>
                         <spring:form action="/register" method="post" modelAttribute="user"
                                      enctype="multipart/form-data">
                             <div class="form-group">
