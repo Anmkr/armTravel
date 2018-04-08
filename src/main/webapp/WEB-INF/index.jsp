@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ArmTravel</title>
-
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- font awesome for icons -->
@@ -40,43 +44,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 hidden-xs">
-                <div class="top-bar-socials">
-                    <a href="index.html#" class="social-icon-sm si-dark si-gray-round si-colored-facebook">
-                        <i class="fa fa-facebook"></i>
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="index.html#" class="social-icon-sm si-dark si-gray-round si-colored-twitter">
-                        <i class="fa fa-twitter"></i>
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="index.html#" class="social-icon-sm si-dark si-gray-round si-colored-google-plus">
-                        <i class="fa fa-google-plus"></i>
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                    <a href="index.html#" class="social-icon-sm si-dark si-gray-round si-colored-linkedin">
-                        <i class="fa fa-linkedin"></i>
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                    <a href="index.html#" class="social-icon-sm si-dark si-gray-round si-colored-google-plus">
-                        <i class="fa fa-youtube"></i>
-                        <i class="fa fa-youtube"></i>
-                    </a>
-                    <a href="index.html#" class="social-icon-sm si-dark si-gray-round si-colored-dribbble">
-                        <i class="fa fa-dribbble"></i>
-                        <i class="fa fa-dribbble"></i>
-                    </a>
-                </div>
+
             </div>
             <div class="col-sm-8 text-right">
                 <ul class="list-inline top-dark-right">
-                    <%--<li class="hidden-sm hidden-xs"><i class="fa fa-envelope"></i> Support@mail.com</li>--%>
-                    <%--<li class="hidden-sm hidden-xs"><i class="fa fa-phone"></i> +01 1800 453 7678</li>--%>
-                    <%--<li><a href="index.html#"><i class="fa fa-lock"></i> Login</a></li>--%>
-                        <li><a href="/loginPage"><i class="fa fa-lock"></i> Login</a></li>
-                    <%--<li><a href="index.html#"><i class="fa fa-user"></i> Sign Up</a></li>--%>
+                    <li><a href="/loginPage"><i class="fa fa-lock"></i> Login</a></li>
                     <li><a class="topbar-icons" href="#"><span><i class="fa fa-search top-search"></i></span></a></li>
-                    <a href="/single"></a>
-                </ul>
+                                  </ul>
                 <div class="search">
                     <form role="form" action="<c:url value="/search"/>">
                         <input type="text" class="form-control" autocomplete="off" name="searchResult" placeholder="Write something and press enter">
@@ -87,9 +61,7 @@
             </div>
         </div>
     </div>
-</div><!--top-bar-dark end here-->
-<!--navigation -->
-<!-- Static navbar -->
+</div>
 <div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -99,170 +71,39 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%--<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Travel"></a>--%>
+
+            <ul class="top-social-icons list-inline pull-right">
+                <li><a href="www.facebook.com#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="www.twitter.com#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="www.instagram.com#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="www.pinterest.com#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="archive-tag.html#"><i class="fa fa-google-plus"></i></a></li>
+
+                                        </ul>
+
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active ">
                     <a href="/home">Home</a>
-                    <%--<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>--%>
-                    <%--<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Sliders </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="index.html">Revolution Full-width</a></li>--%>
-                                <%--<li><a href="home-revolution-boxed.html">Revolution Boxed</a></li>--%>
-                                <%--<li><a href="home-revolution-fullscreen.html">Revolution Fullscreen</a></li>--%>
-                                <%--<li><a href="ken-burns.html">Ken burns Slider</a></li>--%>
-                                <%--<li><a href="home-carousel.html">Carousel Slider</a></li>--%>
-                                <%--<li><a href="home-flexslider.html">Flex slider</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Revolution 5</a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="r5-classic.html">Carousel classic</a></li>--%>
-                                <%--<li><a href="r5-gym.html">Slider Gym</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-
-                        <%--<li><a href="home-parallax.html">Home - Parallax</a></li>--%>
-                        <%--<li><a href="home-youtube-hero.html">Home -Youtube hero</a></li>--%>
-                        <%--<li><a href="home-self-video.html">Home - Self Video</a></li>--%>
-                        <%--<li><a href="home-boxed.html">Home - Boxed</a></li>--%>
-                        <%--<li><a href="home-construction.html">Home - Construction</a></li>--%>
-                        <%--<li><a href="home-portfolio.html">Home - Portfolio</a></li>--%>
-
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Multi level menu </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="index.html#"> menu level 2</a></li>--%>
-                                <%--<li class="dropdown-submenu">--%>
-                                    <%--<a tabindex="-1" href="index.html#">menu level 2 </a>--%>
-                                    <%--<ul class="dropdown-menu">--%>
-                                        <%--<li><a href="index.html#"> menu level 3</a></li>--%>
-                                        <%--<li><a href="index.html#"> menu level 3</a></li>--%>
-                                    <%--</ul>--%>
-                                <%--</li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-                </li>
+                                           </li>
                 <!--menu home li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Portfolio</a>
-                    <%--<ul class="dropdown-menu multi-level" role="menu">--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Cube Portfolio </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="juicy-portfolio.html"> Juicy Projects</a></li>--%>
-                                <%--<li><a href="cube-fullwidth.html"> Full Width</a></li>--%>
-                                <%--<li><a href="cube-masonry.html"> Masonry</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Grid Text Boxed </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="portfolio-2.html"> 2 Columns</a></li>--%>
-                                <%--<li><a href="portfolio-3.html"> 3 Columns</a></li>--%>
-                                <%--<li><a href="portfolio-4.html"> 4 Columns</a></li>--%>
-
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Grid Boxed </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="grid-portfolio-2-no-text.html">2 Columns</a></li>--%>
-                                <%--<li><a href="grid-portfolio-3-no-text.html">3 Columns</a></li>--%>
-                                <%--<li><a href="grid-portfolio-4-no-text.html">4 Columns</a></li>--%>
-
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">No space Full width </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="portfolio-full-width-2.html">2 columns</a></li>--%>
-                                <%--<li><a href="portfolio-full-width-3.html">3 columns</a></li>--%>
-                                <%--<li><a href="portfolio-full-width-4.html">4 columns</a></li>--%>
-                                <%--<li><a href="portfolio-full-width-5.html">5 columns</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">No Space Boxed </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="portfolio-no-space-bx-2.html"> 2 Columns</a></li>--%>
-                                <%--<li><a href="portfolio-no-space-bx-3.html"> 3 Columns</a></li>--%>
-                                <%--<li><a href="portfolio-no-space-bx-4.html"> 4 Columns</a></li>--%>
-
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Portfolio Masonry </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="masonry-portfolio-3.html"> 3 Columns</a></li>--%>
-                                <%--<li><a href="masonry-portfolio-4.html"> 4 Columns</a></li>--%>
-                                <%--<li><a href="masonry-portfolio-full.html"> Full Width</a></li>--%>
-
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Portfolio Items</a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li><a href="portfolio-single.html">Single item</a></li>--%>
-                                <%--<li><a href="portfolio-single-2.html">Single item 2</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-
-                    <%--</ul>--%>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
-                    <%--<ul class="dropdown-menu" role="menu">--%>
-                        <%--<li><a href="blog-full.html">Blog - full width</a></li>--%>
-                        <%--<li><a href="blog-leftimg.html">Blog - left image</a></li>--%>
-                        <%--<li><a href="blog-sidebar.html">Blog - sidebar</a></li>--%>
-                        <%--<li><a href="blog-2col.html">Blog - 2 column</a></li>--%>
-                        <%--<li><a href="blog-timeline.html">Blog - Timeline</a></li>--%>
-                        <%--<li><a href="blog-masonary.html">Blog - Masonry</a></li>--%>
-                        <%--<li><a href="blog-single.html">Blog - Single</a></li>--%>
-                    <%--</ul>--%>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
 
                     <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
                         <c:forEach items="${allCities}" var="city">
                             <li><a href="/cSinglePage?rId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
-                        <%--<li><a href="about.html">About</a></li>--%>
-                        <%--<li><a href="me.html">About - Me</a></li>--%>
-                        <%--<li><a href="services.html">Services</a></li>--%>
-                        <%--<li><a href="team.html">Our Team</a></li>--%>
-                        <%--<li><a href="pricing.html">Our Pricing</a></li>--%>
-                        <%--<li><a href="faq.html">FAQS</a></li>--%>
-                        <%--<li><a href="email-template.html">Email Template</a></li>--%>
-                        <%--<li class="dropdown-submenu">--%>
-                            <%--<a tabindex="-1" href="index.html#">Contact </a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<c:forEach items="${allCities}" var="city">--%>
-                                    <%--<li><a href="/cSinglePage?rId=${city.id}">${city.name} </a>" </li>--%>
-                                <%--</c:forEach>--%>
-                                <%--<li><a href="contact.html"> Contact default</a></li>--%>
-                                <%--<li><a href="contact-advanced.php.html">Contact advanced</a></li>--%>
-                                <%--<li><a href="contact-option.php.html">Contact option</a></li>--%>
-                                <%--<li><a href="contact-flat.php.html">Contact Flat</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-
-
-                        <%--<li><a href="search-results.html">Search Results</a></li>--%>
-                        <%--<li><a href="career.html">Career</a></li>--%>
-                        <%--<li><a href="gallery.html">Gallery</a></li>--%>
-
-                        <%--<li><a href="process.html">Our Process</a></li>--%>
-
                     </ul>
                 </li>
                 <!--menu pages li end here-->
@@ -275,95 +116,12 @@
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>
                     </ul>
-                </li><!--features-->
+                </li>
 
-                <!--mega menu-->
-                <li class="dropdown yamm-fw">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Shortcodes </a>
-                    <%--<ul class="dropdown-menu">--%>
-                        <%--<li>--%>
-                            <%--<div class="yamm-content">--%>
-                                <%--<div class="row">--%>
-
-                                    <%--<div class="col-sm-3">--%>
-                                        <%--<h3 class="heading">Shortcode 1</h3>--%>
-                                        <%--<ul class="nav mega-vertical-nav">--%>
-
-                                            <%--<li><a href="typography.html"><i class="fa fa-text-height"></i> Typography</a></li>--%>
-                                            <%--<li><a href="grid-system.html"><i class="fa fa-bars"></i> Grid System</a></li>--%>
-                                            <%--<li><a href="testimonials.html"><i class="fa fa-comment-o"></i> testimonials </a></li>--%>
-                                            <%--&lt;%&ndash;<li><a href="tabs-accordian.html"><i class="fa fa-table"></i> tabs &  Accordions </a></li>&ndash;%&gt;--%>
-                                        <%--</ul>--%>
-
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-3">--%>
-                                        <%--<h3 class="heading">Shortcode 2 </h3>--%>
-                                        <%--<ul class="nav mega-vertical-nav">--%>
-                                            <%--&lt;%&ndash;<li><a href="buttons.html"><i class="fa fa-cog"></i> Buttons</a></li>&ndash;%&gt;--%>
-                                            <%--<li><a href="social-buttons.html"><i class="fa fa-share"></i> Social Buttons</a></li>--%>
-                                            <%--<li><a href="alerts.html"><i class="fa fa-bell"></i> Alerts </a></li>--%>
-                                            <%--&lt;%&ndash;<li><a href="other-elements.html"><i class="fa fa-cogs"></i> Other Elements </a></li>&ndash;%&gt;--%>
-                                        <%--</ul>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-3">--%>
-                                        <%--<h3 class="heading">Shortcode 3</h3>--%>
-                                        <%--<ul class="nav mega-vertical-nav">--%>
-                                            <%--<li><a href="font-awesome.html"><i class="fa fa-flag"></i> Font Awesome icons</a></li>--%>
-                                            <%--<li><a href="pe-icons.html"><i class="pe-7s-like"></i> Pe icons</a></li>--%>
-                                            <%--<li><a href="carousel-shortcodes.html"><i class="fa fa-sliders"></i> Carousel Sliders </a></li>--%>
-                                            <%--<li><a href="tables.html"><i class="fa fa-table"></i> Tables </a></li>--%>
-                                        <%--</ul>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-sm-3">--%>
-                                        <%--<h3 class="heading">Shortcode 4</h3>--%>
-                                        <%--<ul class="nav mega-vertical-nav">--%>
-                                            <%--&lt;%&ndash;<li><a href="pricing-tables.html"><i class="fa fa-usd"></i> Pricing tables</a></li>&ndash;%&gt;--%>
-                                            <%--<li><a href="videos.html"><i class="fa fa-image"></i> Responsive videos</a></li>--%>
-                                            <%--<li><a href="cta.html"><i class="fa fa-map-pin"></i> call to cations </a></li>--%>
-                                            <%--<li><a href="maps.html"><i class="fa fa-map-marker"></i> Google maps </a></li>--%>
-                                        <%--</ul>--%>
-                                    <%--</div>--%>
-                                </div>
-                            </div>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-                <%--</li> <!--menu Features li end here-->--%>
-
-                <!--                        <li class="dropdown">
-                                            <a href="#" class=" dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lock"></i> Sign In</a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-login-box animated fadeInUp">
-                                                <form role="form">
-                                                    <h4>Signin</h4>
-
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Username">
-                                                        </div>
-                                                        <br>
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                                            <input type="password" class="form-control" placeholder="Password">
-                                                        </div>
-                                                        <div class="checkbox pull-left">
-                                                            <label>
-                                                                <input type="checkbox"> Remember me
-                                                            </label>
-                                                        </div>
-                                                        <a class="btn btn-theme-bg pull-right">Login</a>
-                                                                                                <button type="submit" class="btn btn-theme pull-right">Login</button>
-                                                        <div class="clearfix"></div>
-                                                        <hr>
-                                                        <p>Don't have an account! <a href="#">Register Now</a></p>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </li> menu login li end here-->
             </ul>
+        </div>
         </div><!--/.nav-collapse -->
     </div><!--container-->
-</div><!--navbar-default-->
-
 
 <!--rev slider start-->
 <div class="fullwidthbanner">
@@ -459,7 +217,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="center-heading">
-                <h2>Մեր &nbsp նախնիներից &nbsp; ժառանգած &nbsp;<strong>հոյակերտ &nbsp; վանքերը</strong></h2>
+                <h2>Հայկական  &nbsp;<strong>հետք </strong></h2>
                 <span class="center-line"></span>
             </div>
         </div>
@@ -468,23 +226,23 @@
 <div class="container">
     <div class="cube-masonry">
 
-        <div id="filters-container" class="cbp-l-filters-alignCenter">
-            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
-                All <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".identity" class="cbp-filter-item">
-                Identity <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".web-design" class="cbp-filter-item">
-                Web Design <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".graphic" class="cbp-filter-item">
-                Graphic <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".graphic, .identity" class="cbp-filter-item">
-                Web Design & Identity <div class="cbp-filter-counter"></div>
-            </div>
-        </div>
+        <%--<div id="filters-container" class="cbp-l-filters-alignCenter">--%>
+            <%--<div data-filter="*" class="cbp-filter-item-active cbp-filter-item">--%>
+                <%--All <div class="cbp-filter-counter"></div>--%>
+            <%--</div>--%>
+            <%--&lt;%&ndash;<div data-filter=".identity" class="cbp-filter-item">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;Identity <div class="cbp-filter-counter"></div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<div data-filter=".web-design" class="cbp-filter-item">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;Web Design <div class="cbp-filter-counter"></div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<div data-filter=".graphic" class="cbp-filter-item">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;Graphic <div class="cbp-filter-counter"></div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<div data-filter=".graphic, .identity" class="cbp-filter-item">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;Web Design & Identity <div class="cbp-filter-counter"></div>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+        <%--</div>--%>
 
         <div id="masnory-container" class="cbp">
             <div class="cbp-item identity">
@@ -511,8 +269,8 @@
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                             <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">The Gang Blue</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                                <div class="cbp-l-caption-title">Երևան</div>
+                                <div class="cbp-l-caption-desc">Երևան</div>
                             </div>
                         </div>
                     </div>
@@ -520,15 +278,15 @@
             </div>
             <div class="cbp-item graphic identity">
                 <a class="cbp-caption cbp-lightbox" data-title="Tiger<br>by Cosmin Capitanu"
-                   href="img/img-2.jpg">
+                   href="img/51jpg">
                     <div class="cbp-caption-defaultWrap">
-                        <img src="img/img-2.jpg" alt="">
+                        <img src="img/51.jpg" alt="">
                     </div>
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                             <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Tiger</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                                <div class="cbp-l-caption-title">Արմավիրի մարզ</div>
+                                <div class="cbp-l-caption-desc">Էջմիածին</div>
                             </div>
                         </div>
                     </div>
@@ -536,46 +294,46 @@
             </div>
             <div class="cbp-item graphic">
                 <a class="cbp-caption cbp-lightbox" data-title="Flat Roman Typeface Ui<br>by Cosmin Capitanu"
-                   href="img/mas-2.jpg">
+                   href="img/55jpg">
                     <div class="cbp-caption-defaultWrap">
-                        <img src="img/mas-2.jpg" alt="">
+                        <img src="img/55.jpg" alt="">
                     </div>
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                             <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Flat Roman Typeface Ui</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                                <div class="cbp-l-caption-title">Սյունիքի մարզ</div>
+                                <div class="cbp-l-caption-desc">Տաթև</div>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="cbp-item identity">
-                <a class="cbp-caption cbp-lightbox" data-title="Seemple* Music for iPad<br>by Tiberiu Neamu"
-                   href="img/mas-2.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="img/mas-1.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
-                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <%--<div class="cbp-item identity">--%>
+                <%--<a class="cbp-caption cbp-lightbox" data-title="Seemple* Music for iPad<br>by Tiberiu Neamu"--%>
+                   <%--href="img/59.jpg">--%>
+                    <%--<div class="cbp-caption-defaultWrap">--%>
+                        <%--<img src="img/59.jpg" alt="">--%>
+                    <%--</div>--%>
+                    <%--<div class="cbp-caption-activeWrap">--%>
+                        <%--<div class="cbp-l-caption-alignCenter">--%>
+                            <%--<div class="cbp-l-caption-body">--%>
+                                <%--<div class="cbp-l-caption-title"></div>--%>
+                                <%--<div class="cbp-l-caption-desc"></div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</a>--%>
+            <%--</div>--%>
             <div class="cbp-item graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="Remind~Me More<br>by Tiberiu Neamu" href="img/img-3.jpg">
+                <a class="cbp-caption cbp-lightbox" data-title="Remind~Me More<br>by Tiberiu Neamu" href="img/59.jpg">
                     <div class="cbp-caption-defaultWrap">
-                        <img src="img/img-3.jpg" alt="">
+                        <img src="img/59.jpg" alt="">
                     </div>
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                             <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Remind~Me More</div>
-                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                <div class="cbp-l-caption-title">Լոռու մարզ</div>
+                                <div class="cbp-l-caption-desc"></div>
                             </div>
                         </div>
                     </div>
@@ -681,68 +439,481 @@
     <a href="masonry-portfolio-4.html" class="btn btn-theme-dark btn-lg">View All Work</a>
 </div>
 <div class="divide50"></div>
-<div class="wide-img-showcase">
+<%--<div class="wide-img-showcase">--%>
 
-    <div class="row margin-0 wide-img-showcase-row">
-        <div class="col-sm-6 no-padding  img-2 ">
-            <div class="no-padding-inner ">
-                <div>&nbsp;</div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-sm-offset-6 no-padding gray">
-            <div class="no-padding-inner gray">
-                <h3 class="wow animated fadeInDownfadeInRight">Core features of <span class="colored-text">assan</span></h3>
-                <div class="services-box margin30 wow animated fadeInRight">
-                    <div class="services-box-icon">
-                        <i class="fa fa-tablet"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Fully Responsive</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
+<%--<div class="container">--%>
+    <%--<div class="menu-content">--%>
+<%--<div class="kotha-logo text-center">--%>
+    <%--&lt;%&ndash;<h1><a href="index.html"><img src="assets/images/kotha-logo.png" alt="kothPro"></a></h1>&ndash;%&gt;--%>
+<%--</div>--
+<%--</header>--%>
+<div class="kotha-default-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <article class="single-blog">
+                    <div class="post-thumb">
+                        <a href="index.html"><img src="assets/images/post-thumb-1.jpg" alt=""></a>
                     </div>
-                </div><!--service box-->
-                    <c:forEach items="${allRegions}" var="region">
-                    <div class="services-box margin30 wow animated fadeInRight">
-                        <div class="services-box-icon">
-                            <i class="fa fa-twitter"></i>
-                        </div><!--services icon-->
-                        <div class="services-box-info">
-                            <h4>${region.name}</h4>
-                            <p>${region.description}
-                            </p>
+                    <div class="post-content">
+                        <div class="entry-header text-center text-uppercase">
+                            <a href="index.html" class="post-cat">Travel</a>
+                            <h2><a href="single-page.html">Adventure to travel lonely</a></h2>
                         </div>
-                        </c:forEach>
-                    <%--<div class="services-box-icon">--%>
-                        <%--<i class="fa fa-twitter"></i>--%>
-                    <%--</div><!--services icon-->--%>
-                    <%--<div class="services-box-info">--%>
-                        <%--<h4>bootstrap 3</h4>--%>
-                        <%--<p>--%>
-                            <%--Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.--%>
-                        <%--</p>--%>
-                    <%--</div>--%>
-                <%--</div><!--service box-->--%>
-
-                <div class="services-box margin30 wow animated fadeInRight">
-                    <div class="services-box-icon">
-                        <i class="fa fa-code"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>250+ valid HTML5 Pages and much more...</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam
+                                et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                voluptua...</p>
+                        </div>
+                        <div class="continue-reading text-center text-uppercase">
+                            <a href="single-page.html">Continue Reading</a>
+                        </div>
+                        <div class="post-meta">
+                            <ul class="pull-left list-inline author-meta">
+                                <li class="author">By <a href="index.html#">Jennifer </a></li>
+                                <li class="date"> On October 13, 2017</li>
+                            </ul>
+                            <ul class="pull-right list-inline social-share">
+                                <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="divide30"></div>
-                    <p><a href="index.html#" class="btn btn-theme-dark btn-lg">Purchase Now</a></p>
-                </div><!--service box-->
+                </article>
+                <article class="single-blog">
+                    <div class="post-thumb">
+                        <a href="index.html"><img src="assets/images/post-thumb-2.jpg" alt=""></a>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-header text-center text-uppercase">
+                            <a href="index.html" class="post-cat">Travel</a>
+                            <h2><a href="single-page.html">Playing with kite at beach</a></h2>
+                        </div>
+                        <div class="entry-content">
+                            <p>Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, Lorem
+                                ipsum dolor sit
+                                amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                                dolore magna
+                                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                rebum. Stet clita
+                                kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. sed diam
+                                voluptua Lorem ipsum
+                                dolor sit amet, consetetur sadipscing elitr...</p>
+                        </div>
+                        <div class="continue-reading text-center text-uppercase">
+                            <a href="single-page.html">Continue Reading</a>
+                        </div>
+                        <div class="post-meta">
+                            <ul class="pull-left list-inline author-meta">
+                                <li class="author">By <a href="index.html#">Jennifer </a></li>
+                                <li class="date"> On September 12, 2017</li>
+                            </ul>
+                            <ul class="pull-right list-inline social-share">
+                                <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="single-blog">
+                    <div class="post-thumb">
+                        <a href="single-page.html"><img src="assets/images/post-thumb-3.jpg" alt=""></a>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-header text-center text-uppercase">
+                            <a href="index.html" class="post-cat">Travel</a>
+                            <h2><a href="single-page.html">At vero eos etaccusam
+                                et justo duo </a></h2>
+                        </div>
+                        <div class="entry-content">
+                            <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Sed
+                                diam nonumy eirmod
+                                tempor invidunt ut labore et dolore magna aliquyam erat, Lorem ipsum dolor sit amet,
+                                consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed
+                                diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. sed diam
+                                voluptua Lorem ipsum
+                                dolor sit sadipscing elitr amet, consetetur ...</p>
+                        </div>
+                        <div class="continue-reading text-center text-uppercase">
+                            <a href="single-page.html">Continue Reading</a>
+                        </div>
+                        <div class="post-meta">
+                            <ul class="pull-left list-inline author-meta">
+                                <li class="author">By <a href="index.html#">Jennifer </a></li>
+                                <li class="date"> On December 29, 2017</li>
+                            </ul>
+                            <ul class="pull-right list-inline social-share">
+                                <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="single-blog">
+                    <div class="post-thumb">
+                        <a href="single-page.html"><img src="assets/images/post-thumb-4.jpg" alt=""></a>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-header text-center text-uppercase">
+                            <a href="index.html" class="post-cat">Travel</a>
+                            <h2><a href="single-page.html">An imaginary for travelers</a></h2>
+                        </div>
+                        <div class="entry-content">
+                            <p>Magna aliquyam erat, Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                                dolor sit amet.
+                                Sed diam nonumy eirmod tempor invidunt ut labore et dolore. Lorem ipsum dolor sit amet,
+                                consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed
+                                diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. sed diam
+                                voluptua Lorem ipsum
+                                dolor sit sadipscing elitr amet, consetetur ...</p>
+                        </div>
+                        <div class="continue-reading text-center text-uppercase">
+                            <a href="single-page.html">Continue Reading</a>
+                        </div>
+                        <div class="post-meta">
+                            <ul class="pull-left list-inline author-meta">
+                                <li class="author">By <a href="index.html#">Jennifer </a></li>
+                                <li class="date"> On June 24, 2017</li>
+                            </ul>
+                            <ul class="pull-right list-inline social-share">
+                                <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="single-blog">
+                    <div class="post-thumb">
+                        <div id="blog-gallery-slider" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    <a href="index.html"><img src="assets/images/post-thumb-8.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="index.html"><img src="assets/images/post-thumb-9.jpg"  alt=""></a>
+                                </div>
+                                <div class="item active">
+                                    <a href="index.html"> <img src="assets/images/post-thumb-7.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="index.html#blog-gallery-slider" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right carousel-control" href="index.html#blog-gallery-slider" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-header text-center text-uppercase">
+                            <a href="index.html" class="post-cat">Slider</a>
+                            <h2><a href="single-page.html">Awesome slider post</a></h2>
+                        </div>
+                        <div class="entry-content">
+                            <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Sed
+                                diam nonumy eirmod
+                                tempor invidunt ut labore et dolore magna aliquyam erat, Lorem ipsum dolor sit amet,
+                                consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed
+                                diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. sed diam
+                                voluptua Lorem ipsum
+                                dolor sit sadipscing elitr amet, consetetur ...</p>
+                        </div>
+                        <div class="continue-reading text-center text-uppercase">
+                            <a href="single-page.html">Continue Reading</a>
+                        </div>
+                        <div class="post-meta">
+                            <ul class="pull-left list-inline author-meta">
+                                <li class="author">By <a href="index.html#">Jennifer </a></li>
+                                <li class="date"> On March 17, 2017</li>
+                            </ul>
+                            <ul class="pull-right list-inline social-share">
+                                <li><a href="index.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="index.html"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <div class="post-pagination  clearfix">
+                    <ul class="pagination text-left">
+                        <li class="active"><a href="index.html#">1</a></li>
+                        <li><a href="index.html#">2</a></li>
+                        <li><a href="index.html#">3</a></li>
+                        <li><a href="index.html#">4</a></li>
+                        <li><a href="index.html#"><i class="fa fa-angle-double-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="kotha-sidebar">
+                    <aside class="widget about-me-widget  text-center">
+                        <div class="about-me-content">
+                            <div class="about-me-img">
+                                <img src="assets/images/me.jpg" alt="" class="img-me img-circle">
+                                <h2 class="text-uppercase">Kotha Smith</h2>
+                                <p>Kotha Smith is an enthusiastic and passionate Story Teller. He loves to do different
+                                    home-made things
+                                    and share to the world.</p>
+                            </div>
+                        </div>
+                        <div class="social-share">
+                            <ul class="list-inline">
+                                <li><a class="s-facebook" href="index.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="s-twitter" href="index.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="s-google-plus" href="index.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="s-linkedin" href="index.html"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="s-instagram" href="index.html"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <aside class="widget news-letter-widget">
+                        <h2 class="widget-title text-uppercase text-center">Get Newsletter</h2>
+                        <form action="index.html#">
+                            <input type="email" placeholder="Your email address" required>
+                            <input type="submit" value="Subscribe Now"
+                                   class="text-uppercase text-center btn btn-subscribe">
+                        </form>
+                    </aside>
+                    <aside class="widget widget-popular-post">
+                        <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
+                        <ul>
+                            <li>
+                                <a href="index.html#" class="popular-img"><img src="assets/images/p-1.jpg" alt="">
+                                </a>
+                                <div class="p-content">
+                                    <h4><a href="index.html#" class="text-uppercase">Ice-cream with chalk taste </a></h4>
+                                    <span class="p-date">February 15, 2017 </span>
+                                </div>
+                            </li>
+                            <li><a href="index.html#" class="popular-img"><img src="assets/images/p-2.jpg" alt="">
+                            </a>
+                                <div class="p-content">
+                                    <h4><a href="index.html#" class="text-uppercase">The moment of mango bar</a></h4>
+                                    <span class="p-date">March 15, 2017 </span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="index.html#" class="popular-img"><img src="assets/images/p-3.jpg" alt="">
+                                </a>
+                                <div class="p-content">
+                                    <h4><a href="index.html#" class="text-uppercase">Homemade herbal black tea</a></h4>
+                                    <span class="p-date">April 15, 2017 </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+                    <aside class="widget latest-post-widget">
+                        <h2 class="widget-title text-uppercase text-center">Latest Posts</h2>
+                        <ul>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="index.html#" class="popular-img"><img src="assets/images/recent-1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="latest-post-content">
+                                    <h2 class="text-uppercase"><a href="index.html#">A Marine Dive From Sky</a></h2>
+                                    <p>May 27, 2017</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="index.html#" class="popular-img"><img src="assets/images/recent-2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="latest-post-content">
+                                    <h2 class="text-uppercase"><a href="index.html#">Small Meeting Room</a></h2>
+                                    <p>April 27, 2017</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="index.html#" class="popular-img"><img src="assets/images/recent-3.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="latest-post-content">
+                                    <h2 class="text-uppercase"><a href="index.html#">Selfie from the beach point</a></h2>
+                                    <p>April 20, 2017</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="index.html#" class="popular-img"><img src="assets/images/recent-4.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="latest-post-content">
+                                    <h2 class="text-uppercase"><a href="index.html#">Gather Some Artist Pencils.</a></h2>
+                                    <p>May 27, 2017</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+                    <aside class="widget insta-widget">
+                        <h2 class="widget-title text-uppercase text-center">INSTAGRAM FEED</h2>
+                        <div class="instagram-feed">
+                            <div class="single-instagram">
+                                <a href="index.html">
+                                    <img src="assets/images/ft-insta-1.jpg" alt="">
+                                </a>
+                                <div class="insta-overlay">
+                                    <div class="insta-meta">
+                                        <ul class="list-inline text-center">
+                                            <li><a href="index.html"><i class="fa fa-heart-o"></i></a> 325</li>
+                                            <li><a href="index.html"><i class="fa fa-comment-o"></i></a> 20</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="insta-link"></a>
+                            </div>
+                            <div class="single-instagram">
+                                <a href="index.html">
+                                    <img src="assets/images/ft-insta-6.jpg" alt="">
+                                </a>
+                                <div class="insta-overlay">
+                                    <div class="insta-meta">
+                                        <ul class="list-inline text-center">
+                                            <li><a href="index.html"><i class="fa fa-heart-o"></i></a> 325</li>
+                                            <li><a href="index.html"><i class="fa fa-comment-o"></i></a> 20</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="insta-link"></a>
+                            </div>
+                            <div class="single-instagram">
+                                <a href="index.html">
+                                    <img src="assets/images/ft-insta-4.jpg" alt="">
+                                </a>
+                                <div class="insta-overlay">
+                                    <div class="insta-meta">
+                                        <ul class="list-inline text-center">
+                                            <li><a href="index.html"><i class="fa fa-heart-o"></i></a> 325</li>
+                                            <li><a href="index.html"><i class="fa fa-comment-o"></i></a> 20</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="insta-link"></a>
+                            </div>
+                            <div class="single-instagram">
+                                <a href="index.html">
+                                    <img src="assets/images/ft-insta-3.jpg" alt="">
+                                </a>
+                                <div class="insta-overlay">
+                                    <div class="insta-meta">
+                                        <ul class="list-inline text-center">
+                                            <li><a href="index.html"><i class="fa fa-heart-o"></i></a> 325</li>
+                                            <li><a href="index.html"><i class="fa fa-comment-o"></i></a> 20</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="insta-link"></a>
+                            </div>
+                            <div class="single-instagram">
+                                <a href="index.html">
+                                    <img src="assets/images/ft-insta-7.jpg" alt="">
+                                </a>
+                                <div class="insta-overlay">
+                                    <div class="insta-meta">
+                                        <ul class="list-inline text-center">
+                                            <li><a href="index.html"><i class="fa fa-heart-o"></i></a> 325</li>
+                                            <li><a href="index.html"><i class="fa fa-comment-o"></i></a> 20</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="insta-link"></a>
+                            </div>
+                            <div class="single-instagram">
+                                <a href="index.html">
+                                    <img src="assets/images/ft-insta-8.jpg" alt="">
+                                </a>
+                                <div class="insta-overlay">
+                                    <div class="insta-meta">
+                                        <ul class="list-inline text-center">
+                                            <li><a href="index.html"><i class="fa fa-heart-o"></i></a> 325</li>
+                                            <li><a href="index.html"><i class="fa fa-comment-o"></i></a> 20</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="insta-link"></a>
+                            </div>
+                        </div>
+                    </aside>
 
+                </div>
             </div>
         </div>
     </div>
-</div><!--wide image showcase end-->
+</div>
+<footer>
+
+
+            <div class="footer-widget testimonial-widget">
+                <h2 class="widget-title text-uppercase">Testimonials</h2>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!--Indicator-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item">
+                            <div class="single-review">
+                                <div class="review-text">
+                                    <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
+                                        tempvidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At
+                                        vero eos et accusam justo duo dolores et ea rebum.gubergren no sea takimata
+                                        magna aliquyam eratma</p>
+                                </div>
+                                <div class="author-id">
+                                    <img src="assets/images/author.jpg" alt="">
+                                    <div class="author-text">
+                                        <h4>John Doe</h4>
+                                        <h4>CEO, Apple Inc.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    <%--<div class="row margin-0 wide-img-showcase-row">--%>
+        <%--<div class="col-sm-6 no-padding  img-2 ">--%>
+            <%--<div class="no-padding-inner ">--%>
+                <%--<div>&nbsp;</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<div class="col-sm-6 col-sm-offset-6 no-padding gray">--%>
+            <%--<div class="no-padding-inner gray">--%>
+                <%--<h3 class="wow animated fadeInDownfadeInRight">Core features of <span class="colored-text">assan</span></h3>--%>
+                <%--<div class="services-box margin30 wow animated fadeInRight">--%>
+                    <%--<div class="services-box-icon">--%>
+                        <%--<i class="fa fa-tablet"></i>--%>
+                    <%--</div><!--services icon-->--%>
+                    <%--<div class="services-box-info">--%>
+                        <%--<h4>Fully Responsive</h4>--%>
+
 <section class="fun-fact-wrap fun-facts-bg">
     <div class="container">
         <div class="row">
@@ -1106,107 +1277,55 @@
     </div>
 </div> <!--intro text end-->
 
-<footer id="footer">
-    <div class="container">
 
-        <div class="row">
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>About assan</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                    </p>
-                    <ul class="list-inline footer-social">
-                        <li>
-                            <a href="index.html#" class="social-icon si-dark si-gray-round si-colored-facebook">
-                                <i class="fa fa-facebook"></i>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html#" class="social-icon si-dark si-gray-round si-colored-twitter">
-                                <i class="fa fa-twitter"></i>
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html#" class="social-icon si-dark si-gray-round si-colored-google-plus">
-                                <i class="fa fa-google-plus"></i>
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html#" class="social-icon si-dark si-gray-round si-colored-pinterest">
-                                <i class="fa fa-pinterest"></i>
-                                <i class="fa fa-pinterest"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html#" class="social-icon si-dark si-gray-round si-colored-linkedin">
-                                <i class="fa fa-linkedin"></i>
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>Contact</h3>
+                        <footer id="footer">
+                            <div class="container">
 
-                    <ul class="list-unstyled contact">
-                        <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> vaisahali, jaipur, 302012</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">Support@designmylife.com</a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> +91 1800 2345 2132</p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> 1800 2345 2132</p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> assan.856</p></li>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 margin30">
 
-                    </ul>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>Featured Work</h3>
-                    <ul class="list-inline f2-work">
-                        <li><a href="portfolio-single.html"><img src="img/img-1.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-2.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-3.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-4.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-5.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-6.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-7.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-8.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/img-9.jpg" class="img-responsive" alt=""></a></li>
-                    </ul>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam,
-                    </p>
-                    <form role="form" class="subscribe-form">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter email to subscribe">
-                            <span class="input-group-btn">
-                                        <button class="btn  btn-theme-dark btn-lg" type="submit">Ok</button>
-                                    </span>
-                        </div>
-                    </form>
-                </div>
-            </div><!--footer col-->
+                                    </div><!--footer col-->
+                                </div>
+                                <div class="col-md-3 col-sm-6 margin30">
+                                    <div class="footer-col">
+                                        <h3>Contact</h3>
 
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="footer-btm">
-                    <span>&copy;2017. Theme by Design_mylife</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer><!--default footer end here-->
+                                        <ul class="list-unstyled contact">
+                                            <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
+                                            <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">չկա</a></p></li>
+                                            <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> չկա </p></li>
+                                            <li> <p><strong><i class="fa fa-print"></i> Fax</strong>չկա </p></li>
+                                            <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> չկա </p></li>
+
+                                        </ul>
+                                    </div>
+                                </div><!--footer col-->
+                                <div class="col-md-3 col-sm-6 margin30">
+                                    <div class="footer-col">
+                                        <h3>Հայաստան</h3>
+                                        <ul class="list-inline f2-work">
+                                            <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
+                                            <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
+                                        </ul>
+                                    </div>
+                                </div><!--footer col-->
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="footer-btm">
+                                            <span>&copy;2018. </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer><!--default footer end here-->
 
 <!--scripts and plugins -->
 <!--must need plugin jquery-->

@@ -109,23 +109,23 @@
                         ADD REGION
                     </div>
                     <div class="panel-body">
-                      <spring:form action="/addRegion" modelAttribute="region" enctype="multipart/form-data" method="post">
-                            <div class="form-group">
-                                <label for="exampleInputName">Name</label>
-                                <spring:input path="name" class="form-control" id="exampleInputName" placeholder="Name" />
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputDescription">Description</label>
-                                <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
+                        <spring:form action="/addRegion" modelAttribute="region" enctype="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputName">Name</label>
+                            <spring:input path="name" class="form-control" id="exampleInputName" placeholder="Name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputDescription">Description</label>
+                            <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
 
 
-                            </div>
-                            <div class="form-group">
-                        <input type="file" name="picture" accept="image/*" multiple /><br><br>
-                        <input type="submit" name="Add"/><br>
-                        </spring:form>
-                                <%--<a href="/deleteRegion">Delete Region</a>&nbsp;&nbsp;--%>
-                                <a href="deleteRegionPost">Delete RegionPost</a>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="picture" accept="image/*" multiple /><br><br>
+                            <input type="submit" name="Add"/><br>
+                            </spring:form>
+                            <a href="/deleteRegion">Delete Region</a>&nbsp;&nbsp;
+                            <%--<a href="/deleteRegionPost">Delete RegionPost</a>--%>
                         </div>
                     </div>
                 </div>
@@ -150,102 +150,103 @@
                                 <input type="file" name="picture" accept="image/*" multiple /><br><br>
                                 <input type="submit" name="Add"/><br>
                                 </spring:form>
-                                <a href="/deleteCity">Delete City</a>&nbsp;&nbsp;
+                                <%--<a href="/deleteCity">Delete City</a>&nbsp;&nbsp;--%>
                                 <a href="/deleteCityPost">Delete CityPost</a>
 
                             </div>
 
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            ADD HOTEL
+                        </div>
+                        <div class="panel-body">
+                            <spring:form action="/addHotel" modelAttribute="hotel" enctype="multipart/form-data" method="post">
+                            <div class="form-group">
+                                <label for="exampleInputName">Name</label>
+                                <spring:input path="name" class="form-control" id="exampleInputName" placeholder="Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputDescription">Description</label>
+                                <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="picture" accept="image/*" multiple /><br><br>
+                                <spring:select path="city" items="${allCities}" itemLabel="name"/><br>
+                                <input type="number" name="hotelRating" maxlength="5"/><br>
+                                <input type="submit" name="Add"/><br>
+                                </spring:form>
+                                <a href="/deleteHotel">Delete Hotel</a>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                ADD HOTEL
+                                ADD FOOD
                             </div>
                             <div class="panel-body">
-                                <spring:form action="/addHotel" modelAttribute="hotel" enctype="multipart/form-data" method="post">
-                                <div class="form-group">
-                                    <label for="exampleInputName">Name</label>
-                                    <spring:input path="name" class="form-control" id="exampleInputName" placeholder="Name" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputDescription">Description</label>
-                                    <spring:textarea path="description" class="form-control" id="exampleInputDescription" placeholder="Description" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" name="picture" accept="image/*" multiple /><br><br>
-                                        <spring:select path="city" items="${allCitys}" itemLabel="name"/><br>
-                                        <input type="number" name="hotelRating" maxlength="5"/><br>
-                                    <input type="submit" name="Add"/><br>
-                                    </spring:form>
-                                    <a href="/deleteHotel">Delete Hotel</a>
-                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">File input</label>
+                                        <input type="file" id="exampleInputFile" />
 
+                                    </div>
 
+                                    <button type="submit" class="btn btn-default">Submit</button>
+
+                                    <textarea class="form-control" rows="3" placeholder="Text Area"></textarea>
+                                    <hr />
+
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    ADD FOOD
+                    <div>
+                        <%--<a href="/delete">Delete User</a>--%>
+                        <%--<a href="/deleteRegion">Delete Region</a>--%>
+                        <%--<a href="/deleteCity">Delete City</a>--%>
+                        <%--<a href="/deleteHotel">Delete Hotel</a>--%>
+                        <%--<a href="/deleteCityPost">Delete CityPost</a>--%>
+                        <%--<a href="deleteRegionPost">Delete RegionPost</a>--%>
+                    </div>
+                    <footer>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+
                                 </div>
-                                <div class="panel-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputFile">File input</label>
-                                            <input type="file" id="exampleInputFile" />
 
-                                        </div>
-
-                                        <button type="submit" class="btn btn-default">Submit</button>
-
-                                        <textarea class="form-control" rows="3" placeholder="Text Area"></textarea>
-                                        <hr />
-
-                                    </form>
-                                </div>
                             </div>
                         </div>
-<div>
-    <%--<a href="/delete">Delete User</a>--%>
-    <%--<a href="/deleteRegion">Delete Region</a>--%>
-    <%--<a href="/deleteCity">Delete City</a>--%>
-    <%--<a href="/deleteHotel">Delete Hotel</a>--%>
-    <%--<a href="/deleteCityPost">Delete CityPost</a>--%>
-    <%--<a href="deleteRegionPost">Delete RegionPost</a>--%>
-</div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+                    </footer>
 
-            </div>
-
-        </div>
-    </div>
-</footer>
-
-<script src="assets/js/jquery-1.11.1.js"></script>
-<!-- BOOTSTRAP SCRIPTS  -->
-<script src="assets/js/bootstrap.js"></script>
-                    </div>
+                    <script src="assets/js/jquery-1.11.1.js"></script>
+                    <!-- BOOTSTRAP SCRIPTS  -->
+                    <script src="assets/js/bootstrap.js"></script>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 </body>

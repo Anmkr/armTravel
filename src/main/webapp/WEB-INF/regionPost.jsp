@@ -23,6 +23,6 @@
         <a href="/rPostSinglePage?rPostId=${rPost.id}">View More</a>
     </c:forEach>
 </div>
-<a href="/admin" >Back</a>
+<a href="/user" >Back</a>
 </body>
 </html>
