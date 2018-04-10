@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -7,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> SearchResults</title>
+    <title> All Cities</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -40,6 +39,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
 <div class="top-bar-dark">
     <div class="container">
@@ -81,6 +81,7 @@
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
+
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -90,12 +91,10 @@
                 <!--menu home li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Portfolio</a>
-
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
-
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
@@ -106,8 +105,6 @@
                         <c:forEach items="${allCities}" var="city">
                             <li><a href="/cSinglePage?rId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
-
-
                     </ul>
                 </li>
                 <!--menu pages li end here-->
@@ -126,99 +123,52 @@
         </div>
     </div><!--/.nav-collapse -->
 </div><!--container-->
-
-<!--rev slider start-->
-<div class="fullwidthbanner">
-    <div class="tp-banner">
-        <ul>
-            <!-- SLIDE -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title=" Պարզ լիճ">
-                <img src="img/17.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top"
-                     data-bgrepeat="no-repeat">
-
-            </li>
-            <!-- SLIDE -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Արփա լիճ">
-                <!-- MAIN IMAGE -->
-                <img src="img/arpa.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top"
-                     data-bgrepeat="no-repeat">
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Շաքեի ջրվեժ">
-                <!-- MAIN IMAGE -->
-                <img src="img/33.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top"
-                     data-bgrepeat="no-repeat">
-
-            </li>
-        </ul>
-    </div>
-</div><!--full width banner-->
-<!--revolution end-->
-<div class="search-area">
+<div class="breadcrumb-wrap">
     <div class="container">
         <div class="row">
-            <div class="col-sm-5">
-                <div class="input-group">
-                        <form role="form" action="<c:url value="/search"/>">
-                            <input type="text" class="form-control"  name="searchResult" placeholder="Search here ...">
-                            <span class="search-close"><i class="fa fa-times"></i></span>
-
-                        </form>
-                </div>
+            <div class="col-sm-6">
+                <h4>Cities</h4>
             </div>
         </div>
     </div>
-</div>
+</div><!--breadcrumbs-->
+<div class="divide80"></div>
+<div class="container">
+    <div class="row">
+         <div class="col-md-5">
+             <c:forEach items="${allCities}" var="city">
+             <div class="blog-post">
+                <a href="#">
+                    <div class="item-img-wrap">
+                        <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/>"
+                             class="img-responsive" alt="workimg">
+                        <div class="item-img-overlay">
+                            <span></span>
+                        </div>
+                    </div>
+                </a>
+                <h2><a href="#">${city.name}</a></h2>
 
-
-    <div class="divide40"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-
-            </div>
-
-            Search Results For: ${name}
-                <div>
-                <h4>Region</h4>
-                <c:if test="${regionByNameContains!=null}" >
-                <c:forEach items="${regionByNameContains}" var="region">
-                <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>">
-                <p>${region.name}</p>
-                <p>${region.description}</p>
-                </c:forEach>
-                </c:if></div>
-
-                </div>
-
-
-            <div>
-            <h4>City</h4>
-            <c:if test="${citiesByNameContains!=null}" >
-            <c:forEach items="${citiesByNameContains}" var="city">
-            <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/>">
-            <p>${city.name}</p>
-            <p>${city.description}</p>
-            <p>${city.region.name}</p>
+                <p><a href="#" class="btn btn-theme-dark">Read More...</a></p>
+                 <c:if test="${currentUser.type.name().equals('ADMIN')}">
+                     <span>
+                         <a href="<c:url value="/cSinglePage?rId=${city.id}"/>">${city.name}</a> Delete
+                     </span>
+                 </c:if>
+            </div><!--blog post-->
             </c:forEach>
-            </c:if>
-            </div>
-
-
-            <div>
-            <h4>Hotel</h4>
-            <c:if test="${hotelsByNameContains!=null}" >
-            <c:forEach items="${hotelsByNameContains}" var="hotel">
-            <img src="<c:url value="/image?fileName=${hotel.pictures.get(0).picUrl}"/>">
-            <p>Hotel Name:${hotel.name}</p>
-            <p>Hotel description:${hotel.description}</p>
-            <p>Hotel City:${hotel.city.name}</p>
-            </c:forEach>
-            </c:if>
-            </div>
-            <p>${message}</p>
-
-
+        </div><!--col 5-->
+    </div><!--row for blog post-->
+    <div class="row">
+        <div class="col-md-10">
+            <ul class="pager">
+                <li class="previous"><a href="blog-2col.html#">&larr; Previous Page</a></li>
+                <li class="next"><a href="blog-2col.html#">Next Page &rarr;</a></li>
+            </ul><!--pager-->
+        </div>
     </div>
-
+</div><!--blog full main container-->
+<div class="divide60"></div>
 
 <footer id="footer">
     <div class="container">
@@ -311,7 +261,6 @@
 <!--scripts and plugins -->
 <!--must need plugin jquery-->
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate.min.js"></script>
 <!--bootstrap js plugin-->
 <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!--easing plugin for smooth scroll-->
@@ -322,6 +271,8 @@
 <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
 <!--parallax background plugin-->
 <script src="js/jquery.stellar.min.js" type="text/javascript"></script>
+
+
 <!--digit countdown plugin-->
 <script src="js/waypoints.min.js"></script>
 <!--digit countdown plugin-->
@@ -336,12 +287,5 @@
 
 <!--customizable plugin edit according to your needs-->
 <script src="js/custom.js" type="text/javascript"></script>
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="js/revolution-custom.js"></script>
-<!--cube portfolio plugin-->
-<script src="cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
-<script src="js/cube-portfolio.js" type="text/javascript"></script>
-<script src="js/pace.min.js" type="text/javascript"></script>
 </body>
 </html>

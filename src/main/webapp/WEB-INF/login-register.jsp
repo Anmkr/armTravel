@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ArmTravel </title>
-
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- custom css (blue color by default) -->
@@ -127,6 +131,94 @@
     </div>
 </div>
 <div class="divide80"></div>
+
+<footer id="footer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>About us</h3>
+                    <p>
+
+
+
+                    </p>
+                    <ul class="list-inline footer-social">
+                        <li>
+                            <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
+                                <i class="fa fa-pinterest"></i>
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
+                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--footer col-->
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>Contact</h3>
+
+                    <ul class="list-unstyled contact">
+                        <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong></p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
+                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong>  </p></li>
+                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
+                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> </p></li>
+
+                    </ul>
+                </div>
+            </div><!--footer col-->
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>Armenia</h3>
+                    <ul class="list-inline f2-work">
+                        <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
+                    </ul>
+                </div>
+            </div><!--footer col-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="footer-btm">
+                    <span>&copy;2018. </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!--default footer end here-->
 
 <!--scripts and plugins -->
 <!--must need plugin jquery-->
