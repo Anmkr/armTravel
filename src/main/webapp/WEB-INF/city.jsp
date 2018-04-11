@@ -12,6 +12,7 @@
         <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/>" style="width: 50px;height: 50px" alt="#"/>
     </c:if>
 </c:forEach>
+<a href="/deleteCity">Delete City</a>&nbsp;
 <a href="/admin" >Back</a>
 
 

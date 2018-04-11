@@ -90,7 +90,7 @@
                 </li>
                 <!--menu home li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Portfolio</a>
+                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
@@ -103,7 +103,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?rId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -246,123 +246,123 @@
         </div>
     </div>
 </div>
+<footer id="footer">
+    <div class="container">
 
-    <footer id="footer">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>About us</h3>
-                        <p>
-
+        <div class="row">
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>About us</h3>
+                    <p>
 
 
-                        </p>
-                        <ul class="list-inline footer-social">
-                            <li>
-                                <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
-                                    <i class="fa fa-facebook"></i>
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
-                                    <i class="fa fa-twitter"></i>
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
-                                    <i class="fa fa-google-plus"></i>
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
-                                    <i class="fa fa-pinterest"></i>
-                                    <i class="fa fa-pinterest"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!--footer col-->
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>Contact</h3>
 
-                        <ul class="list-unstyled contact">
-                            <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                            <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">չկա</a></p></li>
-                            <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> չկա </p></li>
-                            <li> <p><strong><i class="fa fa-print"></i> Fax</strong>չկա </p></li>
-                            <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> չկա </p></li>
+                    </p>
+                    <ul class="list-inline footer-social">
+                        <li>
+                            <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
+                                <i class="fa fa-pinterest"></i>
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
+                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--footer col-->
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>Contact</h3>
 
-                        </ul>
-                    </div>
-                </div><!--footer col-->
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>Armenia</h3>
-                        <ul class="list-inline f2-work">
-                            <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div><!--footer col-->
-            </div>
+                    <ul class="list-unstyled contact">
+                        <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
+                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> </p></li>
+                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> </p></li>
+                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong>  </p></li>
 
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="footer-btm">
-                        <span>&copy;2018. </span>
-                    </div>
+                    </ul>
+                </div>
+            </div><!--footer col-->
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>Armenia</h3>
+                    <ul class="list-inline f2-work">
+                        <li><a href="/home"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
+                    </ul>
+                </div>
+            </div><!--footer col-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="footer-btm">
+                    <span>&copy;2018.ArmTrail </span>
                 </div>
             </div>
         </div>
-    </footer><!--default footer end here-->
+    </div>
+</footer><!--default footer end here-->
 
-    <!--scripts and plugins -->
-    <!--must need plugin jquery-->
-    <script src="js/jquery.min.js"></script>
-    <!--bootstrap js plugin-->
-    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!--easing plugin for smooth scroll-->
-    <script src="js/jquery.easing.1.3.min.js" type="text/javascript"></script>
-    <!--sticky header-->
-    <script type="text/javascript" src="js/jquery.sticky.js"></script>
-    <!--flex slider plugin-->
-    <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
-    <!--parallax background plugin-->
-    <script src="js/jquery.stellar.min.js" type="text/javascript"></script>
-
-
-    <!--digit countdown plugin-->
-    <script src="js/waypoints.min.js"></script>
-    <!--digit countdown plugin-->
-    <script src="js/jquery.counterup.min.js" type="text/javascript"></script>
-    <!--on scroll animation-->
-    <script src="js/wow.min.js" type="text/javascript"></script>
-    <!--owl carousel slider-->
-    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <!--popup js-->
-    <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+<!--scripts and plugins -->
+<!--must need plugin jquery-->
+<script src="js/jquery.min.js"></script>
+<!--bootstrap js plugin-->
+<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!--easing plugin for smooth scroll-->
+<script src="js/jquery.easing.1.3.min.js" type="text/javascript"></script>
+<!--sticky header-->
+<script type="text/javascript" src="js/jquery.sticky.js"></script>
+<!--flex slider plugin-->
+<script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
+<!--parallax background plugin-->
+<script src="js/jquery.stellar.min.js" type="text/javascript"></script>
 
 
-    <script src="js/custom.js" type="text/javascript"></script>
+<!--digit countdown plugin-->
+<script src="js/waypoints.min.js"></script>
+<!--digit countdown plugin-->
+<script src="js/jquery.counterup.min.js" type="text/javascript"></script>
+<!--on scroll animation-->
+<script src="js/wow.min.js" type="text/javascript"></script>
+<!--owl carousel slider-->
+<script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+<!--popup js-->
+<script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+
+
+<!--customizable plugin edit according to your needs-->
+<script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>
 <!--//Script//-->

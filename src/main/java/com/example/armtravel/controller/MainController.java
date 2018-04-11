@@ -97,7 +97,6 @@ public class MainController {
         return "login-register";
     }
 
-
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@Valid @ModelAttribute("user") User user, BindingResult result) {
         if (userRepository.findOneByEmail(user.getEmail()) != null) {
@@ -182,12 +181,30 @@ public class MainController {
         return "allRegions";
     }
 
+    @GetMapping("/allCityPage")
+    public String allcpage(ModelMap map) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() != null && authentication.getPrincipal() instanceof CurrentUser) {
+            CurrentUser principal = (CurrentUser) authentication.getPrincipal();
+            map.addAttribute("currentUser", principal.getUser());
+        }
+        map.addAttribute("allCities", cityRepository.findAll());
+        return "allCities";
+    }
+
     @GetMapping("/deleteR")
     public String deleteRegion(@RequestParam("regionId") int id) {
         regionRepository.delete(id);
         return "redirect:/allrpage";
     }
 
+    @GetMapping("/deleteC")
+    public String deleteCity(@RequestParam("cityId") int id) {
+        cityRepository.delete(id);
+        return "redirect:/allCityPage";
+    }
+
+    // inchi hamar erku hat cuyc kuda? meky ajn e myusy dzxy , vor jnjum em div-ery xarnvum en
     @GetMapping("/search")
     public String search(ModelMap map, @RequestParam("searchResult") String name, @AuthenticationPrincipal UserDetails userDetails) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -198,26 +215,32 @@ public class MainController {
         List<City> citiesByNameContains = cityRepository.findCitiesByNameContains(name);
         List<Region> regionByNameContains = regionRepository.findRegionByNameContains(name);
         List<Hotel> hotelsByNameContains = hotelRepository.findHotelsByNameContains(name);
-        if (citiesByNameContains.size() > 0) {
-            map.addAttribute("citiesByNameContains", citiesByNameContains);
+        if (citiesByNameContains != null && regionByNameContains != null && hotelsByNameContains != null) {
+            if (citiesByNameContains.size() > 0) {
+                map.addAttribute("citiesByNameContains", citiesByNameContains);
+            }
+            if (regionByNameContains.size() > 0) {
+                map.addAttribute("regionByNameContains", regionByNameContains);
+            }
+            if (hotelsByNameContains.size() > 0) {
+                map.addAttribute("hotelsByNameContains", hotelsByNameContains);
+            }
         } else {
-            String value = "No Search Results For " + name;
-            map.addAttribute("message", value);
-        }
-        if (regionByNameContains.size() > 0) {
-            map.addAttribute("regionByNameContains", regionByNameContains);
-        } else {
-            String value = "No Search Results For " + name;
-            map.addAttribute("message", value);
-        }
-        if (hotelsByNameContains.size() > 0) {
-            map.addAttribute("hotelsByNameContains", hotelsByNameContains);
-        } else {
-            String value = "No Search Results For " + name;
-            map.addAttribute("message", value);
+            String s = "NO Results For - " + name;
+            map.addAttribute("message", s);
         }
         map.addAttribute("name", name);
         return "searchResults";
     }
 
 }
+
+
+
+
+
+
+
+
+
+

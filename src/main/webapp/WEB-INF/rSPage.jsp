@@ -1,16 +1,4 @@
 
-    <%--<title>RegionSinglePage</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--${region.name}<br>--%>
-<%--${region.description}<br>--%>
-<%--<c:if test="${region.pictures!=null}">--%>
-
-    <%--<img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="50px" height="50px"/>--%>
-<%--</c:if>--%>
-<%--</body>--%>
-<%--</html>--%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -103,7 +91,7 @@
                 </li>
                 <!--menu home li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Portfolio</a>
+                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
@@ -116,7 +104,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?rId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -158,11 +146,9 @@
                         <c:if test="${region.pictures!=null}">
                         <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="1000px"height="500px"/>
                         </c:if>
-                        <%--<img src="assets/images/gl-1.jpg" alt="">--%>
                     </div>
                     <div class="post-content">
                         <div class="entry-header text-center text-uppercase">
-                            <%--<a href="single-portfolio.html#" class="post-cat"> craft</a>--%>
                             <h2 class="entry-title">${region.name}</h2>
                         </div>
                         <div class="entry-content">
@@ -238,10 +224,10 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">չկա</a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> չկա </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong>չկա </p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> չկա </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
+                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> </p></li>
+                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> </p></li>
+                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong>  </p></li>
 
                     </ul>
                 </div>
@@ -250,15 +236,15 @@
                 <div class="footer-col">
                     <h3>Armenia</h3>
                     <ul class="list-inline f2-work">
-                        <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
                     </ul>
                 </div>
             </div><!--footer col-->
@@ -267,7 +253,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-btm">
-                    <span>&copy;2018. </span>
+                    <span>&copy;2018.ArmTrail </span>
                 </div>
             </div>
         </div>
@@ -300,10 +286,7 @@
 <!--popup js-->
 <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
 
-<%--<script src="assets/js/jquery-1.12.4.min.js"></script>--%>
-<%--<script src="assets/js/bootstrap.min.js"></script>--%>
-<%--<script src="assets/js/slick.min.js"></script>--%>
-<%--<script src="assets/js/main.js"></script>--%>
+
 <!--customizable plugin edit according to your needs-->
 <script src="js/custom.js" type="text/javascript"></script>
 </body>

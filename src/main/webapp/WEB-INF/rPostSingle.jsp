@@ -23,5 +23,5 @@
     <input type="hidden" value="${rPost.id} " name="rPostId"/>
     <input type="submit"  value="Add Comment">
 </spring:form>
-<a href="/admin" >Back</a>
+<a href="/userPage" >Back</a>
 </html>

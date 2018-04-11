@@ -45,12 +45,11 @@ public class AdminController {
         map.addAttribute("region", new Region());
         map.addAttribute("city", new City());
         map.addAttribute("hotel", new Hotel());
-        map.addAttribute("allCitys",cityRepository.findAll());
+        map.addAttribute("allCities",cityRepository.findAll());
         map.addAttribute("allRegions",regionRepository.findAll());
         map.addAttribute("allHotels",hotelRepository.findAll());
         return "admin";
     }
-
     @PostMapping(value = "/addRegion")
     public String addRegion(@Valid @ModelAttribute("region") Region region, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
         for (MultipartFile file : multipartFile) {
@@ -65,8 +64,6 @@ public class AdminController {
         regionRepository.save(region);
         return "redirect:/allRegions";
     }
-
-
     @PostMapping(value = "/addCity")
     public String addCity(@Valid @ModelAttribute("city") City city, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
         for (MultipartFile file : multipartFile) {
@@ -81,7 +78,6 @@ public class AdminController {
         cityRepository.save(city);
         return "redirect:/allCities";
     }
-
     @PostMapping(value = "/addHotel")
     public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel, @RequestParam("hotelRating") int rating, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
         for (MultipartFile file : multipartFile) {
@@ -97,7 +93,6 @@ public class AdminController {
         hotelRepository.save(hotel);
         return "redirect:/allHotels";
     }
-
     @GetMapping("/allRegions")
     public String regions(ModelMap map) {
         map.addAttribute("allRegions", regionRepository.findAll());
@@ -123,14 +118,11 @@ public class AdminController {
         map.addAttribute("users", user);
         return "deleteUser";
     }
-
     @GetMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") int id) {
         userRepository.delete(userRepository.findOne(id));
         return "redirect:/delete";
     }
-
-
     @GetMapping("/deleteRegion")
     public String dR(ModelMap map) {
         List<Region> allRegions = regionRepository.findAll();
@@ -146,8 +138,8 @@ public class AdminController {
 
     @GetMapping("/deleteCity")
     public String deletC(ModelMap map) {
-        List<City> allCitys = cityRepository.findAll();
-        map.addAttribute("allCities", allCitys);
+        List<City> allCities = cityRepository.findAll();
+        map.addAttribute("allCities", allCities);
         return "deleteCity";
     }
 
@@ -170,8 +162,6 @@ public class AdminController {
         hotelRepository.delete(id);
         return "redirect:/deleteHotel";
     }
-
-
     @GetMapping("/deleteRegionPost")
     public String dRegionPost(ModelMap map) {
         List<RegionPost> allRegionPosts = regionPostRepository.findAll();
@@ -223,4 +213,6 @@ public class AdminController {
         regionPostCommentRepository.delete(id);
         return "redirect:/deleteRegionPostComment";
     }
+
+
 }

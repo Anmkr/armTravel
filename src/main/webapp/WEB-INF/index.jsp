@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> ArmTravel</title>
+    <title> ArmTrail</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -89,7 +89,7 @@
                                            </li>
                 <!--menu home li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Portfolio</a>
+                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
@@ -102,7 +102,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?rId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -374,265 +374,119 @@
             </div>
         </div>
     </div><!--.cube masonry-->
-<%--</div>--%>
 <div class="divide50"></div>
 <div class="text-center">
-    <a href="masonry-portfolio-4.html" class="btn btn-theme-dark btn-lg">View All Work</a>
+    <a href="masonry-portfolio-4.html" class="btn btn-theme-dark btn-lg">View All Post</a>
 </div>
-<div class="divide50"></div>
-<div class="wide-img-showcase">
-
-    <div class="row margin-0 wide-img-showcase-row">
-        <div class="col-sm-6 no-padding  img-2 ">
-            <div class="no-padding-inner ">
-                <div>&nbsp;</div>
-            </div>
+<div class="col-md-6">
+    <article class="single-blog post-grid">
+        <div class="post-thumb">
+            <a href="single-page.html"><img src="img/13.jpg" alt="" width="200"height="200"></a>
         </div>
-        <div class="col-sm-6 col-sm-offset-6 no-padding gray">
-            <div class="no-padding-inner gray">
-                <h3 class="wow animated fadeInDownfadeInRight">Core features of <span class="colored-text">assan</span></h3>
-                <div class="services-box margin30 wow animated fadeInRight">
-                    <div class="services-box-icon">
-                        <i class="fa fa-tablet"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Fully Responsive</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--service box-->
-                <div class="services-box margin30 wow animated fadeInRight">
-                    <div class="services-box-icon">
-                        <i class="fa fa-twitter"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>bootstrap 3</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--service box-->
-
-                <div class="services-box margin30 wow animated fadeInRight">
-                    <div class="services-box-icon">
-                        <i class="fa fa-code"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>250+ valid HTML5 Pages and much more...</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                    <div class="divide30"></div>
-                    <p><a href="index.html#" class="btn btn-theme-dark btn-lg">Purchase Now</a></p>
-                </div><!--service box-->
+        <div class="post-content">
+            <div class="entry-header text-center text-uppercase">
+                <a href="default-1st-large-then-grid.html" class="post-cat">Region &nbsp;Post</a>
+                <h2><a href="/userPage">Region </a></h2>
+            </div>
+            <div class="entry-content">
+                <p>Հայաստանի Հանրապետության տարածքը բաժանվում է տասը մարզի:
+                </p>
+            </div>
+            <div class="post-meta text-center">
 
             </div>
         </div>
-    </div>
-</div><!--wide image showcase end-->
-<section class="fun-fact-wrap fun-facts-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 margin20 facts-in">
-                <h3><span class="counter">3800</span> +</h3>
-                <h4>Downloads</h4>
-            </div><!--facts in-->
-            <div class="col-md-3 margin20 facts-in">
-                <h3><span class="counter">8500</span></h3>
-                <h4>Happy Customers</h4>
-            </div><!--facts in-->
-            <div class="col-md-3 margin20 facts-in">
-                <h3><span class="counter">250</span> +</h3>
-                <h4>Valid layouts </h4>
-            </div><!--facts in-->
-            <div class="col-md-3 margin20 facts-in">
-                <h3><span class="counter">11000</span></h3>
-                <h4>Cups of tea</h4>
-            </div><!--facts in-->
+    </article>
+</div>
+<div class="col-md-6">
+    <article class="single-blog post-grid">
+        <div class="post-thumb">
+            <a href="single-page.html"><img src="img/15.jpg" alt="" width="200"height="200"></a>
         </div>
-    </div>
-</section><!--fun facts-->
-<div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="center-heading">
-                    <h2><strong>What</strong> Client’s Say</h2>
-                    <p>2600+ Worldwide customers  use Assan template.</p>
-                    <span class="center-line"></span>
-
-                </div>
+        <div class="post-content">
+            <div class="entry-header text-center text-uppercase">
+                <a href="default-1st-large-then-grid.html" class="post-cat">City&nbsp;Post</a>
+                <h2><a href="single-page.html"> City</a></h2>
             </div>
-        </div><!--center heading end-->
-
-        <div class="row">
-
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="testi-slide">
-                    <ul class="slides">
-                        <li>
-                            <img src="img/customer-1.jpg" alt="">
-                            <p>
-                                <i class="ion-quote"></i>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-                            </p>
-                            <h4 class="test-author">
-                                Rick man - <em>rock inc</em>
-                            </h4>
-                        </li><!--testi item-->
-                        <li>
-                            <img src="img/customer-2.jpg" alt="">
-                            <p>
-                                <i class="ion-quote"></i>
-                                Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years </p>
-                            <h4 class="test-author">
-                                Jellia - <em>Founder of tinka inc</em>
-                            </h4>
-                        </li><!--testi item-->
-                        <li>
-                            <img src="img/customer-3.jpg" alt="">
-                            <p>
-                                <i class="ion-quote"></i>
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.</p>
-                            <h4 class="test-author">
-                                Smith - <em>Ceo, company inc.</em>
-                            </h4>
-                        </li><!--testi item-->
-                    </ul>
-                </div><!--flex slider testimonials end here-->
+            <div class="entry-content">
+                <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                    gubergren, seoa takimata
+                    sanctus Lorem ipsum dolor sit amet, ipsum dolor sit amet.
+                </p>
             </div>
-        </div><!--testi slider row end-->
+            <div class="post-meta text-center">
 
-    </div>
-</div><!--testimonials v-2 end-->
-<div class="blue-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 margin30">
-                <div class="services-box wow animated fadeInDown">
-                    <div class="services-box-icon">
-                        <i class="pe-7s-diamond"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>250+ valid layouts</h4>
-                        <p>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.</div>
-                </div><!--service box-->
-            </div>
-            <div class="col-sm-6 ">
-                <div class="services-box wow animated fadeInUp">
-                    <div class="services-box-icon">
-                        <i class="pe-7s-download"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Free Support & Updates</h4>
-                        <p>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor. </div>
-                </div><!--service box-->
             </div>
         </div>
-    </div>
-</div><!--full wide 2 columns content end-->
-<div class="divide70"></div>
-<div class="assan-features">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="center-heading">
-                    <h2>Awesome <strong>features</strong></h2>
-                    <span class="center-line"></span>
-                </div>
+    </article>
+</div>
+<div class="col-md-6">
+    <article class="single-blog post-grid">
+        <div class="post-thumb">
+            <a href="single-page.html"><img src="img/work-3.jpg" alt=""width="200"height="200"></a>
+        </div>
+        <div class="post-content">
+            <div class="entry-header text-center text-uppercase">
+                <a href="default-1st-large-then-grid.html" class="post-cat">Hotel &nbsp; Post</a>
+                <h2><a href="single-page.html">Hotel</a></h2>
+            </div>
+            <div class="entry-content">
+                <p>Stet clita kasd gubergren, dolor sit amet. seoa takimata sanctus Lorem ipsum
+                    dolor sit amet,
+                    ipsum dolor sit amet. no sea takimata sanctus est Lorem ipsum.
+                </p>
+            </div>
+            <div class="post-meta text-center">
+
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="services-box wow animated fadeIn" data-wow-duration="700ms" data-wow-delay="100ms">
-                    <div class="services-box-icon">
-                        <i class="fa fa-image"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Sliders</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--services box-->
-            </div><!--services col-->
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="services-box wow animated fadeIn" data-wow-duration="700ms" data-wow-delay="200ms">
-                    <div class="services-box-icon">
-                        <i class="fa fa-envelope"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Advanced Forms</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--services box-->
-            </div><!--services col-->
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="services-box wow animated fadeIn" data-wow-duration="700ms" data-wow-delay="300ms">
-                    <div class="services-box-icon">
-                        <i class="fa fa-users"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Customer Support</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--services box-->
-            </div><!--services col-->
+    </article>
+</div>
+<div class="col-md-6">
+    <article class="single-blog post-grid">
+        <div class="post-thumb">
+            <a href="single-page.html"><img src="img/logo.jpg" alt="" width="200"height="200"></a>
+        </div>
+        <div class="post-content">
+            <div class="entry-header text-center text-uppercase">
+                <a href="default-1st-large-then-grid.html" class="post-cat">Food &nbsp; Post </a>
+            </div>
+            <div class="entry-content">
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                    tempor
+                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                </p>
+            </div>
+            <div class="post-meta text-center">
 
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="services-box wow animated fadeIn" data-wow-duration="700ms" data-wow-delay="400ms">
-                    <div class="services-box-icon">
-                        <i class="fa fa-crop"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Pixel perfect design</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--services box-->
-            </div><!--services col-->
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="services-box wow animated fadeIn" data-wow-duration="700ms" data-wow-delay="500ms">
-                    <div class="services-box-icon">
-                        <i class="fa fa-twitter"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>BOOTSTRAP 3.3.6</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
-                        </p>
-                    </div>
-                </div><!--services box-->
-            </div><!--services col-->
-            <div class="col-md-4 col-sm-6 margin20">
-                <div class="services-box wow animated fadeIn" data-wow-duration="700ms" data-wow-delay="600ms">
-                    <div class="services-box-icon">
-                        <i class="fa fa-flag"></i>
-                    </div><!--services icon-->
-                    <div class="services-box-info">
-                        <h4>Font Awesome icons</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing metus. elit. Quisque rutrum pellentesque imperdiet.
+            </div>
+        </div>
+    </article>
+</div>
 
-                        </p>
 
-                    </div>
-                </div><!--services box-->
-            </div><!--services col-->
-        </div><!--services row-->
-    </div>
-</div><!--assan features-->
-<div class="divide40"></div>
-
+<%--<section class="fun-fact-wrap fun-facts-bg">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-md-3 margin20 facts-in">--%>
+                <%--<h3><span class="counter">3800</span> +</h3>--%>
+                <%--<h4>Downloads</h4>--%>
+            <%--</div><!--facts in-->--%>
+            <%--<div class="col-md-3 margin20 facts-in">--%>
+                <%--<h3><span class="counter">8500</span></h3>--%>
+                <%--<h4>Happy Customers</h4>--%>
+            <%--</div><!--facts in-->--%>
+            <%--<div class="col-md-3 margin20 facts-in">--%>
+                <%--<h3><span class="counter">250</span> +</h3>--%>
+                <%--<h4>Valid layouts </h4>--%>
+            <%--</div><!--facts in-->--%>
+            <%--<div class="col-md-3 margin20 facts-in">--%>
+                <%--<h3><span class="counter">11000</span></h3>--%>
+                <%--<h4>Cups of tea</h4>--%>
+            <%--</div><!--facts in-->--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
 <footer id="footer">
     <div class="container">
 
@@ -685,10 +539,10 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">չկա</a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> չկա </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong>չկա </p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> չկա </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
+                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong>  </p></li>
+                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
+                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> </p></li>
 
                     </ul>
                 </div>
@@ -697,15 +551,15 @@
                 <div class="footer-col">
                     <h3>Armenia</h3>
                     <ul class="list-inline f2-work">
-                        <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
                     </ul>
                 </div>
             </div><!--footer col-->
@@ -714,7 +568,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-btm">
-                    <span>&copy;2018. </span>
+                    <span>&copy;2018. ArmTrail</span>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
         <span> ${cityPost.city.name}</span>
         <a href="/cityPostSinglePage?cityPostId=${cityPost.id}">View More</a>
     </c:forEach>
-    <a href="/user" >Back</a>
+    <a href="/userPage" >Back</a>
 </div>
 
 </body>

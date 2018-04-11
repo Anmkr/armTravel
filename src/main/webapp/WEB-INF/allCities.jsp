@@ -90,7 +90,7 @@
                 </li>
                 <!--menu home li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Portfolio</a>
+                    <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
@@ -103,7 +103,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?rId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -148,11 +148,11 @@
                     </div>
                 </a>
                 <h2><a href="#">${city.name}</a></h2>
-
-                <p><a href="#" class="btn btn-theme-dark">Read More...</a></p>
+                <p><a href="<c:url value="/cSinglePage?cId=${city.id}"/>"> Read More...</a></p>
                  <c:if test="${currentUser.type.name().equals('ADMIN')}">
                      <span>
-                         <a href="<c:url value="/cSinglePage?rId=${city.id}"/>">${city.name}</a> Delete
+                         <a href="<c:url value="/cSinglePage?cId=${city.id}"/>">${city.name}</a> Delete
+
                      </span>
                  </c:if>
             </div><!--blog post-->
@@ -162,8 +162,8 @@
     <div class="row">
         <div class="col-md-10">
             <ul class="pager">
-                <li class="previous"><a href="blog-2col.html#">&larr; Previous Page</a></li>
-                <li class="next"><a href="blog-2col.html#">Next Page &rarr;</a></li>
+                <li class="previous"><a href="/home">&larr; Previous Page</a></li>
+                <li class="next"><a href="/home">Next Page &rarr;</a></li>
             </ul><!--pager-->
         </div>
     </div>
@@ -222,10 +222,10 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">չկա</a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> չկա </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong>չկա </p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> չկա </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
+                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> </p></li>
+                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> </p></li>
+                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong>  </p></li>
 
                     </ul>
                 </div>
@@ -234,15 +234,15 @@
                 <div class="footer-col">
                     <h3>Armenia</h3>
                     <ul class="list-inline f2-work">
-                        <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/17.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/33.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/61.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/51.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/60.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/59.jpg" class="img-responsive" alt=""></a></li>
                     </ul>
                 </div>
             </div><!--footer col-->
@@ -251,7 +251,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-btm">
-                    <span>&copy;2018. </span>
+                    <span>&copy;2018.ArmTrail </span>
                 </div>
             </div>
         </div>

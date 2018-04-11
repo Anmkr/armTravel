@@ -168,7 +168,7 @@
                             <input type="file" name="picture" accept="image/*" multiple/><br><br>
                             <input type="submit" name="Add"/><br>
                             </spring:form>
-                            <%--<a href="/deleteCity">Delete City</a>&nbsp;&nbsp;--%>
+                            <a href="/deleteCity">Delete City</a>&nbsp;&nbsp;
                             <a href="/deleteCityPost">Delete CityPost</a>
 
                         </div>
@@ -243,9 +243,7 @@
                     </div>
                 </div>
                 <div>
-                    <%--<a href="/delete">Delete User</a>--%>
-                    <%--<a href="/deleteRegion">Delete Region</a>--%>
-                    <%--<a href="/deleteCity">Delete City</a>--%>
+
                     <%--<a href="/deleteHotel">Delete Hotel</a>--%>
                     <%--<a href="/deleteCityPost">Delete CityPost</a>--%>
                     <%--<a href="deleteRegionPost">Delete RegionPost</a>--%>
@@ -323,7 +321,7 @@
                     <h3>Contact</h3>
 
                     <ul class="list-unstyled contact">
-                        <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong></p></li>
+                        <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong>Գյումրի</p></li>
                         <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p>
                         </li>
                         <li><p><strong><i class="fa fa-phone"></i> Phone:</strong></p></li>
@@ -337,20 +335,20 @@
                 <div class="footer-col">
                     <h3>Armenia</h3>
                     <ul class="list-inline f2-work">
-                        <li><a href="portfolio-single.html"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
-                        <li><a href="portfolio-single.html"><img src="img/17.jpg" class="img-responsive" alt=""></a>
+                        <li><a href="/home"><img src="img/1.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/2.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/3.jpg" class="img-responsive" alt=""></a></li>
+                        <li><a href="/home"><img src="img/17.jpg" class="img-responsive" alt=""></a>
                         </li>
-                        <li><a href="portfolio-single.html"><img src="img/33.jpg" class="img-responsive" alt=""></a>
+                        <li><a href="/home"><img src="img/33.jpg" class="img-responsive" alt=""></a>
                         </li>
-                        <li><a href="portfolio-single.html"><img src="img/61.jpg" class="img-responsive" alt=""></a>
+                        <li><a href="/home"><img src="img/61.jpg" class="img-responsive" alt=""></a>
                         </li>
-                        <li><a href="portfolio-single.html"><img src="img/51.jpg" class="img-responsive" alt=""></a>
+                        <li><a href="/home"><img src="img/51.jpg" class="img-responsive" alt=""></a>
                         </li>
-                        <li><a href="portfolio-single.html"><img src="img/60.jpg" class="img-responsive" alt=""></a>
+                        <li><a href="/home"><img src="img/60.jpg" class="img-responsive" alt=""></a>
                         </li>
-                        <li><a href="portfolio-single.html"><img src="img/59.jpg" class="img-responsive" alt=""></a>
+                        <li><a href="/home"><img src="img/59.jpg" class="img-responsive" alt=""></a>
                         </li>
                     </ul>
                 </div>
@@ -360,7 +358,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-btm">
-                    <span>&copy;2018. </span>
+                    <span>&copy;2018.armTrail </span>
                 </div>
             </div>
         </div>
