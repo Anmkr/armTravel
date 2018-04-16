@@ -94,25 +94,30 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
+                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a></li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a></li>
                         </c:forEach>
                     </ul>
                 </li>
                 <!--menu pages li end here-->
-
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/allrpage"/>">All Regions</a> </li>
+                        <li><a href="<c:url value="/allrpage"/>">All Regions</a></li>
                         <c:forEach items="${allRegions}" var="region">
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>

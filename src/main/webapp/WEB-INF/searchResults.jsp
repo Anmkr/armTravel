@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -54,7 +53,8 @@
                 </ul>
                 <div class="search">
                     <form role="form" action="<c:url value="/search"/>">
-                        <input type="text" class="form-control" autocomplete="off" name="searchResult" placeholder="Write something and press enter">
+                        <input type="text" class="form-control" autocomplete="off" name="searchResult"
+                               placeholder="Write something and press enter">
                         <span class="search-close"><i class="fa fa-times"></i></span>
                     </form>
                 </div>
@@ -74,10 +74,14 @@
             </button>
 
             <ul class="top-social-icons list-inline pull-right">
-                <li><a href="http://www.facebook.com"rel="external nofollow"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://www.twitter.com"rel="external nofollow"target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://www.instagram.com"rel="external nofollow"target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="http://www.pinterest.com"rel="external nofollow"target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="http://www.facebook.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.instagram.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-instagram"></i></a></li>
+                <li><a href="http://www.pinterest.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-pinterest"></i></a></li>
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
@@ -94,8 +98,13 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
 
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
@@ -106,8 +115,6 @@
                         <c:forEach items="${allCities}" var="city">
                             <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
                         </c:forEach>
-
-
                     </ul>
                 </li>
                 <!--menu pages li end here-->
@@ -157,11 +164,11 @@
         <div class="row">
             <div class="col-sm-5">
                 <div class="input-group">
-                        <form role="form" action="<c:url value="/search"/>">
-                            <input type="text" class="form-control"  name="searchResult" placeholder="Search here ...">
-                            <span class="search-close"><i class="fa fa-times"></i></span>
+                    <form role="form" action="<c:url value="/search"/>">
+                        <input type="text" class="form-control" name="searchResult" placeholder="Search here ...">
+                        <span class="search-close"><i class="fa fa-times"></i></span>
 
-                        </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -169,56 +176,53 @@
 </div>
 
 
-    <div class="divide40"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
+<div class="divide40"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
 
-            </div>
+        </div>
 
-            Search Results For: ${name}
-                <div>
-                <h4>Region</h4>
-                <c:if test="${regionByNameContains!=null}" >
+        <span> Search Results For: ${name}</span>
+        <c:if test="${message!=null}">
+            <span>${message}</span>
+        </c:if>
+        <div>
+            <h4>Region</h4>
+            <c:if test="${regionByNameContains!=null}">
                 <c:forEach items="${regionByNameContains}" var="region">
-                <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>">
-                <p>${region.name}</p>
-                <p>${region.description}</p>
+                    <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>">
+                    <p>${region.name}</p>
+                    <p>${region.description}</p>
                 </c:forEach>
-                </c:if></div>
-
-                </div>
-
-
-            <div>
-            <h4>City</h4>
-            <c:if test="${citiesByNameContains!=null}" >
-            <c:forEach items="${citiesByNameContains}" var="city">
-            <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/>">
-            <p>${city.name}</p>
-            <p>${city.description}</p>
-            <p>${city.region.name}</p>
-            </c:forEach>
-            </c:if>
-            </div>
-
-
-            <div>
-            <h4>Hotel</h4>
-            <c:if test="${hotelsByNameContains!=null}" >
-            <c:forEach items="${hotelsByNameContains}" var="hotel">
-            <img src="<c:url value="/image?fileName=${hotel.pictures.get(0).picUrl}"/>">
-            <p>Hotel Name:${hotel.name}</p>
-            <p>Hotel description:${hotel.description}</p>
-            <p>Hotel City:${hotel.city.name}</p>
-            </c:forEach>
-            </c:if>
-            </div>
-            <p>${message}</p>
-
+            </c:if></div>
 
     </div>
 
+    <div>
+        <h4>City</h4>
+        <c:if test="${citiesByNameContains!=null}">
+            <c:forEach items="${citiesByNameContains}" var="city">
+                <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/>">
+                <p>${city.name}</p>
+                <p>${city.description}</p>
+                <p>${city.region.name}</p>
+            </c:forEach>
+        </c:if>
+    </div>
+
+    <div>
+        <h4>Hotel</h4>
+        <c:if test="${hotelsByNameContains!=null}">
+            <c:forEach items="${hotelsByNameContains}" var="hotel">
+                <img src="<c:url value="/image?fileName=${hotel.pictures.get(0).picUrl}"/>">
+                <p>Hotel Name:${hotel.name}</p>
+                <p>Hotel description:${hotel.description}</p>
+                <p>Hotel City:${hotel.city.name}</p>
+            </c:forEach>
+        </c:if>
+    </div>
+</div>
 
 <footer id="footer">
     <div class="container">
@@ -230,35 +234,39 @@
                     <p>
 
 
-
                     </p>
                     <ul class="list-inline footer-social">
                         <li>
-                            <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
+                            <a href="http://www.facebook.com"
+                               class="social-icon si-dark si-gray-round si-colored-facebook">
                                 <i class="fa fa-facebook"></i>
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
+                            <a href="http://www.twitter.com"
+                               class="social-icon si-dark si-gray-round si-colored-twitter">
                                 <i class="fa fa-twitter"></i>
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
+                            <a href="http://www.google-plus.com"
+                               class="social-icon si-dark si-gray-round si-colored-google-plus">
                                 <i class="fa fa-google-plus"></i>
                                 <i class="fa fa-google-plus"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-pinterest">
                                 <i class="fa fa-pinterest"></i>
                                 <i class="fa fa-pinterest"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-linkedin">
                                 <i class="fa fa-linkedin"></i>
                                 <i class="fa fa-linkedin"></i>
                             </a>
@@ -272,10 +280,11 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong>  </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p>
+                        </li>
+                        <li><p><strong><i class="fa fa-phone"></i> Phone:</strong></p></li>
+                        <li><p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
+                        <li><p><strong><i class="fa fa-skype"></i> Skype</strong></p></li>
 
                     </ul>
                 </div>

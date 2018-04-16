@@ -17,7 +17,5 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
         if (exception.getClass().isAssignableFrom(DisabledException.class)) {
             response.sendRedirect("/verifyError");
         }
+        }
     }
-}
-
-

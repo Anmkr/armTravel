@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -7,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> RegionSinglePage</title>
+    <title> allRegionPosts</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -95,25 +94,28 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Post </a>
-                </li>
-                <!--menu blog li end here-->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                            <li><a href="/rPSinglePage?rPostId=${regionPost.id}">${regionPost.region.name}</a> </li>
+                        </c:forEach>
+                    </ul>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
+                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a></li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a></li>
                         </c:forEach>
                     </ul>
                 </li>
                 <!--menu pages li end here-->
-
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/allrpage"/>">All Regions</a> </li>
+                        <li><a href="<c:url value="/allrpage"/>">All Regions</a></li>
                         <c:forEach items="${allRegions}" var="region">
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>
@@ -123,55 +125,59 @@
             </ul>
         </div>
     </div><!--/.nav-collapse -->
-</div>
+</div><!--container-->
 <div class="breadcrumb-wrap">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>Regions</h4>
+                <h4>Posts</h4>
             </div>
         </div>
     </div>
-</div><!--container-->
-    <div class="kotha-logo text-center">
-        <h1></h1>
-    </div>
-</header>
-<div class="kotha-default-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <article class="single-blog contact-us">
-                    <div class="post-thumb">
-                        <c:if test="${region.pictures!=null}">
-                        <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="1000px"height="500px"/>
-                        </c:if>
+</div><!--breadcrumbs-->
+
+<div class="divide80"></div>
+<div class="container">
+    <div class="row">
+<c:forEach items="${allregionPosts}" var="regionPost">
+        <div class="col-md-5">
+            <div class="blog-post">
+                <a href="blog-2col.html#">
+                    <div class="item-img-wrap">
+                        <img src="<c:url value="/image?fileName=${regionPost.picture}"/> "alt="workimg">
+                        <div class="item-img-overlay">
+                            <c:if test="${region.pictures!=null}">
+                                <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="50px" height="50px"/>
+                            </c:if>
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="post-content">
-                        <div class="entry-header text-center text-uppercase">
-                            <h2 class="entry-title">${region.name}</h2>
-                        </div>
-                        <div class="entry-content">
-
-                                <p>${region.description}</p>
-
-                            <br>
-
-                            <br>
-                            <br>
-
-
-                        </div>
-
-
-                        </div>
-
-                </article>
+                </a><!--work link-->
+                <ul class="list-inline post-detail">
+                    <li> <span>${regionPost.title}</span></li>
+                    <li><span> ${regionPost.region.name}</span></li>
+                    <%--<li><i class="fa fa-tag"></i> <a href="#"></a></li>--%>
+                </ul>
+                <h2><span>${regionPost.title}</span></h2>
+                <p>
+                    <span>${regionPost.description}</span>
+                </p>
+                <p> <a href="<c:url value="/rPSinglePage?rPostId=${regionPost.id}"/>">Read More...</a></p>
             </div>
 
+    </div>
+    </c:forEach>
+    </div><!--row for blog post-->
+    <div class="row">
+        <div class="col-md-10">
+            <ul class="pager">
+                <li class="previous"><a href="/home">&larr; Previous Page</a></li>
+                <li class="next"><a href="/home">Next Page &rarr;</a></li>
+            </ul><!--pager-->
         </div>
     </div>
-</div>
+</div><!--blog full main container-->
+<div class="divide60"></div>
 <footer id="footer">
     <div class="container">
 
@@ -291,3 +297,4 @@
 <script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>
+

@@ -54,7 +54,8 @@
                 </ul>
                 <div class="search">
                     <form role="form" action="<c:url value="/search"/>">
-                        <input type="text" class="form-control" autocomplete="off" name="searchResult" placeholder="Write something and press enter">
+                        <input type="text" class="form-control" autocomplete="off" name="searchResult"
+                               placeholder="Write something and press enter">
                         <span class="search-close"><i class="fa fa-times"></i></span>
                     </form>
                 </div>
@@ -74,10 +75,14 @@
             </button>
 
             <ul class="top-social-icons list-inline pull-right">
-                <li><a href="http://www.facebook.com"rel="external nofollow"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://www.twitter.com"rel="external nofollow"target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://www.instagram.com"rel="external nofollow"target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="http://www.pinterest.com"rel="external nofollow"target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="http://www.facebook.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.instagram.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-instagram"></i></a></li>
+                <li><a href="http://www.pinterest.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-pinterest"></i></a></li>
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
@@ -94,7 +99,15 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allrPpage"/>">All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                            <%--<li><a href="/rPSinglePage?rPostId=${regionPost.id}">${regionPost.region.name}</a> </li>--%>
+
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
@@ -136,112 +149,36 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
-                    <c:forEach items="${allregions}" var="region">
-                <article class="single-blog">
-                    <div class="entry-header text-center text-uppercase">
-                            <h2><span>${region.name}</span></h2>
-                    </div>
-                    <div class="post-thumb">
-                        <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/> " style="width: 500px;height: 300px;">
-                    </div>
-                    <div class="post-content">
+                <c:forEach items="${allregions}" var="region">
+                    <article class="single-blog">
                         <div class="entry-header text-center text-uppercase">
+                            <h2><span>${region.name}</span></h2>
                         </div>
-                        <div class="entry-content">
-                            <p> <span>${region.description}</span>
+                        <div class="post-thumb">
+                            <c:if test="${region.pictures!=null}">
+                                <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/> "
+                                     style="width: 500px;height: 300px;">
+                            </c:if>
+                        </div>
+                        <div class="post-content">
+                            <div class="entry-header text-center text-uppercase">
+                            </div>
+                            <div class="entry-content">
+                                <p><span>${region.description}</span>
                                     <c:if test="${currentUser.type.name().equals('ADMIN')}">
-                                    <a href="<c:url value="/deleteR?regionId=${region.id}"/>">Delete</a>
-                                    <a href="/admin" >Back</a>
+                                        <a href="<c:url value="/deleteR?regionId=${region.id}"/>">Delete</a>
+                                        <a href="/admin">Back</a>
                                     </c:if>
-                                   </p>
+                                </p>
+                            </div>
+                            <div class="continue-reading text-center text-uppercase">
+                                <a href="<c:url value="/rSinglePage?rId=${region.id}"/>">Continue Reading</a>
+                            </div>
+
                         </div>
-                        <div class="continue-reading text-center text-uppercase">
-                            <a href="<c:url value="/rSinglePage?rId=${region.id}"/>">Continue Reading</a>
-                        </div>
+                    </article>
+                </c:forEach>
 
-                    </div>
-                </article>
-                        </c:forEach>
-
-            </div>
-            <div class="col-sm-4">
-                <div class="kotha-sidebar">
-
-                    <aside class="widget widget-popular-post">
-                        <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
-                        <ul>
-                            <li>
-                                <a href="archive-tag.html#" class="popular-img"><img src="assets/images/p-1.jpg" alt="">
-                                </a>
-                                <div class="p-content">
-                                    <h4><a href="archive-tag.html#" class="text-uppercase">Ice-cream with chalk taste </a></h4>
-                                    <span class="p-date">February 15, 2017 </span>
-                                </div>
-                            </li>
-                            <li><a href="archive-tag.html#" class="popular-img"><img src="assets/images/p-2.jpg" alt="">
-                            </a>
-                                <div class="p-content">
-                                    <h4><a href="archive-tag.html#" class="text-uppercase">The moment of mango bar</a></h4>
-                                    <span class="p-date">March 15, 2017 </span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="archive-tag.html#" class="popular-img"><img src="assets/images/p-3.jpg" alt="">
-                                </a>
-                                <div class="p-content">
-                                    <h4><a href="archive-tag.html#" class="text-uppercase">Homemade herbal black tea</a></h4>
-                                    <span class="p-date">April 15, 2017 </span>
-                                </div>
-                            </li>
-                        </ul>
-                    </aside>
-                    <aside class="widget latest-post-widget">
-                        <h2 class="widget-title text-uppercase text-center">Latest Posts</h2>
-                        <ul>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="archive-tag.html#" class="popular-img"><img src="assets/images/recent-1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="latest-post-content">
-                                    <h2 class="text-uppercase"><a href="archive-tag.html#">A Marine Dive From Sky</a></h2>
-                                    <p>April 20, 2017</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="archive-tag.html#" class="popular-img"><img src="assets/images/recent-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="latest-post-content">
-                                    <h2 class="text-uppercase"><a href="archive-tag.html#">Small Meeting Room</a></h2>
-                                    <p>April 27, 2017</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="archive-tag.html#" class="popular-img"><img src="assets/images/recent-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="latest-post-content">
-                                    <h2 class="text-uppercase"><a href="archive-tag.html#">Selfie from the beach point</a></h2>
-                                    <p>May 27, 2017</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="archive-tag.html#" class="popular-img"><img src="assets/images/recent-4.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="latest-post-content">
-                                    <h2 class="text-uppercase"><a href="archive-tag.html#">Gather Some Artist Pencils.</a></h2>
-                                    <p>April 20, 2017</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </aside>
-
-                </div>
             </div>
         </div>
     </div>
@@ -256,35 +193,39 @@
                     <p>
 
 
-
                     </p>
                     <ul class="list-inline footer-social">
                         <li>
-                            <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
+                            <a href="http://www.facebook.com"
+                               class="social-icon si-dark si-gray-round si-colored-facebook">
                                 <i class="fa fa-facebook"></i>
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
+                            <a href="http://www.twitter.com"
+                               class="social-icon si-dark si-gray-round si-colored-twitter">
                                 <i class="fa fa-twitter"></i>
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
+                            <a href="http://www.google-plus.com"
+                               class="social-icon si-dark si-gray-round si-colored-google-plus">
                                 <i class="fa fa-google-plus"></i>
                                 <i class="fa fa-google-plus"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-pinterest">
                                 <i class="fa fa-pinterest"></i>
                                 <i class="fa fa-pinterest"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-linkedin">
                                 <i class="fa fa-linkedin"></i>
                                 <i class="fa fa-linkedin"></i>
                             </a>
@@ -298,10 +239,11 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> </p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong>  </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p>
+                        </li>
+                        <li><p><strong><i class="fa fa-phone"></i> Phone:</strong></p></li>
+                        <li><p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
+                        <li><p><strong><i class="fa fa-skype"></i> Skype</strong></p></li>
 
                     </ul>
                 </div>

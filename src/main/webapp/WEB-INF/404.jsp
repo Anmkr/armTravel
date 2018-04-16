@@ -5,8 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>assan - ArmTrail </title>
-
-        <!-- Bootstrap -->
+            <!-- Bootstrap -->
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- custom css (blue color by default) -->
         <link href="../css/style.css" rel="stylesheet" type="text/css" media="screen">
@@ -44,5 +43,9 @@
         </div>
     </body>
 </html>
+
+
+
+
 
 

@@ -93,7 +93,15 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+
+                    <ul class="dropdown-menu" role="menu">
+                            <li> <a href="<c:url value="/allrPpage"/>">All Posts</a></li>
+                <c:forEach items="${allRegionPosts}" var="regionPost">
+                    <%--<li><a href="/rPSinglePage?rPostId=${regionPost.id}">${regionPost.region.name}</a> </li>--%>
+
+                </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
@@ -225,7 +233,6 @@
 </div>
 <div class="container">
     <div class="cube-masonry">
-
         <div id="masnory-container" class="cbp">
             <div class="cbp-item identity">
                 <a class="cbp-caption cbp-lightbox" data-title="" href="img/Gyumri.jpg">
@@ -290,11 +297,11 @@
                     </div>
                 </a>
             </div>
-
             <div class="cbp-item graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="" href="img/30.jpg">
+                <a class="cbp-caption cbp-lightbox" data-title=""
+                   href="img/30.jpg">
                     <div class="cbp-caption-defaultWrap">
-                        <img src="img/30.jpg" alt="">
+                        <img src="img/30.jpg" alt= "">
                     </div>
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
@@ -367,126 +374,34 @@
                     </div>
                 </a>
             </div>
-            <div class="cbp-item web-design graphic">
-
-                    </div>
-                <%--</a>--%>
-            </div>
-        </div>
-    </div><!--.cube masonry-->
-<div class="divide50"></div>
-<div class="text-center">
-    <a href="masonry-portfolio-4.html" class="btn btn-theme-dark btn-lg">View All Post</a>
 </div>
-<div class="col-md-6">
-    <article class="single-blog post-grid">
-        <div class="post-thumb">
-            <a href="single-page.html"><img src="img/13.jpg" alt="" width="200"height="200"></a>
-        </div>
-        <div class="post-content">
-            <div class="entry-header text-center text-uppercase">
-                <a href="default-1st-large-then-grid.html" class="post-cat">Region &nbsp;Post</a>
-                <h2><a href="/userPage">Region </a></h2>
-            </div>
-            <div class="entry-content">
-                <p>Հայաստանի Հանրապետության տարածքը բաժանվում է տասը մարզի:
-                </p>
-            </div>
-            <div class="post-meta text-center">
-
-            </div>
-        </div>
-    </article>
-</div>
-<div class="col-md-6">
-    <article class="single-blog post-grid">
-        <div class="post-thumb">
-            <a href="single-page.html"><img src="img/15.jpg" alt="" width="200"height="200"></a>
-        </div>
-        <div class="post-content">
-            <div class="entry-header text-center text-uppercase">
-                <a href="default-1st-large-then-grid.html" class="post-cat">City&nbsp;Post</a>
-                <h2><a href="single-page.html"> City</a></h2>
-            </div>
-            <div class="entry-content">
-                <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-                    gubergren, seoa takimata
-                    sanctus Lorem ipsum dolor sit amet, ipsum dolor sit amet.
-                </p>
-            </div>
-            <div class="post-meta text-center">
-
-            </div>
-        </div>
-    </article>
-</div>
-<div class="col-md-6">
-    <article class="single-blog post-grid">
-        <div class="post-thumb">
-            <a href="single-page.html"><img src="img/work-3.jpg" alt=""width="200"height="200"></a>
-        </div>
-        <div class="post-content">
-            <div class="entry-header text-center text-uppercase">
-                <a href="default-1st-large-then-grid.html" class="post-cat">Hotel &nbsp; Post</a>
-                <h2><a href="single-page.html">Hotel</a></h2>
-            </div>
-            <div class="entry-content">
-                <p>Stet clita kasd gubergren, dolor sit amet. seoa takimata sanctus Lorem ipsum
-                    dolor sit amet,
-                    ipsum dolor sit amet. no sea takimata sanctus est Lorem ipsum.
-                </p>
-            </div>
-            <div class="post-meta text-center">
-
-            </div>
-        </div>
-    </article>
-</div>
-<div class="col-md-6">
-    <article class="single-blog post-grid">
-        <div class="post-thumb">
-            <a href="single-page.html"><img src="img/logo.jpg" alt="" width="200"height="200"></a>
-        </div>
-        <div class="post-content">
-            <div class="entry-header text-center text-uppercase">
-                <a href="default-1st-large-then-grid.html" class="post-cat">Food &nbsp; Post </a>
-            </div>
-            <div class="entry-content">
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor
-                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                </p>
-            </div>
-            <div class="post-meta text-center">
-
-            </div>
-        </div>
-    </article>
+</div><!--.cube masonry-->
 </div>
 
 
-<%--<section class="fun-fact-wrap fun-facts-bg">--%>
-    <%--<div class="container">--%>
-        <%--<div class="row">--%>
-            <%--<div class="col-md-3 margin20 facts-in">--%>
-                <%--<h3><span class="counter">3800</span> +</h3>--%>
-                <%--<h4>Downloads</h4>--%>
-            <%--</div><!--facts in-->--%>
-            <%--<div class="col-md-3 margin20 facts-in">--%>
-                <%--<h3><span class="counter">8500</span></h3>--%>
-                <%--<h4>Happy Customers</h4>--%>
-            <%--</div><!--facts in-->--%>
-            <%--<div class="col-md-3 margin20 facts-in">--%>
-                <%--<h3><span class="counter">250</span> +</h3>--%>
-                <%--<h4>Valid layouts </h4>--%>
-            <%--</div><!--facts in-->--%>
-            <%--<div class="col-md-3 margin20 facts-in">--%>
-                <%--<h3><span class="counter">11000</span></h3>--%>
-                <%--<h4>Cups of tea</h4>--%>
-            <%--</div><!--facts in-->--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</section>--%>
+
+<section class="fun-fact-wrap fun-facts-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 margin20 facts-in">
+                <h3><span class="counter">10</span> +</h3>
+                <h4>Regions</h4>
+            </div><!--facts in-->
+            <div class="col-md-3 margin20 facts-in">
+                <h3><span class="counter">45</span>+</h3>
+                <h4>Cities</h4>
+            </div><!--facts in-->
+            <div class="col-md-3 margin20 facts-in">
+                <h3><span class="counter">250</span> +</h3>
+                <h4>Hotels</h4>
+            </div><!--facts in-->
+            <div class="col-md-3 margin20 facts-in">
+                <h3><span class="counter">11</span>+</h3>
+                <h4>Posts</h4>
+            </div><!--facts in-->
+        </div>
+    </div>
+</section>
 <footer id="footer">
     <div class="container">
 
@@ -612,4 +527,11 @@
 <script src="js/pace.min.js" type="text/javascript"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 

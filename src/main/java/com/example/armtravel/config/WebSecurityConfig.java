@@ -12,12 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
 @Configuration
 @EnableWebSecurity
 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -37,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(new CustomAuthenticationFailureHandler())
                 .and()
                 .logout()
+                .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .and()
                 .authorizeRequests()
@@ -45,10 +44,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .anyRequest().permitAll();
     }
-
-
-
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -63,9 +58,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 }
-
-
-
 
 
 

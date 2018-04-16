@@ -76,7 +76,14 @@ public class UserController {
         regionPost.setPicture(picName);
         regionPost.setUser(principal.getUser());
         regionPostRepository.save(regionPost);
-        return "redirect:/userPage";
+        return "redirect:/allRegionPosts";
+//        return "redirect:/userPage";
+    }
+
+    @GetMapping("/allRegionPosts")
+    public String regions(ModelMap map) {
+        map.addAttribute("allRegionPosts", regionPostRepository.findAll());
+        return "regionPost";
     }
 
     @PostMapping("/addCityPost")
@@ -90,13 +97,12 @@ public class UserController {
         return "redirect:/userPage";
     }
 
-    @GetMapping("/regionPostPage")
+    @GetMapping("/regionPostPage1")
     public String rPostPage(ModelMap map) {
         CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<RegionPost> allRPostByUser = regionPostRepository.findAllByUser(principal.getUser());
-        map.addAttribute("rPosts", allRPostByUser);
+        map.addAttribute("regionPosts", allRPostByUser);
         return "regionPost";
-
     }
 
     @GetMapping("/rPostSinglePage")
@@ -113,61 +119,34 @@ public class UserController {
         regionPostComment.setUser(principal.getUser());
         regionPostComment.setRegionPost(regionPostRepository.findOne(id));
         regionPostCommentRepository.save(regionPostComment);
-        return "redirect:/rPostSinglePage?rPostId=" + id;
+        return "redirect:/rPSinglePage?rPostId=" + id;
+//        return "redirect:/rPostSinglePage?rPostId=" + id;
     }
+
     @GetMapping("/cityPostPage")
-    public String cityPostPage(ModelMap map){
-        CurrentUser principal=(CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<CityPost>allCityPostByUser =cityPostRepository.findAllByUser(principal.getUser());
-        map.addAttribute("cityPosts",allCityPostByUser);
+    public String cityPostPage(ModelMap map) {
+        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<CityPost> allCityPostByUser = cityPostRepository.findAllByUser(principal.getUser());
+        map.addAttribute("cityPosts", allCityPostByUser);
         return "cityPost";
     }
-@GetMapping("/cityPostSinglePage")
-    public String cityPostSinglePage(@RequestParam(value="cityPostId") int id,ModelMap map) {
-    CityPost cityPost = cityPostRepository.findOne(id);
-    map.addAttribute("cityPost", cityPost);
-    map.addAttribute("cityPostComment", new CityPostComment());
-    return "cityPostSingle";
+
+    @GetMapping("/cityPostSinglePage")
+    public String cityPostSinglePage(@RequestParam(value = "cityPostId") int id, ModelMap map) {
+        CityPost cityPost = cityPostRepository.findOne(id);
+        map.addAttribute("cityPost", cityPost);
+        map.addAttribute("cityPostComment", new CityPostComment());
+        return "cityPostSingle";
+    }
+
+    @GetMapping("/cityPostComment")
+    public String addCityPostComment(@ModelAttribute("cityPostComment") CityPostComment cityPostComment, @RequestParam("cityPostId") int id) {
+        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        cityPostComment.setUser(principal.getUser());
+        cityPostComment.setCityPost(cityPostRepository.findOne(id));
+        cityPostCommentRepository.save(cityPostComment);
+        return "redirect:/cityPostSinglePage?cityPostId=" + id;
+    }
+
 }
-@GetMapping("/cityPostComment")
-    public String addCityPostComment(@ModelAttribute("cityPostComment") CityPostComment cityPostComment,@RequestParam("cityPostId")int id){
-CurrentUser principal =(CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-cityPostComment.setUser(principal.getUser());
-cityPostComment.setCityPost(cityPostRepository.findOne(id));
-cityPostCommentRepository.save(cityPostComment);
-return "redirect:/cityPostSinglePage?cityPostId="+id;
-
-
-
-}
-
-
-
-
-//    @GetMapping("/addFood")
-//    public String addFood(@ModelAttribute("food") Food food) {
-//        foodRepository.save(food);
-//        return "redirect:/userPage";
-//    }
-//
-//
-//    @PostMapping("/addFoodPost")
-//    public String addFoodPost(@RequestParam("foodPostImage") MultipartFile multipartFile, @ModelAttribute("foodPost") FoodPost foodPost) throws IOException {
-//        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
-//        File picture = new File(getFilePath + "\\" + picName);
-//        multipartFile.transferTo(picture);
-//        foodPost.setPicture(picName);
-//        foodPost.setUser(principal.getUser());
-//        foodPostRepository.save(foodPost);
-//        return "redirect:/userPage";
-//    }
-}
-
-
-
-
-
-
-
 

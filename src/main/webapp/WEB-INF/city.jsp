@@ -14,16 +14,8 @@
 </c:forEach>
 <a href="/deleteCity">Delete City</a>&nbsp;
 <a href="/admin" >Back</a>
-
-
-
 </body>
 </html>
-
-
-
-
-
 
 
 

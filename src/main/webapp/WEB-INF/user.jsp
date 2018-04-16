@@ -72,7 +72,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <div class="user-settings-wrapper">
+                <ul class="nav">
 
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" style="font-size: 25px;">User</span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-settings">
+                            <div class="media">
+                                <img src="assets/img/logo.jpg" width="30px" height="30px"/>
+                                <div class="media-body">
+                                    <h4 class="media-heading"></h4>
+                                    <h5> ArmTrail </h5>
+                                    <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <ul class="top-social-icons list-inline pull-right">
                 <li><a href="http://www.facebook.com"rel="external nofollow"target="_blank"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="http://www.twitter.com"rel="external nofollow"target="_blank"><i class="fa fa-twitter"></i></a></li>
@@ -83,6 +104,7 @@
             </ul>
 
         </div>
+
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active ">
@@ -94,7 +116,12 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                    <c:forEach items="${allRegionPosts}" var="regionPost">
+                    </c:forEach>
+                </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
@@ -122,7 +149,9 @@
             </ul>
         </div>
     </div><!--/.nav-collapse -->
+
 </div>
+
 <div class="breadcrumb-wrap">
     <div class="container">
         <div class="row">
@@ -135,90 +164,90 @@
 
 <!--container-->
 <div class="panel-body">
-<div class="col-sm-8">
-    <div class="panel-body">
-    <article class="single-blog contact-us">
-        <div class="post-content">
-            <div class="leave-comment">
-                <h4>Add RegionPost</h4>
+    <div class="col-sm-8">
+        <div class="panel-body">
+            <article class="single-blog contact-us">
+                <div class="post-content">
+                    <div class="leave-comment">
+                        <h4>Add RegionPost</h4>
 
-                <spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"  enctype="multipart/form-data">
-             <div class="form-group">
-                 <div class="col-md-6">
-                     <input type="text" class="form-control" id="title" name="title"
-                            placeholder="Title" required>
-                 </div>
-                 <div class="col-md-6">
-                     <input type="file" class="form-control"  name="regionPostImage"
-                            placeholder="regionPostImage" required>
+                        <spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"  enctype="multipart/form-data">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" name="title"
+                                           placeholder="Title" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control"  name="regionPostImage"
+                                           placeholder="regionPostImage" required>
 
-                 </div>
-             </div>
-             <div class="form-group">
-                 <div class="col-md-12">
-                     <spring:select path="region" items="${allRegions}" itemLabel="name"/>
-                 </div>
-             </div>
-             <div class="form-group">
-                 <div class="col-md-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <spring:select path="region" items="${allRegions}" itemLabel="name"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
                                  <textarea class="form-control" rows="6" name="description"
                                            placeholder="Description" required></textarea>
-                 </div>
-             </div>
+                                </div>
+                            </div>
 
-             <button type="submit" class="btn send-btn"> SEND MASSAGE</button>
-                </spring:form>
-     </div>
- </div>
-</article>
+                            <button type="submit" class="btn send-btn"> SEND MASSAGE</button>
+                        </spring:form>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
-</div>
 </div>
 
 
 <div class="panel-body">
-<div class="col-sm-8">
-    <article class="single-blog contact-us">
-        <div class="post-content">
-            <div class="leave-comment">
-                <h4>Add CityPost</h4>
+    <div class="col-sm-8">
+        <article class="single-blog contact-us">
+            <div class="post-content">
+                <div class="leave-comment">
+                    <h4>Add CityPost</h4>
 
-                <spring:form action="/addCityPost" method="post" modelAttribute="cityPost"  enctype="multipart/form-data">
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="title" name="title"
-                               placeholder="Title" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="file" class="form-control"  name="cityPostImage"
-                               placeholder="cityPostImage" required>
+                    <spring:form action="/addCityPost" method="post" modelAttribute="cityPost"  enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="title" name="title"
+                                   placeholder="Title" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="file" class="form-control"  name="cityPostImage"
+                                   placeholder="cityPostImage" required>
 
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <spring:select path="city" items="${allCities}" itemLabel="name"/>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <spring:select path="city" items="${allCities}" itemLabel="name"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-12">
                                  <textarea class="form-control" rows="6" name="description"
                                            placeholder="Description" required></textarea>
+                        </div>
                     </div>
+                    <button type="submit" class="btn send-btn"> SEND MASSAGE</button>
+
                 </div>
-                <button type="submit" class="btn send-btn"> SEND MASSAGE</button>
-
             </div>
-        </div>
-    </article>
-</div>
-</spring:form>
+        </article>
+    </div>
+    </spring:form>
 </div>
 
-<div><a href="/regionPostPage">All RegionPosts</a><br></div>
+<div><a href="/regionPostPage1">All RegionPosts</a><br></div>
 
 <div> </div>
-   <div> <a href="/cityPostPage">All CityPosts</a> <br></div>
+<div> <a href="/cityPostPage">All CityPosts</a> <br></div>
 <a href="/userPage" >Back</a>
 <%--</spring:form>--%>
 <footer id="footer">
@@ -231,35 +260,39 @@
                     <p>
 
 
-
                     </p>
                     <ul class="list-inline footer-social">
                         <li>
-                            <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
+                            <a href="http://www.facebook.com"
+                               class="social-icon si-dark si-gray-round si-colored-facebook">
                                 <i class="fa fa-facebook"></i>
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
+                            <a href="http://www.twitter.com"
+                               class="social-icon si-dark si-gray-round si-colored-twitter">
                                 <i class="fa fa-twitter"></i>
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
+                            <a href="http://www.google-plus.com"
+                               class="social-icon si-dark si-gray-round si-colored-google-plus">
                                 <i class="fa fa-google-plus"></i>
                                 <i class="fa fa-google-plus"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-pinterest">
                                 <i class="fa fa-pinterest"></i>
                                 <i class="fa fa-pinterest"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-linkedin">
                                 <i class="fa fa-linkedin"></i>
                                 <i class="fa fa-linkedin"></i>
                             </a>
@@ -273,10 +306,11 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong>  </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p>
+                        </li>
+                        <li><p><strong><i class="fa fa-phone"></i> Phone:</strong></p></li>
+                        <li><p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
+                        <li><p><strong><i class="fa fa-skype"></i> Skype</strong></p></li>
 
                     </ul>
                 </div>
@@ -312,6 +346,7 @@
 <!--scripts and plugins -->
 <!--must need plugin jquery-->
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate.min.js"></script>
 <!--bootstrap js plugin-->
 <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!--easing plugin for smooth scroll-->
@@ -322,8 +357,6 @@
 <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
 <!--parallax background plugin-->
 <script src="js/jquery.stellar.min.js" type="text/javascript"></script>
-
-
 <!--digit countdown plugin-->
 <script src="js/waypoints.min.js"></script>
 <!--digit countdown plugin-->
@@ -336,9 +369,18 @@
 <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
 
 
+<!--customizable plugin edit according to your needs-->
 <script src="js/custom.js" type="text/javascript"></script>
+<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="js/revolution-custom.js"></script>
+<!--cube portfolio plugin-->
+<script src="cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
+<script src="js/cube-portfolio.js" type="text/javascript"></script>
+<script src="js/pace.min.js" type="text/javascript"></script>
 </body>
 </html>
+
 <%--<div style="width: 30%;float:left;">--%>
 <%--<span>Add Food</span>--%>
 <%--<spring:form action="/addFood" method="get" modelAttribute="food"  >--%>
@@ -363,4 +405,3 @@
 <%--<input type="submit" name="Add"/><br>--%>
 <%--</spring:form>--%>
 <%--</div>--%>
-

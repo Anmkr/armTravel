@@ -1,6 +1,4 @@
 package com.example.armtravel.controller;
-
-
 import com.example.armtravel.model.*;
 import com.example.armtravel.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +11,6 @@ import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-
 @Controller
 public class AdminController {
 
@@ -29,25 +25,27 @@ public class AdminController {
     @Autowired
     private HotelRepository hotelRepository;
     @Autowired
+    private FoodRepository foodRepository;
+    @Autowired
     private RegionPostRepository regionPostRepository;
     @Autowired
     private CityPostRepository cityPostRepository;
-
     @Autowired
     private PictureRepository pictureRepository;
     @Autowired
     private CityPostCommentRepository cityPostCommentRepository;
     @Autowired
     private RegionPostCommentRepository regionPostCommentRepository;
-
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap map) {
         map.addAttribute("region", new Region());
         map.addAttribute("city", new City());
         map.addAttribute("hotel", new Hotel());
-        map.addAttribute("allCities",cityRepository.findAll());
-        map.addAttribute("allRegions",regionRepository.findAll());
-        map.addAttribute("allHotels",hotelRepository.findAll());
+        map.addAttribute("food",new Food());
+        map.addAttribute("allCities", cityRepository.findAll());
+        map.addAttribute("allRegions", regionRepository.findAll());
+        map.addAttribute("allHotels", hotelRepository.findAll());
+        map.addAttribute("allFoods",foodRepository.findAll());
         return "admin";
     }
     @PostMapping(value = "/addRegion")
@@ -93,23 +91,41 @@ public class AdminController {
         hotelRepository.save(hotel);
         return "redirect:/allHotels";
     }
+
+    @PostMapping(value = "/addFood")
+    public String addFood (@Valid @ModelAttribute("food") Food food, @RequestParam("picture") MultipartFile[] multipartFile) throws IOException {
+        for (MultipartFile file : multipartFile) {
+            String picName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            File file1 = new File(getFilePath + "\\" + picName);
+            file.transferTo(file1);
+            Picture picture = new Picture();
+            picture.setPicUrl(picName);
+            pictureRepository.save(picture);
+            food.getPictures().add(picture);
+        }
+        foodRepository.save(food);
+        return "redirect:/allFoods";
+    }
     @GetMapping("/allRegions")
     public String regions(ModelMap map) {
         map.addAttribute("allRegions", regionRepository.findAll());
         return "region";
     }
 
-
     @GetMapping("/allCities")
     public String cities(ModelMap map) {
         map.addAttribute("allCities", cityRepository.findAll());
         return "city";
     }
-
     @GetMapping("/allHotels")
     public String hotels(ModelMap map) {
         map.addAttribute("allHotels", hotelRepository.findAll());
         return "hotel";
+    }
+    @GetMapping("/allFoods")
+    public String foods(ModelMap map) {
+        map.addAttribute("allFoods", foodRepository.findAll());
+        return "food";
     }
 
     @GetMapping("/delete")
@@ -123,13 +139,13 @@ public class AdminController {
         userRepository.delete(userRepository.findOne(id));
         return "redirect:/delete";
     }
+
     @GetMapping("/deleteRegion")
     public String dR(ModelMap map) {
         List<Region> allRegions = regionRepository.findAll();
         map.addAttribute("allRegions", allRegions);
         return "deleteRegion";
     }
-
     @GetMapping("/deleteRByID")
     public String deleteRegion(@RequestParam("regionId") int id) {
         regionRepository.delete(id);
@@ -156,24 +172,22 @@ public class AdminController {
         return "deleteHotel";
 
     }
-
     @GetMapping("/deleteHotelById")
     public String deleteHotel(@RequestParam("hotelId") int id) {
         hotelRepository.delete(id);
         return "redirect:/deleteHotel";
     }
+
     @GetMapping("/deleteRegionPost")
     public String dRegionPost(ModelMap map) {
         List<RegionPost> allRegionPosts = regionPostRepository.findAll();
         map.addAttribute("allRegionPosts", allRegionPosts);
         return "deleteRegionPost";
     }
-
     @GetMapping("/deleteRegionPostById")
     public String deleteRegionPost(@RequestParam("regionPostId") int id) {
         regionRepository.delete(id);
         return "redirect:/deleteRegionPost";
-
     }
 
     @GetMapping("/deleteCityPost")
@@ -182,7 +196,6 @@ public class AdminController {
         map.addAttribute("allCityPosts", allCityPosts);
         return "deleteCityPost";
     }
-
     @GetMapping("/deleteCityPostById")
     public String deleteCityPost(@RequestParam("cityPostId") int id) {
         cityRepository.delete(id);
@@ -191,28 +204,30 @@ public class AdminController {
 
     @GetMapping("/dCommentCP")
     public String dCCP(ModelMap map) {
-        List<CityPostComment> allCityPostComments=cityPostCommentRepository.findAll();
-        map.addAttribute("allCityPostComment",allCityPostComments);
+        List<CityPostComment> allCityPostComments = cityPostCommentRepository.findAll();
+        map.addAttribute("allCityPostComment", allCityPostComments);
         return "deleteCityPostComment";
+    }
 
-        }
-        @GetMapping("/dRCPId")
-    public  String dCityPC(@RequestParam("cityPostCommentId") int id){
+    @GetMapping("/dRCPId")
+    public String dCityPC(@RequestParam("cityPostCommentId") int id) {
         cityPostCommentRepository.delete(id);
         return "redirect:/deleteCityPostComment";
     }
+
     @GetMapping("/dRPC")
     public String dRegionPC(ModelMap map) {
-        List<RegionPostComment> allRegionPostComments=regionPostCommentRepository.findAll();
-        map.addAttribute("allRegionPostComments",allRegionPostComments);
+        List<RegionPostComment> allRegionPostComments = regionPostCommentRepository.findAll();
+        map.addAttribute("allRegionPostComments", allRegionPostComments);
         return "deleteRegionPostComment";
 
     }
+
     @GetMapping("/dRPCId")
-    public  String dRegionPC(@RequestParam("regionPostCommentId") int id){
+    public String dRegionPC(@RequestParam("regionPostCommentId") int id) {
         regionPostCommentRepository.delete(id);
         return "redirect:/deleteRegionPostComment";
     }
 
+    }
 
-}

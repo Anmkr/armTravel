@@ -81,8 +81,8 @@
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
+                    </div>
 
-        </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active ">
@@ -94,32 +94,37 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Food </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
+                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a></li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a></li>
                         </c:forEach>
                     </ul>
                 </li>
                 <!--menu pages li end here-->
-
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/allrpage"/>">All Regions</a> </li>
+                        <li><a href="<c:url value="/allrpage"/>">All Regions</a></li>
                         <c:forEach items="${allRegions}" var="region">
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>
                     </ul>
                 </li>
 
-            </ul>
+        </ul>
         </div>
     </div><!--/.nav-collapse -->
 </div><!--container-->
@@ -139,14 +144,12 @@
              <c:forEach items="${allCities}" var="city">
              <div class="blog-post">
                 <a href="#">
-                    <div class="item-img-wrap">
-                        <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/>"
-                             class="img-responsive" alt="workimg">
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
+                        <c:if test="${city.pictures!=null}">
+                        <img src="<c:url value="/image?fileName=${city.pictures.get(0).picUrl}"/> "
+                             style="width: 500px;height: 300px;" class="img-responsive" alt="workimg">
+                        </c:if>
                     </div>
-                </a>
+
                 <h2><a href="#">${city.name}</a></h2>
                 <p><a href="<c:url value="/cSinglePage?cId=${city.id}"/>"> Read More...</a></p>
                  <c:if test="${currentUser.type.name().equals('ADMIN')}">
@@ -155,6 +158,7 @@
 
                      </span>
                  </c:if>
+
             </div><!--blog post-->
             </c:forEach>
         </div><!--col 5-->
@@ -289,3 +293,5 @@
 <script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>
+
+

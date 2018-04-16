@@ -1,10 +1,7 @@
 package com.example.armtravel.controller;
 
 import com.example.armtravel.model.*;
-import com.example.armtravel.repository.CityRepository;
-import com.example.armtravel.repository.HotelRepository;
-import com.example.armtravel.repository.RegionRepository;
-import com.example.armtravel.repository.UserRepository;
+import com.example.armtravel.repository.*;
 import com.example.armtravel.security.CurrentUser;
 import com.example.armtravel.util.EmailServiceImpl;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -21,7 +18,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.File;
@@ -31,6 +27,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+
+
 
 @Controller
 public class MainController {
@@ -49,23 +47,32 @@ public class MainController {
     @Autowired
     private HotelRepository hotelRepository;
     @Autowired
+    private FoodRepository foodRepository;
+    @Autowired
+    private RegionPostRepository regionPostRepository;
+    @Autowired
+    private CityPostRepository cityPostRepository;
+    @Autowired
+    private RegionPostCommentRepository regionPostCommentRepository;
+    @Autowired
     private File getFilePath;
     @Value("${armtravel.product.upload.path}")
     private String imageUploadPath;
 
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String mainPage(ModelMap map, @AuthenticationPrincipal UserDetails userDetails, Locale locale) {
-        //  map.addAttribute("user", new User());
         map.addAttribute("allRegions", regionRepository.findAll());
         map.addAttribute("allCities", cityRepository.findAll());
+        map.addAttribute("allFoods",foodRepository.findAll());
+        map.addAttribute("allRegionPosts", regionPostRepository.findAll());
+        map.addAttribute("regionPostComments", regionPostCommentRepository.findAll());
         if (userDetails != null) {
             User user = ((CurrentUser) userDetails).getUser();
             map.addAttribute("currentUser", user);
-
         }
         return "index";
     }
-
     @GetMapping(value = "/")
     public String redirectHomePage() {
         return "redirect:/home";
@@ -87,7 +94,6 @@ public class MainController {
 
         return "index";
     }
-
     @RequestMapping(value = "/loginPage", method = RequestMethod.GET)
     public String login(ModelMap map, @RequestParam(value = "message", required = false) String message) {
         map.addAttribute("user", new User());
@@ -96,7 +102,6 @@ public class MainController {
         }
         return "login-register";
     }
-
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@Valid @ModelAttribute("user") User user, BindingResult result) {
         if (userRepository.findOneByEmail(user.getEmail()) != null) {
@@ -124,7 +129,6 @@ public class MainController {
         emailService.sendSimpleMessage(user.getEmail(), "Welcome", text);
         return "redirect:/loginPage";
     }
-
     @RequestMapping(value = "/verify", method = RequestMethod.GET)
     public String verify(@RequestParam("token") String token, @RequestParam("email") String email) {
         User oneByEmail = userRepository.findOneByEmail(email);
@@ -137,7 +141,6 @@ public class MainController {
         }
         return "redirect:/";
     }
-
     @GetMapping("/404")
     public String Page404() {
         return "404";
@@ -147,8 +150,6 @@ public class MainController {
     public String verifyError() {
         return "verifyError";
     }
-
-
     @RequestMapping(value = "/image", method = RequestMethod.GET)
     public void getImageAsByteArray(HttpServletResponse response, @RequestParam("fileName") String fileName) throws IOException {
         InputStream in = new FileInputStream(imageUploadPath + fileName);
@@ -162,11 +163,12 @@ public class MainController {
         map.addAttribute("region", region);
         return "rSPage";
     }
-
     @GetMapping("/cSinglePage")
     public String cSinglePage(@RequestParam("cId") int id, ModelMap map) {
         City city = cityRepository.findOne(id);
         map.addAttribute("city", city);
+        map.addAttribute("allCities",cityRepository.findAll());
+        map.addAttribute("allRegions",regionRepository.findAll());
         return "cSPage";
     }
 
@@ -180,7 +182,6 @@ public class MainController {
         map.addAttribute("allregions", regionRepository.findAll());
         return "allRegions";
     }
-
     @GetMapping("/allCityPage")
     public String allcpage(ModelMap map) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -191,20 +192,53 @@ public class MainController {
         map.addAttribute("allCities", cityRepository.findAll());
         return "allCities";
     }
+    @GetMapping("/rPSinglePage")
+    public String rPSinglePage(@RequestParam("rPostId") int id, ModelMap map) {
+        RegionPost regionPost = regionPostRepository.findOne(id);
+        map.addAttribute("regionPost", regionPost);
+        map.addAttribute("regionPostComment", new RegionPostComment());
+        return "rPostSingle";
+    }
 
+    @GetMapping("/allrPpage")
+    public String allrPpage(ModelMap map) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() != null && authentication.getPrincipal() instanceof CurrentUser) {
+            CurrentUser principal = (CurrentUser) authentication.getPrincipal();
+            map.addAttribute("currentUser", principal.getUser());
+        }
+
+        map.addAttribute("allregionPosts", regionPostRepository.findAll());
+        return "allRegionPosts";
+    }
+
+    @GetMapping("/fSinglePage")
+    public String fSinglePage(@RequestParam("foodId") int id, ModelMap map) {
+        Food food = foodRepository.findOne(id);
+        map.addAttribute("food", food);
+        return "foodSinglePage";
+    }
+    @GetMapping("/allFoodPage")
+    public String allFpage(ModelMap map) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() != null && authentication.getPrincipal() instanceof CurrentUser) {
+            CurrentUser principal = (CurrentUser) authentication.getPrincipal();
+            map.addAttribute("currentUser", principal.getUser());
+        }
+
+        map.addAttribute("allFoods", foodRepository.findAll());
+        return "allFoods";
+    }
     @GetMapping("/deleteR")
     public String deleteRegion(@RequestParam("regionId") int id) {
         regionRepository.delete(id);
         return "redirect:/allrpage";
     }
-
     @GetMapping("/deleteC")
     public String deleteCity(@RequestParam("cityId") int id) {
         cityRepository.delete(id);
         return "redirect:/allCityPage";
     }
-
-    // inchi hamar erku hat cuyc kuda? meky ajn e myusy dzxy , vor jnjum em div-ery xarnvum en
     @GetMapping("/search")
     public String search(ModelMap map, @RequestParam("searchResult") String name, @AuthenticationPrincipal UserDetails userDetails) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -232,10 +266,7 @@ public class MainController {
         map.addAttribute("name", name);
         return "searchResults";
     }
-
 }
-
-
 
 
 
