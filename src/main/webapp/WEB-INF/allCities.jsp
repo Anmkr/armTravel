@@ -91,11 +91,15 @@
                 <!--menu home li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allHotelPage"/>"> All Hotels</a></li>
+                        <c:forEach items="${allHotels}" var="hotel">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
-
                     <ul class="dropdown-menu" role="menu">
                         <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
                         <c:forEach items="${allRegionPosts}" var="regionPost">
@@ -117,7 +121,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/allrpage"/>">All Regions</a></li>
+                        <li><a href="<c:url value="/allrpage"/>">All Regions</a> </li>
                         <c:forEach items="${allRegions}" var="region">
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>
@@ -152,10 +156,11 @@
 
                 <h2><a href="#">${city.name}</a></h2>
                 <p><a href="<c:url value="/cSinglePage?cId=${city.id}"/>"> Read More...</a></p>
-                 <c:if test="${currentUser.type.name().equals('ADMIN')}">
-                     <span>
-                         <a href="<c:url value="/cSinglePage?cId=${city.id}"/>">${city.name}</a> Delete
+                 <span>
+                     <c:if test="${currentUser.type.name().equals('ADMIN')}">
 
+                         <a href="<c:url value="/deleteC?cityId=${city.id}"/>">${city.name} Delete</a>
+                         <a href="/admin">Back</a>
                      </span>
                  </c:if>
 

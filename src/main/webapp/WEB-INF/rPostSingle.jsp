@@ -145,67 +145,55 @@
         <div class="col-md-8">
             <div class="blog-post">
                 <div>
-<c:if test="${regionPost.picture!=null}">
-    <img src="<c:url value="/image?fileName=${regionPost.picture}"/>" alt="workimg"/>
-    </c:if>
+                    <c:if test="${regionPost.picture!=null}">
+                        <img src="<c:url value="/image?fileName=${regionPost.picture}"/>" alt="workimg"/>
+                    </c:if>
 
-                    </div>
-                    <ul class="list-inline post-detail">
-                        <li>by <a href="blog-single.html#">assan</a></li>
-                        <li><i class="fa fa-calendar"></i> 31st july 2014</li>
-                        <li><i class="fa fa-tag"></i> <a href="blog-single.html#">Sports</a></li>
-                        <li><i class="fa fa-comment"></i> <a href="blog-single.html#">6 Comments</a></li>
-                    </ul>
-                    <h2><span> ${regionPost.title}</span></h2>
-                    <p>
-                        <span> ${regionPost.description}
-                    </p>
+
                 </div>
+                <ul class="list-inline post-detail">
+                    <%--<li>by <a href="blog-single.html#">assan</a></li>--%>
+                    <%--<li><i class="fa fa-calendar"></i> 31st july 2014</li>--%>
+                    <%--<li><i class="fa fa-tag"></i> <a href="blog-single.html#">Sports</a></li>--%>
+                    <%--<li><i class="fa fa-comment"></i> <a href="blog-single.html#">6 Comments</a></li>--%>
+                </ul>
+                <h2><span> ${regionPost.title}</span></h2>
+                <p>
+                        <span> ${regionPost.description}
+                </p>
+            </div>
             <div class="comment-post">
-                    <h3>3 Comments</h3>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="comment-list">
-                                <h4><img src="img/team-2.jpg" class="img-responsive" alt="">
-                                    by User <a href="blog-single.html#" class="btn btn-xs btn-theme-dark">Reply</a>
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie
-                                </p>
-                            </div><!--comments list-->
-                        </div>
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="comment-list">
-                                <h4><img src="img/team-3.jpg" class="img-responsive" alt="">
-                                    by User <a href="blog-single.html#" class="btn btn-xs btn-theme-dark">Reply</a>
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie
-                                </p>
-                            </div><!--comments list-->
-                        </div>
-                        <div class="col-md-12">
-                            <div class="comment-list">
-                                <h4><img src="img/team-4.jpg" class="img-responsive" alt="">
-                                    by User <a href="blog-single.html#" class="btn btn-xs btn-theme-dark">Reply</a>
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie
-                                </p>
-                            </div><!--comments list-->
-                        </div>
-                    </div>
-                </div><!--comments-->
+                <h3> Comments</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="comment-list">
 
-                <ul class="pager">
-                    <li class="previous"><a href="/home">&larr; Previous Page</a></li>
-                    <li class="next"><a href="/home">Next Page &rarr;</a></li>
-                </ul><!--pager-->
-                <div class="divide60"></div>
-                <div class="comment-form">
-                    <h3>Leave Comment</h3>
-                    <div class="form-contact">
-<spring:form action="/rPostCoomment" method="get" modelAttribute="regionPostComment">
+                        </div><!--comments list-->
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="comment-list">
+
+                        </div><!--comments list-->
+                    </div>
+                    <div class="col-md-12">
+                        <div class="comment-list">
+                            <%--<h4><img src="img/team-4.jpg" class="img-responsive" alt="">--%>
+                                by User <a href="blog-single.html#" class="btn btn-xs btn-theme-dark">Reply</a>
+
+                        </div><!--comments list-->
+                    </div>
+                </div>
+            </div><!--comments-->
+
+            <ul class="pager">
+                <li class="previous"><a href="/home">&larr; Previous Page</a></li>
+                <li class="next"><a href="/home">Next Page &rarr;</a></li>
+            </ul><!--pager-->
+            <div class="divide60"></div>
+            <div class="comment-form">
+                <h3>Leave Comment</h3>
+                <div class="form-contact">
+                    <spring:form action="/rPostCoomment" method="get" modelAttribute="regionPostComment">
                         <form role="form">
                             <div class="form-group">
                                 <label for="title">Title</label>
@@ -219,88 +207,51 @@
                             </div>
                             <input type="submit"  value="Add Comment">
                         </form> </spring:form>
-                    </div>
                 </div>
+            </div>
 
 
             <a href="/home">Back</a>
-            </div><!--col-->
-            <div class="col-md-3 col-md-offset-1">
-                <div class="sidebar-box margin40">
-                    <h4>Search</h4>
-                    <form role="form" class="search-widget">
-                        <input type="text" class="form-control">
-                        <i class="fa fa-search"></i>
-                    </form>
-                </div><!--sidebar-box-->
-                <div class="sidebar-box margin40">
-                    <h4>Text widget</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                    </p>
-                </div><!--sidebar-box-->
-                <div class="sidebar-box margin40">
-                    <h4>Categories</h4>
-                    <ul class="list-unstyled cat-list">
-                        <li> <a href="blog-single.html#">Marketing</a> <i class="fa fa-angle-right"></i></li>
-                        <li> <a href="blog-single.html#">Videos</a> <i class="fa fa-angle-right"></i></li>
-                        <li> <a href="blog-single.html#">Sports</a> <i class="fa fa-angle-right"></i></li>
-                        <li> <a href="blog-single.html#">Fashion</a> <i class="fa fa-angle-right"></i></li>
-                        <li> <a href="blog-single.html#">Media</a> <i class="fa fa-angle-right"></i></li>
-                        <li> <a href="blog-single.html#">Seo</a> <i class="fa fa-angle-right"></i></li>
-                        <li> <a href="blog-single.html#">Marketing</a> <i class="fa fa-angle-right"></i></li>
-                    </ul>
-                </div><!--sidebar-box-->
-                <div class="sidebar-box margin40">
-                    <h4>Popular Post</h4>
-                    <ul class="list-unstyled popular-post">
-                        <li>
-                            <div class="popular-img">
-                                <a href="blog-single.html#"> <img src="img/img-7.jpg" class="img-responsive" alt=""></a>
-                            </div>
-                            <div class="popular-desc">
-                                <h5> <a href="blog-single.html#">blog post image</a></h5>
-                                <h6>31st july 2014</h6>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="popular-img">
-                                <a href="blog-single.html#"> <img src="img/img-8.jpg" class="img-responsive" alt=""></a>
-                            </div>
-                            <div class="popular-desc">
-                                <h5> <a href="blog-single.html#">blog post image</a></h5>
-                                <h6>31st july 2014</h6>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="popular-img">
-                                <a href="blog-single.html#"> <img src="img/img-9.jpg" class="img-responsive" alt=""></a>
-                            </div>
-                            <div class="popular-desc">
-                                <h5> <a href="blog-single.html#">blog post image</a></h5>
-                                <h6>31st july 2014</h6>
-                            </div>
-                        </li>
-                    </ul>
-                </div><!--sidebar-box-->
-                <div class="sidebar-box margin40">
-                    <h4>Tag Cloud</h4>
-                    <div class="tag-list">
-                        <a href="blog-single.html#">Wordpress</a>
-                        <a href="blog-single.html#">Design</a>
-                        <a href="blog-single.html#">Graphics</a>
-                        <a href="blog-single.html#">Seo</a>
-                        <a href="blog-single.html#">Development</a>
-                        <a href="blog-single.html#">Marketing</a>
-                        <a href="blog-single.html#">fashion</a>
-                        <a href="blog-single.html#">Media</a>
-                        <a href="blog-single.html#">Photoshop</a>
-                    </div>
+        </div><!--col-->
+        <div class="col-md-3 col-md-offset-1">
+            <div class="sidebar-box margin40">
+                <h4>Search</h4>
+                <form role="form" action="<c:url value="/search"/>">
+                    <input type="text" class="form-control" name="searchResult" placeholder="Search here ...">
+                    <span class="search-close"><i class=""></i></span>
+
+                </form>
+                </form>
+            </div><!--sidebar-box-->
+            <div class="sidebar-box margin40">
+
+            </div><!--sidebar-box-->
+            <div class="sidebar-box margin40">
+                <h4>Categories</h4>
+                <ul class="list-unstyled cat-list">
+                    <li> <a href="https://www.youtube.com/watch?v=ChYsTZ3wlHs">Marketing</a><i class="fa fa-angle-right"></i></li>
+                    <li> <a href="https://www.youtube.com/watch?v=Rv3Yyr9IDsg">Videos</a> <i class="fa fa-angle-right"></i></li>
+                    <li> <a href="http://blognews.am/arm/news/426991/hazvadep-handipox-haykakan-15-yurorinak-utestner.html">Foods</a> <i class="fa fa-angle-right"></i></li>
+                    <li> <a href="https://hy.wikipedia.org/wiki/%D5%80%D5%A1%D5%B5%D5%AF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%A1%D5%A6%D5%A3%D5%A1%D5%B5%D5%AB%D5%B6_%D5%B0%D5%A1%D5%A3%D5%B8%D6%82%D5%BD%D5%BF_(%D5%BF%D5%A1%D6%80%D5%A1%D5%A6)">Fashion</a> <i class="fa fa-angle-right"></i></li>
+                    <li> <a href="https://www.youtube.com/watch?v=Ka_GqM8PSfE">Media</a> <i class="fa fa-angle-right"></i></li>
+                    <li> <a href="https://www.google.am/search?q=hayastani+gexatesil+vayrer&rlz=1C1PRFC_enAM732AM732&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjdhKDUrsHaAhVRjqQKHVglAMsQ_AUICigB&biw=1366&bih=588">Pictures</a><i class="fa fa-angle-right"></i></li>
+                    <li> <a href="https://tvkultura.ru/video/show/brand_id/21865/episode_id/1463983/video_id/1586418/">Culture</a> <i class="fa fa-angle-right"></i></li>
+                </ul>
+            </div><!--sidebar-box-->
+            <div class="sidebar-box margin40">
+                <h4>Popular Post</h4>
+                <ul class="list-unstyled popular-post">
+
+                </ul>
+            </div><!--sidebar-box-->
+            <div class="sidebar-box margin40">
+
                 </div>
-            </div><!--sidebar-col-->
-        </div><!--row for blog post-->
-    </div><!--blog full main container-->
-    <div class="divide60"></div>
+            </div>
+        </div><!--sidebar-col-->
+    </div><!--row for blog post-->
+</div><!--blog full main container-->
+<div class="divide60"></div>
 
 <footer id="footer">
     <div class="container">
@@ -421,3 +372,14 @@
 <script src="js/custom.js" type="text/javascript"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

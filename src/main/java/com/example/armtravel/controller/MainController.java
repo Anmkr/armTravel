@@ -64,6 +64,7 @@ public class MainController {
     public String mainPage(ModelMap map, @AuthenticationPrincipal UserDetails userDetails, Locale locale) {
         map.addAttribute("allRegions", regionRepository.findAll());
         map.addAttribute("allCities", cityRepository.findAll());
+        map.addAttribute("allHotels",hotelRepository.findAll());
         map.addAttribute("allFoods",foodRepository.findAll());
         map.addAttribute("allRegionPosts", regionPostRepository.findAll());
         map.addAttribute("regionPostComments", regionPostCommentRepository.findAll());
@@ -229,6 +230,23 @@ public class MainController {
         map.addAttribute("allFoods", foodRepository.findAll());
         return "allFoods";
     }
+    @GetMapping("/hSinglePage")
+    public String hSinglePage(@RequestParam("hotelId") int id, ModelMap map) {
+        Hotel hotel= hotelRepository.findOne(id);
+        map.addAttribute("hotel", hotel);
+        return "hotelSinglePage";
+    }
+    @GetMapping("/allHotelPage")
+    public String allHpage(ModelMap map) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() != null && authentication.getPrincipal() instanceof CurrentUser) {
+            CurrentUser principal = (CurrentUser) authentication.getPrincipal();
+            map.addAttribute("currentUser", principal.getUser());
+        }
+
+        map.addAttribute("allHotels", hotelRepository.findAll());
+        return "allHotels";
+    }
     @GetMapping("/deleteR")
     public String deleteRegion(@RequestParam("regionId") int id) {
         regionRepository.delete(id);
@@ -238,6 +256,11 @@ public class MainController {
     public String deleteCity(@RequestParam("cityId") int id) {
         cityRepository.delete(id);
         return "redirect:/allCityPage";
+    }
+    @GetMapping("/deleteH")
+    public String deleteHotel(@RequestParam("hotelId") int id) {
+        hotelRepository.delete(id);
+        return "redirect:/allHotelPage";
     }
     @GetMapping("/search")
     public String search(ModelMap map, @RequestParam("searchResult") String name, @AuthenticationPrincipal UserDetails userDetails) {

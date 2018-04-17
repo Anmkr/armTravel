@@ -119,8 +119,9 @@ public class UserController {
         regionPostComment.setUser(principal.getUser());
         regionPostComment.setRegionPost(regionPostRepository.findOne(id));
         regionPostCommentRepository.save(regionPostComment);
-        return "redirect:/rPSinglePage?rPostId=" + id;
-//        return "redirect:/rPostSinglePage?rPostId=" + id;
+//        return "redirect:/rPostSingle";
+      return "redirect:/rPSinglePage?rPostId=" + id;
+//       return "redirect:/rPostSinglePage?rPostId=" + id;
     }
 
     @GetMapping("/cityPostPage")

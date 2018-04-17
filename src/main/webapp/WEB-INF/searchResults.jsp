@@ -94,14 +94,17 @@
                 <!--menu home li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
-
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allHotelPage"/>"> All Hotels</a></li>
+                        <c:forEach items="${allHotels}" var="hotel">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
-
                     <ul class="dropdown-menu" role="menu">
-                        <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                        <li> <a href="<c:url value="/allrPpage"/>">All Posts</a></li>
                         <c:forEach items="${allRegionPosts}" var="regionPost">
                         </c:forEach>
                     </ul>

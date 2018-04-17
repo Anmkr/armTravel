@@ -13,7 +13,7 @@
     <p><a href="<c:url value="//fSinglePage?foodId=${food.id}"/>"> Read More...</a></p>
     <c:if test="${currentUser.type.name().equals('ADMIN')}">
                      <span>
-                         <a href="<c:url value="/fSinglePage?cId=$food.id}"/>">${food.name}</a> Delete</span>
+                         <a href="<c:url value="/fSinglePage?foodId=${food.id}"/>">${food.name}</a> Delete</span>
 
 
     </c:if>

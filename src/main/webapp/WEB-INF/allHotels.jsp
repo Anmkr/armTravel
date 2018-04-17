@@ -1,4 +1,3 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -7,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>  User Page</title>
+    <title> All Hotels</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -40,6 +39,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
 <div class="top-bar-dark">
     <div class="container">
@@ -54,7 +54,8 @@
                 </ul>
                 <div class="search">
                     <form role="form" action="<c:url value="/search"/>">
-                        <input type="text" class="form-control" autocomplete="off" name="searchResult" placeholder="Write something and press enter">
+                        <input type="text" class="form-control" autocomplete="off" name="searchResult"
+                               placeholder="Write something and press enter">
                         <span class="search-close"><i class="fa fa-times"></i></span>
                     </form>
                 </div>
@@ -72,39 +73,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="user-settings-wrapper">
-                <ul class="nav">
 
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user" style="font-size: 25px;">User</span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-settings">
-                            <div class="media">
-                                <img src="assets/img/logo.jpg" width="30px" height="30px"/>
-                                <div class="media-body">
-                                    <h4 class="media-heading"></h4>
-                                    <h5> ArmTrail </h5>
-                                    <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
             <ul class="top-social-icons list-inline pull-right">
-                <li><a href="http://www.facebook.com"rel="external nofollow"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://www.twitter.com"rel="external nofollow"target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://www.instagram.com"rel="external nofollow"target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="http://www.pinterest.com"rel="external nofollow"target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="http://www.facebook.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.instagram.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-instagram"></i></a></li>
+                <li><a href="http://www.pinterest.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-pinterest"></i></a></li>
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
 
         </div>
-
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active ">
@@ -121,12 +104,13 @@
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
-                    <c:forEach items="${allRegionPosts}" var="regionPost">
-                    </c:forEach>
-                </ul>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allrPpage"/>">All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
@@ -154,107 +138,56 @@
             </ul>
         </div>
     </div><!--/.nav-collapse -->
+</div><!--container-->
 
-</div>
-
+<!--rev slider start-->
 <div class="breadcrumb-wrap">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>User Page</h4>
+                <h4>Hotels</h4>
             </div>
         </div>
     </div>
 </div>
-
-<!--container-->
-<div class="panel-body">
-    <div class="col-sm-8">
-        <div class="panel-body">
-            <article class="single-blog contact-us">
-                <div class="post-content">
-                    <div class="leave-comment">
-                        <h4>Add RegionPost</h4>
-
-                        <spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"  enctype="multipart/form-data">
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" id="title" name="title"
-                                           placeholder="Title" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="file" class="form-control"  name="regionPostImage"
-                                           placeholder="regionPostImage" required>
-
-                                </div>
+<div class="kotha-default-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <c:forEach items="${allHotels}" var="hotel">
+                    <article class="single-blog">
+                        <div class="entry-header text-center text-uppercase">
+                            <h2><span>${hotel.name}</span></h2>
+                        </div>
+                        <div class="post-thumb">
+                            <c:if test="${hotel.pictures!=null}">
+                                <img src="<c:url value="/image?fileName=${hotel.pictures.get(0).picUrl}"/> "
+                                     style="width: 500px;height: 300px;">
+                            </c:if>
+                        </div>
+                        <div class="post-content">
+                            <div class="entry-header text-center text-uppercase">
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <spring:select path="region" items="${allRegions}" itemLabel="name"/>
-                                </div>
+                            <div class="entry-content">
+                                <p><span>${hotel.description}</span>
+                                    <c:if test="${currentUser.type.name().equals('ADMIN')}">
+                                        <a href="<c:url value="/deleteH?hotelId=${hotel.id}"/>">Delete</a>
+                                        <a href="/admin">Back</a>
+                                    </c:if>
+                                </p>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                 <textarea class="form-control" rows="6" name="description"
-                                           placeholder="Description" required></textarea>
-                                </div>
+                            <div class="continue-reading text-center text-uppercase">
+                                <a href="<c:url value="/hSinglePage?hotelId=${hotel.id}"/>">Continue Reading</a>
                             </div>
 
-                            <button type="submit" class="btn send-btn"> SEND MASSAGE</button>
-                        </spring:form>
-                    </div>
-                </div>
-            </article>
+                        </div>
+                    </article>
+                </c:forEach>
+
+            </div>
         </div>
     </div>
 </div>
-
-
-<div class="panel-body">
-    <div class="col-sm-8">
-        <article class="single-blog contact-us">
-            <div class="post-content">
-                <div class="leave-comment">
-                    <h4>Add CityPost</h4>
-
-                    <spring:form action="/addCityPost" method="post" modelAttribute="cityPost"  enctype="multipart/form-data">
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="title" name="title"
-                                   placeholder="Title" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="file" class="form-control"  name="cityPostImage"
-                                   placeholder="cityPostImage" required>
-
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <spring:select path="city" items="${allCities}" itemLabel="name"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                                 <textarea class="form-control" rows="6" name="description"
-                                           placeholder="Description" required></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn send-btn"> SEND MASSAGE</button>
-
-                </div>
-            </div>
-        </article>
-    </div>
-    </spring:form>
-</div>
-
-<div><a href="/regionPostPage1">All RegionPosts</a><br></div>
-
-<div> </div>
-<div> <a href="/cityPostPage">All CityPosts</a> <br></div>
-<a href="/userPage" >Back</a>
-<%--</spring:form>--%>
 <footer id="footer">
     <div class="container">
 
@@ -341,7 +274,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-btm">
-                    <span>&copy;2018. ArmTrail</span>
+                    <span>&copy;2018.ArmTrail </span>
                 </div>
             </div>
         </div>
@@ -351,7 +284,6 @@
 <!--scripts and plugins -->
 <!--must need plugin jquery-->
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate.min.js"></script>
 <!--bootstrap js plugin-->
 <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!--easing plugin for smooth scroll-->
@@ -362,6 +294,8 @@
 <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
 <!--parallax background plugin-->
 <script src="js/jquery.stellar.min.js" type="text/javascript"></script>
+
+
 <!--digit countdown plugin-->
 <script src="js/waypoints.min.js"></script>
 <!--digit countdown plugin-->
@@ -376,37 +310,6 @@
 
 <!--customizable plugin edit according to your needs-->
 <script src="js/custom.js" type="text/javascript"></script>
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="js/revolution-custom.js"></script>
-<!--cube portfolio plugin-->
-<script src="cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
-<script src="js/cube-portfolio.js" type="text/javascript"></script>
-<script src="js/pace.min.js" type="text/javascript"></script>
 </body>
 </html>
-
-<%--<div style="width: 30%;float:left;">--%>
-<%--<span>Add Food</span>--%>
-<%--<spring:form action="/addFood" method="get" modelAttribute="food"  >--%>
-<%--<label for="name">Name</label>--%>
-<%--<spring:input path="name" id="name"/><br>--%>
-<%--<label for="description">Description</label>--%>
-<%--<spring:input path="description" id="description"/><br>--%>
-<%--<spring:select path="region" items="${allRegions}" itemLabel="name"/><br>--%>
-<%--<input type="submit" name="Add"/><br>--%>
-<%--</spring:form>--%>
-<%--</div>--%>
-
-<%--<div style="width: 30%;float:left;">--%>
-<%--<span>Add FoodPost</span>--%>
-<%--<spring:form action="/addFoodPost" method="post" modelAttribute="foodPost"  enctype="multipart/form-data">--%>
-<%--<label for="title">Title</label>--%>
-<%--<spring:input path="title" id="title"/><br>--%>
-<%--<label for="description">Description</label>--%>
-<%--<spring:input path="description" id="description"/><br>--%>
-<%--<spring:select path="food" items="${allFoods}" itemLabel="name"/><br>--%>
-<%--<input type="file" name="foodPostImage"><br>--%>
-<%--<input type="submit" name="Add"/><br>--%>
-<%--</spring:form>--%>
-<%--</div>--%>
+<!--//Script//-->
