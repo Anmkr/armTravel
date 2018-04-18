@@ -144,11 +144,11 @@
             <div class="blog-post">
                 <a href="blog-2col.html#">
                     <div class="item-img-wrap">
+    <c:if test="${regionPost.picture!=null}">
                         <img src="<c:url value="/image?fileName=${regionPost.picture}"/> "alt="workimg">
                         <div class="item-img-overlay">
-                            <c:if test="${region.pictures!=null}">
-                                <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="50px" height="50px"/>
-                            </c:if>
+
+        </c:if>
                             <span></span>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                 <ul class="list-inline post-detail">
                     <li> <span>${regionPost.title}</span></li>
                     <li><span> ${regionPost.region.name}</span></li>
-                    <%--<li><i class="fa fa-tag"></i> <a href="#"></a></li>--%>
+
                 </ul>
                 <h2><span>${regionPost.title}</span></h2>
                 <p>
@@ -167,6 +167,37 @@
 
     </div>
     </c:forEach>
+    </div><!--row for blog post-->
+    <div class="row">
+        <c:forEach items="${allcityPosts}" var="cityPost">
+            <div class="col-md-5">
+                <div class="blog-post">
+                    <a href="blog-2col.html#">
+                        <div class="item-img-wrap">
+                            <c:if test="${cityPost.picture!=null}">
+                            <img src="<c:url value="/image?fileName=${cityPost.picture}"/> "alt="workimg">
+                            <div class="item-img-overlay">
+
+                                </c:if>
+                                <span></span>
+                            </div>
+                        </div>
+                    </a><!--work link-->
+                    <ul class="list-inline post-detail">
+                        <li> <span>${cityPost.title}</span></li>
+                        <li><span> ${cityPost.city.name}</span></li>
+
+                    </ul>
+                    <h2><span>${cityPost.title}</span></h2>
+                    <p>
+                        <span>${cityPost.description}</span>
+                    </p>
+                    <p> <a href="<c:url value="/cPSinglePage?cityPostId=${cityPostId.id}"/>">Read More...</a></p>
+
+                </div>
+
+            </div>
+        </c:forEach>
     </div><!--row for blog post-->
     <div class="row">
         <div class="col-md-10">

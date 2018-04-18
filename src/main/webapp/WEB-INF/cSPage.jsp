@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> CitySinglePage</title>
+    <title> CityPage</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -139,7 +139,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>Cities</h4>
+                <h4>City</h4>
             </div>
         </div>
     </div>

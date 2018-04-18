@@ -67,6 +67,7 @@ public class MainController {
         map.addAttribute("allHotels",hotelRepository.findAll());
         map.addAttribute("allFoods",foodRepository.findAll());
         map.addAttribute("allRegionPosts", regionPostRepository.findAll());
+        map.addAttribute("allCityPosts",cityPostRepository.findAll());
         map.addAttribute("regionPostComments", regionPostCommentRepository.findAll());
         if (userDetails != null) {
             User user = ((CurrentUser) userDetails).getUser();
@@ -181,6 +182,7 @@ public class MainController {
             map.addAttribute("currentUser", principal.getUser());
         }
         map.addAttribute("allregions", regionRepository.findAll());
+        map.addAttribute("allCities",cityRepository.findAll());
         return "allRegions";
     }
     @GetMapping("/allCityPage")
@@ -210,14 +212,22 @@ public class MainController {
         }
 
         map.addAttribute("allregionPosts", regionPostRepository.findAll());
+        map.addAttribute("allcityPosts",cityPostRepository.findAll());
         return "allRegionPosts";
+    }
+    @GetMapping("/cPSinglePage")
+    public String cPSinglePage(@RequestParam("cPostId") int id, ModelMap map) {
+        CityPost cityPost = cityPostRepository.findOne(id);
+        map.addAttribute("cityPost", cityPost);
+        map.addAttribute("cityPostComment", new CityPostComment());
+        return "cityPostSingle";
     }
 
     @GetMapping("/fSinglePage")
     public String fSinglePage(@RequestParam("foodId") int id, ModelMap map) {
         Food food = foodRepository.findOne(id);
         map.addAttribute("food", food);
-        return "foodSinglePage";
+        return "hotelSinglePage";
     }
     @GetMapping("/allFoodPage")
     public String allFpage(ModelMap map) {

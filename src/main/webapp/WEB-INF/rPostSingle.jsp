@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> All Cities</title>
+    <title> All Posts</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -93,6 +93,11 @@
                 <!--menu home li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a href="<c:url value="/allHotelPage"/>"> All Hotels</a></li>
+                        <c:forEach items="${allHotels}" var="hotel">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
@@ -134,7 +139,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>RegionPost</h4>
+                <h4>Region &nbsp;Post</h4>
             </div>
         </div>
     </div>
@@ -177,7 +182,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="comment-list">
-                            <%--<h4><img src="img/team-4.jpg" class="img-responsive" alt="">--%>
+
                                 by User <a href="blog-single.html#" class="btn btn-xs btn-theme-dark">Reply</a>
 
                         </div><!--comments list-->
@@ -211,7 +216,7 @@
             </div>
 
 
-            <a href="/home">Back</a>
+            <a href="/userPage">Back</a>
         </div><!--col-->
         <div class="col-md-3 col-md-offset-1">
             <div class="sidebar-box margin40">
@@ -241,7 +246,6 @@
             <div class="sidebar-box margin40">
                 <h4>Popular Post</h4>
                 <ul class="list-unstyled popular-post">
-
                 </ul>
             </div><!--sidebar-box-->
             <div class="sidebar-box margin40">

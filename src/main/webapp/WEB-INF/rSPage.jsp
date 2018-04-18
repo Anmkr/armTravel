@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -7,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> RegionSinglePage</title>
+    <title> RegionPage</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -55,7 +54,8 @@
                 </ul>
                 <div class="search">
                     <form role="form" action="<c:url value="/search"/>">
-                        <input type="text" class="form-control" autocomplete="off" name="searchResult" placeholder="Write something and press enter">
+                        <input type="text" class="form-control" autocomplete="off" name="searchResult"
+                               placeholder="Write something and press enter">
                         <span class="search-close"><i class="fa fa-times"></i></span>
                     </form>
                 </div>
@@ -75,10 +75,14 @@
             </button>
 
             <ul class="top-social-icons list-inline pull-right">
-                <li><a href="http://www.facebook.com"rel="external nofollow"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://www.twitter.com"rel="external nofollow"target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://www.instagram.com"rel="external nofollow"target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="http://www.pinterest.com"rel="external nofollow"target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="http://www.facebook.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.instagram.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-instagram"></i></a></li>
+                <li><a href="http://www.pinterest.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-pinterest"></i></a></li>
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
@@ -92,19 +96,29 @@
                 <!--menu home li end here-->
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value="/allHotelPage"/>"> All Hotels</a></li>
+                        <c:forEach items="${allHotels}" var="hotel">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Post </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value="/allrPpage"/>">All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
+                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a></li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a></li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -113,7 +127,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/allrpage"/>">All Regions</a> </li>
+                        <li><a href="<c:url value="/allrpage"/>">All Regions</a></li>
                         <c:forEach items="${allRegions}" var="region">
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>
@@ -128,14 +142,14 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>Regions</h4>
+                <h4>Region</h4>
             </div>
         </div>
     </div>
 </div><!--container-->
-    <div class="kotha-logo text-center">
-        <h1></h1>
-    </div>
+<div class="kotha-logo text-center">
+    <h1></h1>
+</div>
 </header>
 <div class="kotha-default-content">
     <div class="container">
@@ -144,7 +158,8 @@
                 <article class="single-blog contact-us">
                     <div class="post-thumb">
                         <c:if test="${region.pictures!=null}">
-                        <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="1000px"height="500px"/>
+                            <img src="<c:url value="/image?fileName=${region.pictures.get(0).picUrl}"/>" width="1000px"
+                                 height="500px"/>
                         </c:if>
                     </div>
                     <div class="post-content">
@@ -153,7 +168,7 @@
                         </div>
                         <div class="entry-content">
 
-                                <p>${region.description}</p>
+                            <p>${region.description}</p>
 
                             <br>
 
@@ -164,7 +179,7 @@
                         </div>
 
 
-                        </div>
+                    </div>
 
                 </article>
             </div>
@@ -182,35 +197,39 @@
                     <p>
 
 
-
                     </p>
                     <ul class="list-inline footer-social">
                         <li>
-                            <a href="http://www.facebook.com" class="social-icon si-dark si-gray-round si-colored-facebook">
+                            <a href="http://www.facebook.com"
+                               class="social-icon si-dark si-gray-round si-colored-facebook">
                                 <i class="fa fa-facebook"></i>
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.twitter.com" class="social-icon si-dark si-gray-round si-colored-twitter">
+                            <a href="http://www.twitter.com"
+                               class="social-icon si-dark si-gray-round si-colored-twitter">
                                 <i class="fa fa-twitter"></i>
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.google-plus.com" class="social-icon si-dark si-gray-round si-colored-google-plus">
+                            <a href="http://www.google-plus.com"
+                               class="social-icon si-dark si-gray-round si-colored-google-plus">
                                 <i class="fa fa-google-plus"></i>
                                 <i class="fa fa-google-plus"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-pinterest">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-pinterest">
                                 <i class="fa fa-pinterest"></i>
                                 <i class="fa fa-pinterest"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.instagram.com" class="social-icon si-dark si-gray-round si-colored-linkedin">
+                            <a href="http://www.instagram.com"
+                               class="social-icon si-dark si-gray-round si-colored-linkedin">
                                 <i class="fa fa-linkedin"></i>
                                 <i class="fa fa-linkedin"></i>
                             </a>
@@ -224,10 +243,11 @@
 
                     <ul class="list-unstyled contact">
                         <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> Գյումրի</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> </p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> </p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong>  </p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#"></a></p>
+                        </li>
+                        <li><p><strong><i class="fa fa-phone"></i> Phone:</strong></p></li>
+                        <li><p><strong><i class="fa fa-print"></i> Fax</strong></p></li>
+                        <li><p><strong><i class="fa fa-skype"></i> Skype</strong></p></li>
 
                     </ul>
                 </div>

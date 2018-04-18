@@ -8,17 +8,19 @@
 </head>
 <body>
 <div>
-    <c:forEach items="${cityPosts}" var="cityPost">
-        <img src="/image?fileName=${cityPost.picture}" style="width:50px; height: 50px" width="100px" height="100px"> <br>
-        <span> ${cityPost.title}</span>
-        <span> ${cityPost.description}</span>
+<div>
+    <c:forEach items="${allCityPosts}" var="cityPost">
+        <c:if test="${cityPost.picture!=null}">
+            <img src="<c:url value="/image?fileName=${cityPost.picture}" />" width="50px" height="50px"/>
+        </c:if>
+        <span>${cityPost.title}</span><br>
+        <span>${cityPost.description}</span><br>
         <span> ${cityPost.city.name}</span>
-        <a href="/cityPostSinglePage?cityPostId=${cityPost.id}">View More</a>
+        <a href="/cPSinglePage?cityPostId=${cityPost.id}">View More</a>
     </c:forEach>
-    <a href="/userPage" >Back</a>
-</div>
 
+<a href="/userPage" >Back</a>
+</div>
+</div>
 </body>
 </html>
-
-

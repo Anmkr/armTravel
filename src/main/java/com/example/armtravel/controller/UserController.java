@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
+
 import java.io.File;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -77,7 +75,6 @@ public class UserController {
         regionPost.setUser(principal.getUser());
         regionPostRepository.save(regionPost);
         return "redirect:/allRegionPosts";
-//        return "redirect:/userPage";
     }
 
     @GetMapping("/allRegionPosts")
@@ -94,7 +91,7 @@ public class UserController {
         multipartFile.transferTo(picture);
         cityPost.setUser(principal.getUser());
         cityPostRepository.save(cityPost);
-        return "redirect:/userPage";
+        return "redirect:/allRegionPosts";
     }
 
     @GetMapping("/regionPostPage1")
@@ -119,9 +116,8 @@ public class UserController {
         regionPostComment.setUser(principal.getUser());
         regionPostComment.setRegionPost(regionPostRepository.findOne(id));
         regionPostCommentRepository.save(regionPostComment);
-//        return "redirect:/rPostSingle";
       return "redirect:/rPSinglePage?rPostId=" + id;
-//       return "redirect:/rPostSinglePage?rPostId=" + id;
+
     }
 
     @GetMapping("/cityPostPage")

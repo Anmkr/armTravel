@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>  User Page</title>
+    <title> User Page</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -54,7 +54,8 @@
                 </ul>
                 <div class="search">
                     <form role="form" action="<c:url value="/search"/>">
-                        <input type="text" class="form-control" autocomplete="off" name="searchResult" placeholder="Write something and press enter">
+                        <input type="text" class="form-control" autocomplete="off" name="searchResult"
+                               placeholder="Write something and press enter">
                         <span class="search-close"><i class="fa fa-times"></i></span>
                     </form>
                 </div>
@@ -95,10 +96,14 @@
                 </ul>
             </div>
             <ul class="top-social-icons list-inline pull-right">
-                <li><a href="http://www.facebook.com"rel="external nofollow"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://www.twitter.com"rel="external nofollow"target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://www.instagram.com"rel="external nofollow"target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="http://www.pinterest.com"rel="external nofollow"target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="http://www.facebook.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.instagram.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-instagram"></i></a></li>
+                <li><a href="http://www.pinterest.com" rel="external nofollow" target="_blank"><i
+                        class="fa fa-pinterest"></i></a></li>
                 <li><a href="http://www.google-plus.com"><i class="fa fa-google-plus"></i></a></li>
 
             </ul>
@@ -114,28 +119,28 @@
                 <li class="dropdown">
                     <a href="index.html#" class="dropdown-toggle " data-toggle="dropdown">Hotel</a>
                     <ul class="dropdown-menu" role="menu">
-                        <li> <a href="<c:url value="/allHotelPage"/>"> All Hotels</a></li>
+                        <li><a href="<c:url value="/allHotelPage"/>"> All Hotels</a></li>
                         <c:forEach items="${allHotels}" var="hotel">
                         </c:forEach>
                     </ul>
                 </li>
                 <!--menu Portfolio li end here-->
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li> <a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
-                    <c:forEach items="${allRegionPosts}" var="regionPost">
-                    </c:forEach>
-                </ul>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value="/allrPpage"/>"> All Posts</a></li>
+                        <c:forEach items="${allRegionPosts}" var="regionPost">
+                        </c:forEach>
+                    </ul>
                 </li>
                 <!--menu blog li end here-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> City </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a> </li>
+                        <li><a href="<c:url value="/allCityPage"/>">All Cities</a></li>
                         <c:forEach items="${allCities}" var="city">
-                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a> </li>
+                            <li><a href="/cSinglePage?cId=${city.id}">${city.name}</a></li>
                         </c:forEach>
                     </ul>
                 </li>
@@ -144,7 +149,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/allrpage"/>">All Regions</a> </li>
+                        <li><a href="<c:url value="/allrpage"/>">All Regions</a></li>
                         <c:forEach items="${allRegions}" var="region">
                             <li><a href="/rSinglePage?rId=${region.id}">${region.name} </a></li>
                         </c:forEach>
@@ -161,7 +166,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>User Page</h4>
+                <h4>User &nbsp; Page</h4>
             </div>
         </div>
     </div>
@@ -176,14 +181,15 @@
                     <div class="leave-comment">
                         <h4>Add RegionPost</h4>
 
-                        <spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"  enctype="multipart/form-data">
+                        <spring:form action="/addRegionPost" method="post" modelAttribute="regionPost"
+                                     enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="title" name="title"
                                            placeholder="Title" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="file" class="form-control"  name="regionPostImage"
+                                    <input type="file" class="form-control" name="regionPostImage"
                                            placeholder="regionPostImage" required>
 
                                 </div>
@@ -217,14 +223,15 @@
                 <div class="leave-comment">
                     <h4>Add CityPost</h4>
 
-                    <spring:form action="/addCityPost" method="post" modelAttribute="cityPost"  enctype="multipart/form-data">
+                    <spring:form action="/addCityPost" method="post" modelAttribute="cityPost"
+                                 enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="col-md-6">
                             <input type="text" class="form-control" id="title" name="title"
                                    placeholder="Title" required>
                         </div>
                         <div class="col-md-6">
-                            <input type="file" class="form-control"  name="cityPostImage"
+                            <input type="file" class="form-control" name="cityPostImage"
                                    placeholder="cityPostImage" required>
 
                         </div>
@@ -251,10 +258,10 @@
 
 <div><a href="/regionPostPage1">All RegionPosts</a><br></div>
 
-<div> </div>
-<div> <a href="/cityPostPage">All CityPosts</a> <br></div>
-<a href="/userPage" >Back</a>
-<%--</spring:form>--%>
+<div></div>
+<div><a href="/cityPostPage">All CityPosts</a> <br></div>
+<a href="/userPage">Back</a>
+
 <footer id="footer">
     <div class="container">
 
@@ -372,8 +379,6 @@
 <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
 <!--popup js-->
 <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-
-
 <!--customizable plugin edit according to your needs-->
 <script src="js/custom.js" type="text/javascript"></script>
 <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
@@ -385,28 +390,3 @@
 <script src="js/pace.min.js" type="text/javascript"></script>
 </body>
 </html>
-
-<%--<div style="width: 30%;float:left;">--%>
-<%--<span>Add Food</span>--%>
-<%--<spring:form action="/addFood" method="get" modelAttribute="food"  >--%>
-<%--<label for="name">Name</label>--%>
-<%--<spring:input path="name" id="name"/><br>--%>
-<%--<label for="description">Description</label>--%>
-<%--<spring:input path="description" id="description"/><br>--%>
-<%--<spring:select path="region" items="${allRegions}" itemLabel="name"/><br>--%>
-<%--<input type="submit" name="Add"/><br>--%>
-<%--</spring:form>--%>
-<%--</div>--%>
-
-<%--<div style="width: 30%;float:left;">--%>
-<%--<span>Add FoodPost</span>--%>
-<%--<spring:form action="/addFoodPost" method="post" modelAttribute="foodPost"  enctype="multipart/form-data">--%>
-<%--<label for="title">Title</label>--%>
-<%--<spring:input path="title" id="title"/><br>--%>
-<%--<label for="description">Description</label>--%>
-<%--<spring:input path="description" id="description"/><br>--%>
-<%--<spring:select path="food" items="${allFoods}" itemLabel="name"/><br>--%>
-<%--<input type="file" name="foodPostImage"><br>--%>
-<%--<input type="submit" name="Add"/><br>--%>
-<%--</spring:form>--%>
-<%--</div>--%>

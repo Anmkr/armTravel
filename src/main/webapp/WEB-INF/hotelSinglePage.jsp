@@ -204,7 +204,9 @@
             </div><!--sidebar-box-->
         </div>
     </div>
+    <div>
 <div class="divide60"></div>
+</div>
 </div>
 <footer id="footer">
     <div class="container">
